@@ -1,0 +1,64 @@
+Para calcular a **duration de Macaulay** de um cupom, precisamos seguir os passos abaixo:
+
+1. **Identificar os fluxos de caixa**: O cupom paga 10% ao ano, então o fluxo anual será de R$ 100 (10% de R$ 1.000).
+2. **Identificar o fluxo final**: No vencimento, o valor face será pago, ou seja, R$ 1.000.
+3. **Descontar os fluxos de caixa usando a taxa de desconto de 5% ao ano**.
+4. **Calcular a **duration de Macaulay****.
+
+### Passo a Passo:
+
+1. **Fluxos de Caixa**:
+   - Fluxo anual (10% do valor face): R$ 100
+   - Fluxo final (valor face): R$ 1.000
+
+2. **Desconto**:
+   - Taxa de desconto: 5% ao ano
+
+3. **Fluxos descontados**:
+   - Fluxo descontado no 1º ano: \( \frac{100}{1.05} \)
+   - Fluxo descontado no 2º ano: \( \frac{100}{1.05^2} \)
+   - Fluxo descontado no 3º ano: \( \frac{100}{1.05^3} \)
+   - Fluxo descontado no 4º ano: \( \frac{100}{1.05^4} \)
+   - Fluxo descontado no 5º ano: \( \frac{1000}{1.05^5} \)
+
+4. **Cálculo dos fluxos descontados**:
+   - 1º ano: \( \frac{100}{1.05} = 95.2381 \)
+   - 2º ano: \( \frac{100}{1.05^2} = 90.7029 \)
+   - 3º ano: \( \frac{100}{1.05^3} = 86.3837 \)
+   - 4º ano: \( \frac{100}{1.05^4} = 82.2702 \)
+   - 5º ano: \( \frac{1000}{1.05^5} = 822.7025 \)
+
+5. **Cálculo da **duration de Macaulay****:
+   - **Duration de Macaulay** = \( \frac{\sum_{t=1}^{n} \frac{t \cdot CF_t}{(1 + r)^t}}{\sum_{t=1}^{n} \frac{CF_t}{(1 + r)^t}} \)
+
+   Onde:
+   - \( CF_t \) é o fluxo de caixa no período \( t \)
+   - \( r \) é a taxa de desconto (5% ou 0.05)
+
+   **Passo a passo**:
+   - **Soma dos fluxos descontados**:
+     \[
+     \sum_{t=1}^{5} \frac{CF_t}{(1 + r)^t} = 95.2381 + 90.7029 + 86.3837 + 82.2702 + 822.7025 = 1177.2974
+     \]
+
+   - **Soma ponderada dos fluxos descontados**:
+     \[
+     \sum_{t=1}^{5} \frac{t \cdot CF_t}{(1 + r)^t} = 1 \cdot 95.2381 + 2 \cdot 90.7029 + 3 \cdot 86.3837 + 4 \cdot 82.2702 + 5 \cdot 822.7025 = 95.2381 + 181.4058 + 259.1511 + 329.0808 + 4113.5125 = 4997.4983
+     \]
+
+   - **Duration de Macaulay**:
+     \[
+     \text{Duration de Macaulay} = \frac{4997.4983}{1177.2974} \approx 4.25
+     \]
+
+### Tabela de Fluxos Descontados:
+
+| Período | Fluxo de Caixa | Fluxo Descontado |
+|---------|----------------|------------------|
+| 1       | R$ 100         | R$ 95.2381       |
+| 2       | R$ 100         | R$ 90.7029       |
+| 3       | R$ 100         | R$ 86.3837       |
+| 4       | R$ 100         | R$ 82.2702       |
+| 5       | R$ 1000        | R$ 822.7025      |
+
+### RESPOSTA: 4.25 anos

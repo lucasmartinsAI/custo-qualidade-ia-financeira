@@ -1,0 +1,48 @@
+Para calcular a Duration de Macaulay, precisamos primeiro entender o conceito e como ele é calculado. A Duration de Macaulay é uma medida da sensibilidade da dívida ao prazo, ou seja, quanto a mudança na taxa de juros afeta o valor da dívida. Ela é calculada como a média aritmética ponderada dos prazos de pagamento relativos aos valores das prestações.
+
+No entanto, para calcular a Duration de Macaulay, precisamos de uma tabela de fluxos descontados, que inclui os valores das prestações e o prazo até cada pagamento. Como o cupom de 10% é pago anualmente, e o valor da face é R$ 1.000, os fluxos de caixa serão:
+
+1. No final do primeiro ano: -1.000 (valor da face) - 100 (cúpom de 10%) = -1.100
+2. No final do segundo ano: -1.000 (valor da face) - 100 (cúpom de 10%) = -1.100
+3. No final do terceiro ano: -1.000 (valor da face) - 100 (cúpom de 10%) = -1.100
+4. No final do quarto ano: -1.000 (valor da face) - 100 (cúpom de 10%) = -1.100
+5. No final do quinto ano: -1.000 (valor da face) - 100 (cúpom de 10%) + 1.100 (valor da face + cupom) = 100
+
+Agora, vamos calcular a tabela de fluxos descontados, considerando a taxa de desconto de 5% ao ano. 
+
+| Ano | Fluxo de Caixa | Valor Descontado |
+|-----|---------------|-------------------|
+| 1   | -1.100        | 1.100 / (1 + 0.05) = 1.047.62 |
+| 2   | -1.100        | 1.100 / (1 + 0.05)^2 = 0.9952 |
+| 3   | -1.100        | 1.100 / (1 + 0.05)^3 = 0.9483 |
+| 4   | -1.100        | 1.100 / (1 + 0.05)^4 = 0.9048 |
+| 5   | 100           | 100 / (1 + 0.05)^5 = 78.35 |
+
+Agora, vamos calcular a Duration de Macaulay:
+
+\[ \text{Duration} = \frac{\sum_{t=1}^{n} t \times \text{CF}_t \times (1 + r)^{-t}}{\sum_{t=1}^{n} \text{CF}_t \times (1 + r)^{-t}} \]
+
+Onde:
+- CF_t é o fluxo de caixa no período t
+- r é a taxa de desconto (5% ou 0.05)
+- n é o número de períodos (5 anos)
+
+Substituindo os valores:
+
+\[ \text{Duration} = \frac{\sum_{t=1}^{5} t \times \text{CF}_t \times (1 + 0.05)^{-t}}{\sum_{t=1}^{5} \text{CF}_t \times (1 + 0.05)^{-t}} \]
+
+\[ \text{Duration} = \frac{1 \times (-1.100) \times (1.05)^{-1} + 2 \times (-1.100) \times (1.05)^{-2} + 3 \times (-1.100) \times (1.05)^{-3} + 4 \times (-1.100) \times (1.05)^{-4} + 5 \times 100 \times (1.05)^{-5}}{(-1.100) \times (1.05)^{-1} + (-1.100) \times (1.05)^{-2} + (-1.100) \times (1.05)^{-3} + (-1.100) \times (1.05)^{-4} + 100 \times (1.05)^{-5}} \]
+
+\[ \text{Duration} = \frac{-1.100 \times (1.05)^{-1} - 1.100 \times (1.05)^{-2} - 1.100 \times (1.05)^{-3} - 1.100 \times (1.05)^{-4} + 500 \times (1.05)^{-5}}{-1.100 \times (1.05)^{-1} - 1.100 \times (1.05)^{-2} - 1.100 \times (1.05)^{-3} - 1.100 \times (1.05)^{-4} + 100 \times (1.05)^{-5}} \]
+
+\[ \text{Duration} = \frac{-1.100 \times 0.9524 - 1.100 \times 0.9074 - 1.100 \times 0.8638 - 1.100 \times 0.8227 + 500 \times 0.7835}{-1.100 \times 0.9524 - 1.100 \times 0.9074 - 1.100 \times 0.8638 - 1.100 \times 0.8227 + 100 \times 0.7835} \]
+
+\[ \text{Duration} = \frac{-1.0476 - 1.0001 - 0.9501 - 0.9050 + 391.75}{-1.0476 - 1.0001 - 0.9501 - 0.9050 + 78.35} \]
+
+\[ \text{Duration} = \frac{390.84}{76.34} \]
+
+\[ \text{Duration} = 5.13 \]
+
+Portanto, a Duration de Macaulay é de aproximadamente 5.13 anos.
+
+RESPOSTA: 5.13 anos
