@@ -1,0 +1,77 @@
+Para calcular a Duration de Macaulay, precisamos primeiro entender a estrutura dos fluxos de caixa e depois aplicar a fórmula da Duration de Macaulay. Vamos começar pela tabela de fluxos descontados.
+
+### Fluxos de Caixa:
+- **Valor de Face (FV):** R$ 1.000
+- **Cupom de Juros (C):** 7% ao ano, pago anualmente, então C = 1.000 * 0.07 = R$ 70
+- **Taxa de Desconto (r):** 10% ao ano
+- **Vencimento (n):** 9 anos
+
+### Fluxos de Caixa:
+- **Ano 0:** -1.000 (valor de face)
+- **Ano 1:** -70 (cúpom de juros) + 1.000 * 0.10 (desconto) = 1.000 * 0.10 - 70 = 30
+- **Ano 2:** -70 + 1.000 * 0.10 = 30
+- **Ano 3:** -70 + 1.000 * 0.10 = 30
+- **Ano 4:** -70 + 1.000 * 0.10 = 30
+- **Ano 5:** -70 + 1.000 * 0.10 = 30
+- **Ano 6:** -70 + 1.000 * 0.10 = 30
+- **Ano 7:** -70 + 1.000 * 0.10 = 30
+- **Ano 8:** -70 + 1.000 * 0.10 = 30
+- **Ano 9:** -70 + 1.000 * 0.10 + 1.000 (valor de face) = 1.070
+
+### Tabela de Fluxos Descontados:
+| Ano (t) | Fluxo de Caixa (t) | Valor Descontado (t) |
+|--------|---------------------|------------------------|
+| 0      | -1.000               | -1.000                 |
+| 1      | 30                   | 30 / (1.10)^1 = 27.27  |
+| 2      | 30                   | 30 / (1.10)^2 = 24.79  |
+| 3      | 30                   | 30 / (1.10)^3 = 22.54  |
+| 4      | 30                   | 30 / (1.10)^4 = 20.40  |
+| 5      | 30                   | 30 / (1.10)^5 = 18.36  |
+| 6      | 30                   | 30 / (1.10)^6 = 16.51  |
+| 7      | 30                   | 30 / (1.10)^7 = 14.83  |
+| 8      | 30                   | 30 / (1.10)^8 = 13.39  |
+| 9      | 1.070                | 1.070 / (1.10)^9 = 0.594  |
+
+### Cálculo da Duration de Macaulay:
+A fórmula para a Duration de Macaulay é:
+
+\[ D = \frac{\sum_{t=1}^{n} t \cdot CF_t \cdot (1 + r)^{-t}}{\sum_{t=1}^{n} CF_t \cdot (1 + r)^{-t}} \]
+
+Onde:
+- \( CF_t \) é o fluxo de caixa no período \( t \)
+- \( r \) é a taxa de desconto
+- \( n \) é o número de períodos
+
+Substituindo os valores:
+
+\[ D = \frac{\sum_{t=1}^{9} t \cdot CF_t \cdot (1.10)^{-t}}{\sum_{t=1}^{9} CF_t \cdot (1.10)^{-t}} \]
+
+### Calculando o Numerador:
+\[
+\begin{align*}
+\sum_{t=1}^{9} t \cdot CF_t \cdot (1.10)^{-t} &= 1 \cdot 30 \cdot (1.10)^{-1} + 2 \cdot 30 \cdot (1.10)^{-2} + 3 \cdot 30 \cdot (1.10)^{-3} + 4 \cdot 30 \cdot (1.10)^{-4} \\
+&+ 5 \cdot 30 \cdot (1.10)^{-5} + 6 \cdot 30 \cdot (1.10)^{-6} + 7 \cdot 30 \cdot (1.10)^{-7} + 8 \cdot 30 \cdot (1.10)^{-8} + 9 \cdot 30 \cdot (1.10)^{-9} \\
+&= 27.27 + 24.79 + 22.54 + 20.40 + 18.36 + 16.51 + 14.83 + 13.39 + 0.594 \\
+&= 162.90
+\end{align*}
+\]
+
+### Calculando o Denominador:
+\[
+\begin{align*}
+\sum_{t=1}^{9} CF_t \cdot (1.10)^{-t} &= 1 \cdot 30 \cdot (1.10)^{-1} + 2 \cdot 30 \cdot (1.10)^{-2} + 3 \cdot 30 \cdot (1.10)^{-3} + 4 \cdot 30 \cdot (1.10)^{-4} \\
+&+ 5 \cdot 30 \cdot (1.10)^{-5} + 6 \cdot 30 \cdot (1.10)^{-6} + 7 \cdot 30 \cdot (1.10)^{-7} + 8 \cdot 30 \cdot (1.10)^{-8} + 9 \cdot 30 \cdot (1.10)^{-9} \\
+&+ 1.070 \cdot (1.10)^{-9} \\
+&= 27.27 + 24.79 + 22.54 + 20.40 + 18.36 + 16.51 + 14.83 + 13.39 + 0.594 + 0.594 \\
+&= 162.90 + 0.594 \\
+&= 163.494
+\end{align*}
+\]
+
+### Calculando a Duration:
+\[
+D = \frac{162.90}{163.494} \approx 0.996
+\]
+
+### Resposta:
+RESPOSTA: 0.996 anos

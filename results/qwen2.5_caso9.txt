@@ -1,0 +1,82 @@
+Para calcular a **duration de Macaulay** de um cupom, precisamos seguir os seguintes passos:
+
+1. **Identificar os fluxos de caixa**: incluindo os pagamentos de juros e o principal.
+2. **Descontar cada fluxo de caixa pelo valor presente** usando a taxa de desconto.
+3. **Calcular a média ponderada dos anos de vencimento dos fluxos de caixa**.
+
+### Passo 1: Identificar os fluxos de caixa
+
+- **Fluxo de juros anual**: \( 1000 \times 7\% = 70 \) reais.
+- **Fluxo de principal no vencimento**: \( 1000 \) reais.
+
+### Passo 2: Descontar cada fluxo de caixa pelo valor presente
+
+A taxa de desconto é de 14% ao ano.
+
+- **Fluxo de juros anual descontado**:
+  \[
+  \text{PV}_1 = 70 \times \frac{1}{(1 + 0.14)^1} = 70 \times \frac{1}{1.14} \approx 61.40 \text{ reais}
+  \]
+- **Fluxo de juros anual descontado**:
+  \[
+  \text{PV}_2 = 70 \times \frac{1}{(1 + 0.14)^2} = 70 \times \frac{1}{1.2996} \approx 54.15 \text{ reais}
+  \]
+- **Fluxo de juros anual descontado**:
+  \[
+  \text{PV}_3 = 70 \times \frac{1}{(1 + 0.14)^3} = 70 \times \frac{1}{1.4815} \approx 47.36 \text{ reais}
+  \]
+- **Fluxo de juros anual descontado**:
+  \[
+  \text{PV}_4 = 70 \times \frac{1}{(1 + 0.14)^4} = 70 \times \frac{1}{1.6890} \approx 41.60 \text{ reais}
+  \]
+- **Fluxo de juros anual descontado**:
+  \[
+  \text{PV}_5 = 70 \times \frac{1}{(1 + 0.14)^5} = 70 \times \frac{1}{1.9254} \approx 36.52 \text{ reais}
+  \]
+- **Fluxo de juros anual descontado**:
+  \[
+  \text{PV}_6 = 70 \times \frac{1}{(1 + 0.14)^6} = 70 \times \frac{1}{2.1911} \approx 31.95 \text{ reais}
+  \]
+- **Fluxo de principal descontado**:
+  \[
+  \text{PV}_7 = 1000 \times \frac{1}{(1 + 0.14)^6} = 1000 \times \frac{1}{2.1911} \approx 457.34 \text{ reais}
+  \]
+
+### Passo 3: Calcular a média ponderada dos anos de vencimento dos fluxos de caixa
+
+A **duration de Macaulay** é dada pela fórmula:
+\[
+\text{Duration} = \frac{\sum_{t=1}^{n} t \times \text{PV}_t}{\sum_{t=1}^{n} \text{PV}_t}
+\]
+
+- **Soma dos valores presentes**:
+  \[
+  \text{PV total} = 61.40 + 54.15 + 47.36 + 41.60 + 36.52 + 31.95 + 457.34 = 678.32 \text{ reais}
+  \]
+
+- **Soma ponderada dos anos de vencimento**:
+  \[
+  \text{Soma ponderada} = 1 \times 61.40 + 2 \times 54.15 + 3 \times 47.36 + 4 \times 41.60 + 5 \times 36.52 + 6 \times 31.95 + 6 \times 457.34
+  \]
+  \[
+  = 61.40 + 108.30 + 142.08 + 166.40 + 182.60 + 191.70 + 2744.04 = 3426.52
+  \]
+
+- **Duration de Macaulay**:
+  \[
+  \text{Duration} = \frac{3426.52}{678.32} \approx 5.06 \text{ anos}
+  \]
+
+### Tabela de fluxos descontados
+
+| Ano | Fluxo de Caixa | Valor Presente (PV) |
+|-----|---------------|--------------------|
+| 1   | 70            | 61.40              |
+| 2   | 70            | 54.15              |
+| 3   | 70            | 47.36              |
+| 4   | 70            | 41.60              |
+| 5   | 70            | 36.52              |
+| 6   | 70            | 31.95              |
+| 6   | 1000          | 457.34             |
+
+### RESPOSTA: 5.06 anos

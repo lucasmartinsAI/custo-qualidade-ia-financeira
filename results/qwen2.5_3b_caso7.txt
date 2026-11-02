@@ -1,0 +1,57 @@
+Para calcular a Duration de Macaulay, precisamos primeiro construir a tabela de fluxos descontados e então calcular a média ponderada desses fluxos, considerando a taxa de desconto.
+
+### Passo 1: Construir a tabela de fluxos descontados
+
+Primeiro, vamos calcular o valor de cada fluxo de caixa descontado à taxa de desconto de 5% ao ano. O valor de face é R$ 1.000 e o cupom de juros é 7% ao ano, pago anualmente. O vencimento é em 6 anos.
+
+- **Ano 0 (atual):** Fluxo de caixa = -R$ 1.000 (valor de face)
+- **Ano 1:** Fluxo de caixa = R$ 1.000 * (1 + 0.07) = R$ 1.070
+- **Ano 2:** Fluxo de caixa = R$ 1.070 * (1 + 0.07) = R$ 1.144.90
+- **Ano 3:** Fluxo de caixa = R$ 1.144.90 * (1 + 0.07) = R$ 1.226.53.30
+- **Ano 4:** Fluxo de caixa = R$ 1.226.53.30 * (1 + 0.07) = R$ 1.314.75.61
+- **Ano 5:** Fluxo de caixa = R$ 1.314.75.61 * (1 + 0.07) = R$ 1.400.87.82
+- **Ano 6:** Fluxo de caixa = R$ 1.400.87.82 * (1 + 0.07) = R$ 1.483.99.93
+- **Ano 7:** Fluxo de caixa = R$ 1.483.99.93 * (1 + 0.07) = R$ 1.564.09.95
+
+### Passo 2: Calcular a Duration de Macaulay
+
+A formula para a Duration de Macaulay é:
+
+\[ \text{Duration} = \frac{\sum_{t=1}^{n} t \cdot CF_t \cdot (1 + r)^{-t}}{\sum_{t=1}^{n} CF_t \cdot (1 + r)^{-t}} \]
+
+Onde:
+- \( CF_t \) é o fluxo de caixa no período \( t \)
+- \( r \) é a taxa de desconto (5% ou 0.05)
+- \( n \) é o número de períodos (6 anos)
+
+Vamos calcular o numerador e o denominador:
+
+#### Numerador:
+\[ \sum_{t=1}^{6} t \cdot CF_t \cdot (1 + 0.05)^{-t} \]
+
+- Para \( t = 1 \): \( 1 \cdot 1.070 \cdot (1.05)^{-1} = 1.070 \cdot 0.95238 = 1.019 \)
+- Para \( t = 2 \): \( 2 \cdot 1.144.90 \cdot (1.05)^{-2} = 2.289.80 \cdot 0.8145 = 1.869 \)
+- Para \( t = 3 \): \( 3 \cdot 1.226.53.30 \cdot (1.05)^{-3} = 3.680.60 \cdot 0.7722 = 2.859 \)
+- Para \( t = 4 \): \( 4 \cdot 1.314.75.61 \cdot (1.05)^{-4} = 5.259.02 \cdot 0.7350 = 3.879 \)
+- Para \( t = 5 \): \( 5 \cdot 1.400.87.82 \cdot (1.05)^{-5} = 7.004.39 \cdot 0.6946 = 4.849 \)
+- Para \( t = 6 \): \( 6 \cdot 1.483.99.93 \cdot (1.05)^{-6} = 8.903.99 \cdot 0.6575 = 5.899 \)
+
+Soma dos termos no numerador: \( 1.019 + 1.869 + 2.859 + 3.879 + 4.849 + 5.899 = 19.484 \)
+
+#### Denominador:
+\[ \sum_{t=1}^{6} CF_t \cdot (1 + 0.05)^{-t} \]
+
+- Para \( t = 1 \): \( 1.070 \cdot (1.05)^{-1} = 1.070 \cdot 0.95238 = 1.019 \)
+- Para \( t = 2 \): \( 1.144.90 \cdot (1.05)^{-2} = 1.144.90 \cdot 0.8145 = 1.019 \)
+- Para \( t = 3 \): \( 1.226.53.30 \cdot (1.05)^{-3} = 1.226.53.30 \cdot 0.7722 = 1.019 \)
+- Para \( t = 4 \): \( 1.314.75.61 \cdot (1.05)^{-4} = 1.314.75.61 \cdot 0.7350 = 1.019 \)
+- Para \( t = 5 \): \( 1.400.87.82 \cdot (1.05)^{-5} = 1.400.87.82 \cdot 0.6946 = 1.019 \)
+- Para \( t = 6 \): \( 1.483.99.93 \cdot (1.05)^{-6} = 1.483.99.93 \cdot 0.6575 = 1.019 \)
+
+Soma dos termos no denominador: \( 1.019 + 1.019 + 1.019 + 1.019 + 1.019 + 1.019 = 6.076 \)
+
+### Passo 3: Calcular a Duration de Macaulay
+
+\[ \text{Duration} = \frac{19.484}{6.076} = 3.19 \]
+
+### Resposta: 3.19 anos

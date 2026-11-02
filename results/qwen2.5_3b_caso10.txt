@@ -1,0 +1,56 @@
+Para calcular a Duration de Macaulay, precisamos primeiro construir a tabela de fluxos descontados e depois aplicar a fórmula da Duration de Macaulay. Vamos começar pela construção da tabela de fluxos descontados.
+
+### Fluxos de Dinheiro:
+- **Cupom de Face (C):** R$ 1.000
+- **Taxa de Desconto (r):** 4% ao ano
+- **Taxa de Juros (j):** 6% ao ano
+- **Vencimento (n):** 9 anos
+
+O cupom de face é pago anualmente, então teremos 9 pagamentos de R$ 1.000 cada.
+
+### Tabela de Fluxos Descontados:
+
+| Período (t) | Fluxo de Dinheiro (Ft) | Valor Atual (Ft * (1 + j)^(-t)) |
+|-------------|------------------------|----------------------------------|
+| 0           | -1.000                 | -1.000                           |
+| 1           | 1.000                   | 1.000 * (1.06)^(-1) = 0.9434      |
+| 2           | 1.000                   | 1.000 * (1.06)^(-2) = 0.8900      |
+| 3           | 1.000                   | 1.000 * (1.06)^(-3) = 0.8396      |
+| 4           | 1.000                   | 1.000 * (1.06)^(-4) = 0.7921      |
+| 5           | 1.000                   | 1.000 * (1.06)^(-5) = 0.7476      |
+| 6           | 1.000                   | 1.000 * (1.06)^(-6) = 0.7054      |
+| 7           | 1.000                   | 1.000 * (1.06)^(-7) = 0.6656      |
+| 8           | 1.000                   | 1.000 * (1.06)^(-8) = 0.6279      |
+| 9           | 1.000 + 1.000 * 0.06 = 1.06 | 1.06 * (1.06)^(-9) = 0.6930      |
+
+### Calculando a Duration de Macaulay:
+
+A fórmula para a Duration de Macaulay é:
+
+\[ D = \frac{\sum_{t=1}^{n} t \cdot \text{Ft} \cdot (1 + j)^{-t}}{\sum_{t=1}^{n} \text{Ft} \cdot (1 + j)^{-t}} \]
+
+Substituindo os valores:
+
+\[ D = \frac{\sum_{t=1}^{9} t \cdot \text{Ft} \cdot (1.04)^{-t}}{\sum_{t=1}^{9} \text{Ft} \cdot (1.04)^{-t}} \]
+
+### Calculando os Soma de Fluxos e Soma de Fluxos Atuais:
+
+- **Soma de Fluxos (S):**
+\[ S = \sum_{t=1}^{9} \text{Ft} \cdot (1.04)^{-t} \]
+\[ S = 0.9434 + 0.8900 + 0.8396 + 0.7921 + 0.7476 + 0.7054 + 0.6656 + 0.6279 + 0.6930 \]
+\[ S = 6.0000 \]
+
+- **Soma de Fluxos Atuais (S*):**
+\[ S* = \sum_{t=1}^{9} t \cdot \text{Ft} \cdot (1.04)^{-t} \]
+\[ S* = 1 \cdot 0.9434 + 2 \cdot 0.8900 + 3 \cdot 0.8396 + 4 \cdot 0.7921 + 5 \cdot 0.7476 + 6 \cdot 0.7054 + 7 \cdot 0.6656 + 8 \cdot 0.6279 + 9 \cdot 0.6930 \]
+\[ S* = 0.9434 + 1.7800 + 2.5188 + 3.1684 + 3.7380 + 4.2324 + 4.6592 + 5.0232 + 6.2370 \]
+\[ S* = 30.9604 \]
+
+### Calculando a Duration de Macaulay:
+
+\[ D = \frac{S*}{S} \]
+\[ D = \frac{30.9604}{6.0000} \]
+\[ D = 5.1600 \]
+
+### Resposta:
+RESPOSTA: 5.16 anos

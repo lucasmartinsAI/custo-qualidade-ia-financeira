@@ -1,0 +1,64 @@
+Para calcular a Duration de Macaulay, precisamos primeiro entender o conceito e como ele é calculado. A Duration de Macaulay é uma medida da sensibilidade da renda de um ativo a mudanças na taxa de juros. Ela é calculada como a média ponderada dos prazos de pagamento, onde cada prazo é ponderado pela razão do valor do ativo ao longo do prazo.
+
+No entanto, para calcular a Duration de Macaulay, precisamos de uma tabela de fluxos descontados, que é um pouco diferente do que você forneceu. Você forneceu um valor de face, um cupom de juros, um cupom de desconto e um prazo de vencimento. Para calcular a Duration de Macaulay, precisamos de um fluxo de caixa mensal ou anual, que é o valor do cupom de juros dividido pelo cupom de desconto.
+
+Vamos assumir que o cupom de juros é pago anualmente e que o valor de face é pago no final do prazo. Com base nisso, podemos calcular o valor do cupom de juros e o cupom de desconto. Vamos usar esses valores para calcular a tabela de fluxos descontados e, em seguida, calcular a Duration de Macaulay.
+
+### Passo 1: Calcular o valor do cupom de juros e o cupom de desconto
+
+- Valor de Face: R$ 1.000
+- Cupom de Juros: 7% ao ano
+- Cupom de Desconto: 14% ao ano
+- Prazo de Vencimento: 6 anos
+
+O valor do cupom de juros é R$ 1.000 * 7% = R$ 70
+O valor do cupom de desconto é R$ 1.000 * 14% = R$ 140
+
+### Passo 2: Calcular a tabela de fluxos descontados
+
+| Período (anos) | Fluxo de Caixa (R$) | Valor Atual (R$) |
+|----------------|---------------------|-------------------|
+| 0               | 1.000                | 1.000             |
+| 1               | 70                   | 70 / 1.14 = 61.90  |
+| 2               | 70                   | 70 / 1.14^2 = 52.98  |
+| 3               | 70                   | 70 / 1.14^3 = 45.60  |
+| 4               | 70                   | 70 / 1.14^4 = 39.69  |
+| 5               | 70                   | 70 / 1.14^5 = 34.32  |
+| 6               | 70 + 1.000 = 1.070  | 1.070 / 1.14^6 = 56.25  |
+
+### Passo 3: Calcular a Duration de Macaulay
+
+A formula para calcular a Duration de Macaulay é:
+
+\[ \text{Duration} = \frac{\sum_{t=1}^{n} t \times CF_t \times (1 + r)^{-t}}{\sum_{t=1}^{n} CF_t \times (1 + r)^{-t}} \]
+
+onde \( CF_t \) é o fluxo de caixa no período \( t \) e \( r \) é a taxa de desconto.
+
+Substituindo os valores:
+
+\[ \text{Duration} = \frac{\sum_{t=1}^{6} t \times CF_t \times (1 + 0.14)^{-t}}{\sum_{t=1}^{6} CF_t \times (1 + 0.14)^{-t}} \]
+
+Agora, vamos calcular os valores:
+
+| Período (anos) | Fluxo de Caixa (R$) | Valor Atual (R$) | \( t \times CF_t \times (1 + 0.14)^{-t} \) |
+|----------------|---------------------|-------------------|--------------------------------------------|
+| 1               | 61.90                | 61.90             | 1 \times 61.90 \times (1.14)^{-1} = 53.90 |
+| 2               | 52.98                | 52.98             | 2 \times 52.98 \times (1.14)^{-2} = 8.67  |
+| 3               | 45.60                | 45.60             | 3 \times 45.60 \times (1.14)^{-3} = 10.00 |
+| 4               | 39.69                | 39.69             | 4 \times 39.69 \times (1.14)^{-4} = 8.10  |
+| 5               | 34.32                | 34.32             | 5 \times 34.32 \times (1.14)^{-5} = 6.00  |
+| 6               | 56.25                | 56.25             | 6 \times 56.25 \times (1.14)^{-6} = 3.60  |
+
+Agora, somamos os valores:
+
+\[ \sum_{t=1}^{6} t \times CF_t \times (1 + 0.14)^{-t} = 53.90 + 8.67 + 10.00 + 8.10 + 6.00 + 3.60 = 80.27 \]
+
+Agora, somamos os valores atuais:
+
+\[ \sum_{t=1}^{6} CF_t \times (1 + 0.14)^{-t} = 61.90 + 52.98 + 45.60 + 39.69 + 34.32 + 56.25 = 280.74 \]
+
+Agora, podemos calcular a Duration:
+
+\[ \text{Duration} = \frac{80.27}{280.74} = 0.286 \]
+
+### RESPOSTA: 0.286 anos

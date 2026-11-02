@@ -1,0 +1,40 @@
+Para calcular a **duration de Macaulay** de um cupom de dívida, precisamos seguir os seguintes passos:
+
+1. **Identificar os fluxos de caixa**: O cupom paga 6% do valor nominal anualmente, e o valor nominal será pago no final do período.
+2. **Descontar os fluxos de caixa**: Usaremos a taxa de desconto de 12% ao ano para descontar os fluxos de caixa.
+3. **Calcular a **duration de Macaulay**: A fórmula é a soma ponderada dos tempos dos fluxos de caixa descontados.
+
+### Passo 1: Identificar os fluxos de caixa
+
+- **Fluxo de caixa anual (cupom)**: 6% de R$ 1.000 = R$ 60
+- **Fluxo de caixa final (valor nominal)**: R$ 1.000
+
+### Passo 2: Descontar os fluxos de caixa
+
+| Ano | Fluxo de Caixa | Desconto (12%) | Valor Descontado | Peso (Fluxo / Valor Total) | Tempo Ponderado |
+|-----|---------------|----------------|------------------|----------------------------|-----------------|
+| 1   | R$ 60         | 0.8929         | R$ 53.57         | 0.05357                    | 0.05357         |
+| 2   | R$ 60         | 0.7972         | R$ 47.83         | 0.04783                    | 0.09566         |
+| 3   | R$ 60         | 0.7118         | R$ 42.71         | 0.04271                    | 0.12813         |
+| 4   | R$ 1.060      | 0.6355         | R$ 671.53        | 0.67153                    | 2.68612         |
+
+### Passo 3: Calcular a **duration de Macaulay**
+
+A **duration de Macaulay** é dada pela fórmula:
+
+\[ \text{Duration} = \frac{\sum_{t=1}^{n} \left( \frac{t \cdot CF_t}{(1 + r)^t} \right)}{\sum_{t=1}^{n} \left( \frac{CF_t}{(1 + r)^t} \right)} \]
+
+Onde:
+- \( CF_t \) é o fluxo de caixa no período \( t \)
+- \( r \) é a taxa de desconto (12% ou 0.12)
+- \( n \) é o número de períodos
+
+Substituindo os valores:
+
+\[ \text{Duration} = \frac{(1 \cdot 53.57) + (2 \cdot 47.83) + (3 \cdot 42.71) + (4 \cdot 671.53)}{53.57 + 47.83 + 42.71 + 671.53} \]
+
+\[ \text{Duration} = \frac{53.57 + 95.66 + 128.13 + 2686.12}{825.64} \]
+
+\[ \text{Duration} = \frac{2963.5}{825.64} \approx 3.60 \]
+
+### RESPOSTA: 3.60 anos

@@ -1,0 +1,82 @@
+Para calcular a **duration de Macaulay** de um cupom, precisamos seguir os seguintes passos:
+
+1. **Identificar os fluxos de caixa**: incluindo os pagamentos de juros e o principal.
+2. **Descontar cada fluxo de caixa pelo valor presente** usando a taxa de desconto.
+3. **Calcular a média ponderada dos anos de vencimento dos fluxos de caixa**.
+
+### Passo 1: Identificar os Fluxos de Caixa
+
+- **Valor de face (FV)**: R$ 1.000
+- **Taxa de juros (Cupom)**: 14% ao ano
+- **Taxa de desconto (YTM)**: 4% ao ano
+- **Período de vencimento**: 9 anos
+
+**Fluxos de caixa anuais**:
+- **Fluxo de juros anual**: 14% de R$ 1.000 = R$ 140
+- **Fluxo de principal no final**: R$ 1.000
+
+### Passo 2: Descontar os Fluxos de Caixa
+
+Vamos calcular o valor presente (PV) de cada fluxo de caixa:
+
+| Ano | Fluxo de Juros (R$) | Fluxo de Principal (R$) | Valor Presente (PV) |
+|-----|---------------------|-------------------------|---------------------|
+| 1   | 140                 | 0                       | 140 / (1 + 0.04)^1   |
+| 2   | 140                 | 0                       | 140 / (1 + 0.04)^2   |
+| 3   | 140                 | 0                       | 140 / (1 + 0.04)^3   |
+| 4   | 140                 | 0                       | 140 / (1 + 0.04)^4   |
+| 5   | 140                 | 0                       | 140 / (1 + 0.04)^5   |
+| 6   | 140                 | 0                       | 140 / (1 + 0.04)^6   |
+| 7   | 140                 | 0                       | 140 / (1 + 0.04)^7   |
+| 8   | 140                 | 0                       | 140 / (1 + 0.04)^8   |
+| 9   | 140 + 1.000          | 0                       | 1140 / (1 + 0.04)^9  |
+
+### Passo 3: Calcular a Média Ponderada dos Anos de Vencimento
+
+A **duration de Macaulay** é dada pela fórmula:
+
+\[ \text{Duration} = \frac{\sum_{t=1}^{n} t \cdot \text{PV}_t}{\sum_{t=1}^{n} \text{PV}_t} \]
+
+Onde:
+- \( t \) é o ano do fluxo de caixa.
+- \( \text{PV}_t \) é o valor presente do fluxo de caixa no ano \( t \).
+
+Vamos calcular o valor presente (PV) de cada fluxo de caixa:
+
+| Ano | Fluxo de Juros (R$) | Fluxo de Principal (R$) | Valor Presente (PV) | Ano \* PV |
+|-----|---------------------|-------------------------|---------------------|----------|
+| 1   | 140                 | 0                       | 134.62 (140 / 1.04)  | 134.62   |
+| 2   | 140                 | 0                       | 128.89 (140 / 1.04^2)| 257.78   |
+| 3   | 140                 | 0                       | 123.49 (140 / 1.04^3)| 370.47   |
+| 4   | 140                 | 0                       | 118.42 (140 / 1.04^4)| 473.68   |
+| 5   | 140                 | 0                       | 113.64 (140 / 1.04^5)| 568.20   |
+| 6   | 140                 | 0                       | 109.13 (140 / 1.04^6)| 654.78   |
+| 7   | 140                 | 0                       | 104.86 (140 / 1.04^7)| 734.02   |
+| 8   | 140                 | 0                       | 100.83 (140 / 1.04^8)| 806.64   |
+| 9   | 140 + 1.000         | 0                       | 762.23 (1140 / 1.04^9)| 6859.07  |
+
+Agora, somamos os valores presentes e os produtos dos anos pelos valores presentes:
+
+\[ \sum_{t=1}^{9} \text{PV}_t = 134.62 + 257.78 + 370.47 + 473.68 + 568.20 + 654.78 + 734.02 + 806.64 + 762.23 = 4,632.32 \]
+
+\[ \sum_{t=1}^{9} t \cdot \text{PV}_t = 134.62 + 257.78 + 370.47 + 473.68 + 568.20 + 654.78 + 734.02 + 806.64 + 6859.07 = 12,296.32 \]
+
+A **duration de Macaulay** é:
+
+\[ \text{Duration} = \frac{12,296.32}{4,632.32} \approx 2.65 \]
+
+### Tabela de Fluxos Descontados
+
+| Ano | Fluxo de Juros (R$) | Fluxo de Principal (R$) | Valor Presente (PV) |
+|-----|---------------------|-------------------------|---------------------|
+| 1   | 140                 | 0                       | 134.62              |
+| 2   | 140                 | 0                       | 128.89              |
+| 3   | 140                 | 0                       | 123.49              |
+| 4   | 140                 | 0                       | 118.42              |
+| 5   | 140                 | 0                       | 113.64              |
+| 6   | 140                 | 0                       | 109.13              |
+| 7   | 140                 | 0                       | 104.86              |
+| 8   | 140                 | 0                       | 100.83              |
+| 9   | 140 + 1.000         | 0                       | 762.23              |
+
+### RESPOSTA: 2.65 anos

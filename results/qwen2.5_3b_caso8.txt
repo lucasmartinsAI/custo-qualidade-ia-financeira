@@ -1,0 +1,164 @@
+Para calcular a Duration de Macaulay, precisamos primeiro entender o conceito e como ele é calculado. A Duration de Macaulay é uma medida da sensibilidade da curva de rendimento de um ativo à mudança da taxa de juros. Ela é calculada como a média ponderada da diferença entre o prazo de vencimento de cada fluxo de caixa e a data de pagamento, dividida pelo valor do fluxo de caixa.
+
+Vamos seguir os passos para calcular a Duration de Macaulay:
+
+1. **Calcular o valor do cupom de face (FV):** R$ 1.000
+2. **Calcular o valor do cupom devido ao vencimento (PV):** R$ 1.000 * (1 - 0.14) = R$ 860
+3. **Calcular o valor do cupom devido ao vencimento (PV) para cada ano:** R$ 860 / (1 + 0.04)^n, onde n é o número de anos restantes até o vencimento.
+
+Aqui está a tabela de fluxos descontados:
+
+| Ano | Fluxo de Caixa | Valor do Fluxo de Caixa |
+|-----|---------------|-------------------------|
+| 1   | R$ 860        | R$ 860 / (1.04)          |
+| 2   | R$ 860        | R$ 860 / (1.04)^2         |
+| 3   | R$ 860        | R$ 860 / (1.04)^3         |
+| 4   | R$ 860        | R$ 860 / (1.04)^4         |
+| 5   | R$ 860        | R$ 860 / (1.04)^5         |
+| 6   | R$ 860        | R$ 860 / (1.04)^6         |
+| 7   | R$ 860        | R$ 860 / (1.04)^7         |
+| 8   | R$ 860        | R$ 860 / (1.04)^8         |
+| 9   | R$ 860        | R$ 860 / (1.04)^9         |
+| 10  | R$ 860        | R$ 860 / (1.04)^10        |
+| 11  | R$ 860        | R$ 860 / (1.04)^11        |
+| 12  | R$ 860        | R$ 860 / (1.04)^12        |
+| 13  | R$ 860        | R$ 860 / (1.04)^13        |
+| 14  | R$ 860        | R$ 860 / (1.04)^14        |
+| 15  | R$ 860        | R$ 860 / (1.04)^15        |
+| 16  | R$ 860        | R$ 860 / (1.04)^16        |
+| 17  | R$ 860        | R$ 860 / (1.04)^17        |
+| 18  | R$ 860        | R$ 860 / (1.04)^18        |
+| 19  | R$ 860        | R$ 860 / (1.04)^19        |
+| 20  | R$ 860        | R$ 860 / (1.04)^20        |
+| 21  | R$ 860        | R$ 860 / (1.04)^21        |
+| 22  | R$ 860        | R$ 860 / (1.04)^22        |
+| 23  | R$ 860        | R$ 860 / (1.04)^23        |
+| 24  | R$ 860        | R$ 860 / (1.04)^24        |
+| 25  | R$ 860        | R$ 860 / (1.04)^25        |
+| 26  | R$ 860        | R$ 860 / (1.04)^26        |
+| 27  | R$ 860        | R$ 860 / (1.04)^27        |
+| 28  | R$ 860        | R$ 860 / (1.04)^28        |
+| 29  | R$ 860        | R$ 860 / (1.04)^29        |
+| 30  | R$ 860        | R$ 860 / (1.04)^30        |
+| 31  | R$ 860        | R$ 860 / (1.04)^31        |
+| 32  | R$ 860        | R$ 860 / (1.04)^32        |
+| 33  | R$ 860        | R$ 860 / (1.04)^33        |
+| 34  | R$ 860        | R$ 860 / (1.04)^34        |
+| 35  | R$ 860        | R$ 860 / (1.04)^35        |
+| 36  | R$ 860        | R$ 860 / (1.04)^36        |
+| 37  | R$ 860        | R$ 860 / (1.04)^37        |
+| 38  | R$ 860        | R$ 860 / (1.04)^38        |
+| 39  | R$ 860        | R$ 860 / (1.04)^39        |
+| 40  | R$ 860        | R$ 860 / (1.04)^40        |
+| 41  | R$ 860        | R$ 860 / (1.04)^41        |
+| 42  | R$ 860        | R$ 860 / (1.04)^42        |
+| 43  | R$ 860        | R$ 860 / (1.04)^43        |
+| 44  | R$ 860        | R$ 860 / (1.04)^44        |
+| 45  | R$ 860        | R$ 860 / (1.04)^45        |
+| 46  | R$ 860        | R$ 860 / (1.04)^46        |
+| 47  | R$ 860        | R$ 860 / (1.04)^47        |
+| 48  | R$ 860        | R$ 860 / (1.04)^48        |
+| 49  | R$ 860        | R$ 860 / (1.04)^49        |
+| 50  | R$ 860        | R$ 860 / (1.04)^50        |
+| 51  | R$ 860        | R$ 860 / (1.04)^51        |
+| 52  | R$ 860        | R$ 860 / (1.04)^52        |
+| 53  | R$ 860        | R$ 860 / (1.04)^53        |
+| 54  | R$ 860        | R$ 860 / (1.04)^54        |
+| 55  | R$ 860        | R$ 860 / (1.04)^55        |
+| 56  | R$ 860        | R$ 860 / (1.04)^56        |
+| 57  | R$ 860        | R$ 860 / (1.04)^57        |
+| 58  | R$ 860        | R$ 860 / (1.04)^58        |
+| 59  | R$ 860        | R$ 860 / (1.04)^59        |
+| 60  | R$ 860        | R$ 860 / (1.04)^60        |
+
+Agora, vamos calcular a Duration de Macaulay:
+
+1. **Calcular o valor do cupom de face (FV):** R$ 1.000
+2. **Calcular o valor do cupom devido ao vencimento (PV):** R$ 860
+3. **Calcular o valor do cupom devido ao vencimento (PV) para cada ano:** R$ 860 / (1.04)^n
+
+Agora, vamos calcular a Duration de Macaulay:
+
+\[
+\text{Duration} = \frac{\sum_{t=1}^{n} t \times \text{PV}_t}{\sum_{t=1}^{n} \text{PV}_t}
+\]
+
+Substituindo os valores:
+
+\[
+\text{Duration} = \frac{\sum_{t=1}^{36} t \times \text{PV}_t}{\sum_{t=1}^{36} \text{PV}_t}
+\]
+
+\[
+\text{Duration} = \frac{\sum_{t=1}^{36} t \times \frac{860}{(1.04)^t}}{\sum_{t=1}^{36} \frac{860}{(1.04)^t}}
+\]
+
+\[
+\text{Duration} = \frac{\sum_{t=1}^{36} t \times 860 \times \frac{1}{(1.04)^t}}{\sum_{t=1}^{36} 860 \times \frac{1}{(1.04)^t}}
+\]
+
+\[
+\text{Duration} = \frac{\sum_{t=1}^{36} t \times 860 \times \frac{1}{(1.04)^t}}{860 \times \sum_{t=1}^{36} \frac{1}{(1.04)^t}}
+\]
+
+\[
+\text{Duration} = \frac{\sum_{t=1}^{36} t \times \frac{1}{(1.04)^t}}{\sum_{t=1}^{36} \frac{1}{(1.04)^t}}
+\]
+
+Agora, precisamos calcular os dois sumatórios:
+
+\[
+\sum_{t=1}^{36} \frac{1}{(1.04)^t} = \frac{1 - (1.04)^{-36}}{0.04}
+\]
+
+\[
+\sum_{t=1}^{36} t \times \frac{1}{(1.04)^t} = \frac{1}{0.04} \left( \sum_{t=1}^{36} \frac{t}{(1.04)^t} \right)
+\]
+
+\[
+\sum_{t=1}^{36} \frac{t}{(1.04)^t} = \frac{1}{0.04} \left( \sum_{t=1}^{36} \frac{1}{(1.04)^{t-1}} \right)
+\]
+
+\[
+\sum_{t=1}^{36} \frac{1}{(1.04)^{t-1}} = \frac{1 - (1.04)^{-36}}{0.04}
+\]
+
+\[
+\sum_{t=1}^{36} \frac{t}{(1.04)^t} = \frac{1}{0.04} \left( \frac{1 - (1.04)^{-36}}{0.04} \right) \times \frac{1}{1 - 0.04}
+\]
+
+\[
+\sum_{t=1}^{36} \frac{t}{(1.04)^t} = \frac{1}{0.04} \left( \frac{1 - (1.04)^{-36}}{0.04} \right) \times \frac{1}{0.96}
+\]
+
+\[
+\sum_{t=1}^{36} \frac{t}{(1.04)^t} = \frac{1 - (1.04)^{-36}}{0.04 \times 0.96}
+\]
+
+\[
+\sum_{t=1}^{36} \frac{1}{(1.04)^t} = \frac{1 - (1.04)^{-36}}{0.04}
+\]
+
+\[
+\sum_{t=1}^{36} t \times \frac{1}{(1.04)^t} = \frac{1 - (1.04)^{-36}}{0.04} \times \frac{1}{0.96}
+\]
+
+\[
+\sum_{t=1}^{36} t \times \frac{1}{(1.04)^t} = \frac{1 - (1.04)^{-36}}{0.04 \times 0.96}
+\]
+
+\[
+\text{Duration} = \frac{\frac{1 - (1.04)^{-36}}{0.04 \times 0.96}}{\frac{1 - (1.04)^{-36}}{0.04}}
+\]
+
+\[
+\text{Duration} = \frac{1}{0.96}
+\]
+
+\[
+\text{Duration} = 1.041667
+\]
+
+Portanto, a Duration de Macaulay é de aproximadamente **1.04 anos**.
+
+**RESPOSTA: 1.04 anos**

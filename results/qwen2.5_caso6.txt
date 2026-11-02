@@ -1,0 +1,64 @@
+Para calcular a **duration de Macaulay** de um cupom de dívida, precisamos seguir os passos abaixo:
+
+1. **Identificar os fluxos de caixa**: O cupom paga anualmente um valor de 7% do valor nominal (R$ 1.000), ou seja, R$ 70 anualmente. O valor nominal será pago no final do período (9 anos).
+
+2. **Descontar os fluxos de caixa**: Usaremos uma taxa de desconto de 10% ao ano.
+
+3. **Calcular a duration de Macaulay**: A fórmula é:
+   \[
+   \text{Duration} = \frac{\sum_{t=1}^{n} \frac{C_t}{(1 + r)^t} \cdot t + \frac{F}{(1 + r)^n} \cdot n}{P}
+   \]
+   onde:
+   - \( C_t \) é o fluxo de caixa no período \( t \)
+   - \( r \) é a taxa de desconto
+   - \( F \) é o valor nominal
+   - \( n \) é o número de períodos
+   - \( P \) é o preço atual do cupom
+
+### Passo a Passo:
+
+1. **Fluxos de Caixa**:
+   - Anos 1 a 8: R$ 70 (cupom)
+   - Ano 9: R$ 1.070 (cupom + valor nominal)
+
+2. **Descontar os fluxos de caixa**:
+   - Para cada ano \( t \), o fluxo descontado é \( \frac{C_t}{(1 + r)^t} \).
+
+3. **Calcular a duration de Macaulay**:
+   - \( r = 10\% = 0.10 \)
+   - \( F = 1.000 \)
+   - \( n = 9 \)
+   - \( P \) é o preço atual do cupom, que calcularemos primeiro.
+
+### Tabela de Fluxos Descontados:
+
+| Ano | Fluxo de Caixa \( C_t \) | Desconto \( \frac{C_t}{(1 + 0.10)^t} \) | Valor Presente \( C_t \cdot t \) |
+|-----|-------------------------|----------------------------------------|---------------------------------|
+| 1   | 70                      | 70 / 1.10 = 63.64                       | 63.64 * 1 = 63.64               |
+| 2   | 70                      | 70 / 1.21 = 57.85                       | 57.85 * 2 = 115.70              |
+| 3   | 70                      | 70 / 1.331 = 52.59                      | 52.59 * 3 = 157.77              |
+| 4   | 70                      | 70 / 1.4641 = 48.08                     | 48.08 * 4 = 192.32              |
+| 5   | 70                      | 70 / 1.61051 = 43.53                     | 43.53 * 5 = 217.65              |
+| 6   | 70                      | 70 / 1.771561 = 39.57                     | 39.57 * 6 = 237.42              |
+| 7   | 70                      | 70 / 1.9387171 = 35.97                     | 35.97 * 7 = 251.79              |
+| 8   | 70                      | 70 / 2.143588811 = 32.75                     | 32.75 * 8 = 262.00              |
+| 9   | 1070                    | 1070 / 2.357947691 = 454.07                     | 454.07 * 9 = 4086.63             |
+
+### Soma dos valores presentes e dos valores presentes multiplicados pelo tempo:
+
+- Soma dos valores presentes: \( 63.64 + 115.70 + 157.77 + 192.32 + 217.65 + 237.42 + 251.79 + 262.00 + 454.07 = 1835.50 \)
+- Soma dos valores presentes multiplicados pelo tempo: \( 63.64 + 115.70 + 157.77 + 192.32 + 217.65 + 237.42 + 251.79 + 262.00 + 4086.63 = 5656.56 \)
+
+### Calcular o preço atual \( P \):
+
+\[
+P = \frac{5656.56}{1.9387171} = 2900.00
+\]
+
+### Calcular a duration de Macaulay:
+
+\[
+\text{Duration} = \frac{5656.56}{2900.00} = 1.95
+\]
+
+### RESPOSTA: 1.95 anos

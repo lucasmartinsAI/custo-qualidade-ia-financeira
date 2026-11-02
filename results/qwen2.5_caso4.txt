@@ -1,0 +1,47 @@
+Para calcular a **duration de Macaulay** de um cupom de dívida, precisamos seguir os passos abaixo:
+
+1. **Identificar os fluxos de caixa**: O cupom paga 7% ao ano do valor nominal, que é R$ 1.000. Portanto, o fluxo anual do cupom é:
+   \[
+   \text{Fluxo de caixa do cupom} = 0.07 \times 1000 = R\ 70
+   \]
+   O valor nominal será pago no final do período, ou seja, no 8º ano.
+
+2. **Descontar os fluxos de caixa**: Usaremos a taxa de desconto de 13% ao ano para descontar os fluxos de caixa.
+
+3. **Calcular a **duration de Macaulay****: A fórmula para a **duration de Macaulay** é:
+   \[
+   \text{Duration de Macaulay} = \frac{\sum_{t=1}^{n} \frac{t \times CF_t}{(1 + r)^t}}{\sum_{t=1}^{n} \frac{CF_t}{(1 + r)^t}}
+   \]
+   onde \( CF_t \) é o fluxo de caixa no período \( t \), e \( r \) é a taxa de desconto.
+
+Vamos calcular os fluxos descontados e a **duration de Macaulay**:
+
+| Período (t) | Fluxo de Caixa (CF_t) | Desconto (1 + r)^t | Fluxo descontado | t × Fluxo descontado |
+|-------------|----------------------|--------------------|------------------|---------------------|
+| 1           | R\ 70                | 1.13               | R\ 61.90         | 61.90               |
+| 2           | R\ 70                | 1.2769             | R\ 54.96         | 109.92              |
+| 3           | R\ 70                | 1.4429             | R\ 48.36         | 145.08              |
+| 4           | R\ 70                | 1.6289             | R\ 43.03         | 172.12              |
+| 5           | R\ 70                | 1.8393             | R\ 38.00         | 190.00              |
+| 6           | R\ 70                | 2.0710             | R\ 33.68         | 202.08              |
+| 7           | R\ 70                | 2.3255             | R\ 29.66         | 207.62              |
+| 8           | R\ 1070              | 2.5997             | R\ 411.66        | 3293.28             |
+
+Agora, calculamos o numerador e o denominador da fórmula:
+
+- **Denominador** (Soma dos fluxos descontados):
+  \[
+  \sum_{t=1}^{8} \frac{CF_t}{(1 + r)^t} = 61.90 + 54.96 + 48.36 + 43.03 + 38.00 + 33.68 + 29.66 + 411.66 = 720.35
+  \]
+
+- **Numerador** (Soma de \( t \times \text{Fluxo descontado} \)):
+  \[
+  \sum_{t=1}^{8} t \times \frac{CF_t}{(1 + r)^t} = 61.90 + 109.92 + 145.08 + 172.12 + 190.00 + 202.08 + 207.62 + 3293.28 = 4290.10
+  \]
+
+Finalmente, a **duration de Macaulay** é:
+\[
+\text{Duration de Macaulay} = \frac{4290.10}{720.35} \approx 5.93
+\]
+
+**RESPOSTA: 5.93 anos**

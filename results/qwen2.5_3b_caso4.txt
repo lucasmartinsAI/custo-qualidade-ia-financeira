@@ -1,0 +1,41 @@
+Para calcular a Duration de Macaulay, precisamos primeiro entender o conceito e como ele é calculado. A Duration de Macaulay é uma medida da sensibilidade da taxa de juros ao longo do tempo. Ela é calculada como a média ponderada dos prazos de pagamento, onde cada prazo é ponderado pelo valor do fluxo de caixa descontado pelo prazo.
+
+Vamos seguir os passos para calcular a Duration de Macaulay:
+
+1. **Calcular o valor do cupom de juros descontado**:
+   - O valor do cupom de juros é R$ 1.000.
+   - O cupom de juros é de 7% ao ano, ou seja, R$ 70 (1.000 * 0.07).
+   - O cupom de juros é pago anualmente.
+   - O prazo de vencimento é de 8 anos.
+
+2. **Calcular o valor do cupom de juros descontado para cada ano**:
+   - Para o primeiro ano, o valor do cupom de juros descontado é: \( \frac{70}{(1 + 0.13)^1} = \frac{70}{1.13} \approx 61.87 \)
+   - Para o segundo ano, o valor do cupom de juros descontado é: \( \frac{70}{(1 + 0.13)^2} = \frac{70}{1.2769} \approx 54.73 \)
+   - Para o terceiro ano, o valor do cupom de juros descontado é: \( \frac{70}{(1 + 0.13)^3} = \frac{70}{1.4428} \approx 48.52 \)
+   - Para o quarto ano, o valor do cupom de juros descontado é: \( \frac{70}{(1 + 0.13)^4} = \frac{70}{1.6305} \approx 42.93 \)
+   - Para o quinto ano, o valor do cupom de juros descontado é: \( \frac{70}{(1 + 0.13)^5} = \frac{70}{1.8424} \approx 37.83 \)
+   - Para o sexto ano, o valor do cupom de juros descontado é: \( \frac{70}{(1 + 0.13)^6} = \frac{70}{2.0741} \approx 33.89 \)
+   - Para o sétimo ano, o valor do cupom de juros descontado é: \( \frac{70}{(1 + 0.13)^7} = \frac{70}{2.3219} \approx 30.37 \)
+   - Para o oitavo ano, o valor do cupom de juros descontado é: \( \frac{70}{(1 + 0.13)^8} = \frac{70}{2.5937} \approx 27.00 \)
+
+3. **Calcular a soma dos valores dos cupons de juros descontados**:
+   - Soma = 61.87 + 54.73 + 48.52 + 42.93 + 37.83 + 33.89 + 30.37 + 27.00 = 306.36
+
+4. **Calcular a Duration de Macaulay**:
+   - Duration = \(\frac{\text{Soma dos valores dos cupons de juros descontados}}{\text{Valor do cupom de juros}}\)
+   - Duration = \(\frac{306.36}{70} \approx 4.376\)
+
+**Tabela de Fluxos Descontados:**
+
+| Ano | Valor do Cupom de Juros Descontado |
+|-----|-------------------------------------|
+| 1   | 61.87                               |
+| 2   | 54.73                               |
+| 3   | 48.52                               |
+| 4   | 42.93                               |
+| 5   | 37.83                               |
+| 6   | 33.89                               |
+| 7   | 30.37                               |
+| 8   | 27.00                               |
+
+**RESPOSTA: 4.376 anos**

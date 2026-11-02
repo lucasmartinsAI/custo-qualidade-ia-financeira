@@ -1,0 +1,57 @@
+Para calcular a **duration de Macaulay** de um cupom, precisamos seguir os seguintes passos:
+
+1. **Identificar os fluxos de caixa**: O valor nominal (R$ 1.000) será pago no final do período, e os cupons serão pagos anualmente durante os próximos 5 anos.
+
+2. **Descontar os fluxos de caixa**: Usaremos a taxa de desconto de 10% ao ano para descontar os fluxos de caixa.
+
+3. **Calcular a **duration de Macaulay****: A fórmula é:
+
+\[
+\text{Duration de Macaulay} = \frac{\sum_{t=1}^{n} \frac{C_t}{(1+r)^t} \cdot t + \frac{F}{(1+r)^n} \cdot n}{P}
+\]
+
+onde:
+- \( C_t \) é o fluxo de caixa no período \( t \)
+- \( F \) é o valor nominal
+- \( r \) é a taxa de desconto
+- \( n \) é o número de períodos
+- \( P \) é o preço atual do título
+
+### Passo a Passo:
+
+1. **Fluxos de caixa**:
+   - Cupom anual: \( C_t = 1.000 \times 0.11 = 110 \) (R$ 110)
+   - Valor nominal: \( F = 1.000 \) (R$ 1.000)
+
+2. **Descontar os fluxos de caixa**:
+   - Cupom 1: \( \frac{110}{(1+0.10)^1} = \frac{110}{1.10} = 100 \)
+   - Cupom 2: \( \frac{110}{(1+0.10)^2} = \frac{110}{1.21} = 90.91 \)
+   - Cupom 3: \( \frac{110}{(1+0.10)^3} = \frac{110}{1.331} = 82.65 \)
+   - Cupom 4: \( \frac{110}{(1+0.10)^4} = \frac{110}{1.4641} = 75.14 \)
+   - Cupom 5: \( \frac{110}{(1+0.10)^5} = \frac{110}{1.61051} = 68.29 \)
+   - Valor nominal: \( \frac{1000}{(1+0.10)^5} = \frac{1000}{1.61051} = 620.92 \)
+
+3. **Calcular a **duration de Macaulay****:
+   - \( P = 100 + 90.91 + 82.65 + 75.14 + 68.29 + 620.92 = 1037.91 \)
+
+   \[
+   \text{Duration de Macaulay} = \frac{100 \cdot 1 + 90.91 \cdot 2 + 82.65 \cdot 3 + 75.14 \cdot 4 + 68.29 \cdot 5 + 620.92 \cdot 5}{1037.91}
+   \]
+
+   \[
+   \text{Duration de Macaulay} = \frac{100 + 181.82 + 247.95 + 300.56 + 341.45 + 3104.60}{1037.91} = \frac{4286.38}{1037.91} \approx 4.14
+   \]
+
+### Tabela de Fluxos Descontados:
+
+| Período | Fluxo de Caixa | Desconto | Fluxo Descontado | Peso | Peso \(\times\) Período |
+|---------|---------------|----------|-----------------|------|-----------------------|
+| 1       | 110           | 0.9091   | 100             | 0.0962 | 0.0962                |
+| 2       | 110           | 0.8264   | 90.91           | 0.0892 | 0.1784                |
+| 3       | 110           | 0.7513   | 82.65           | 0.0802 | 0.2406                |
+| 4       | 110           | 0.6830   | 75.14           | 0.0702 | 0.2808                |
+| 5       | 110           | 0.6209   | 68.29           | 0.0602 | 0.3010                |
+| 5       | 1000          | 0.6209   | 620.92          | 0.6020 | 3.0100                |
+| **Total** | **1037.91** | **1** | **1037.91** | **1.0000** | **4.14** |
+
+### RESPOSTA: 4.14 anos

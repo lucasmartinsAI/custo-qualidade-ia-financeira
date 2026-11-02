@@ -1,0 +1,60 @@
+Para calcular a **duration de Macaulay** de um cupom, precisamos seguir os seguintes passos:
+
+1. **Identificar os fluxos de caixa**: incluindo os pagamentos de juros e o principal.
+2. **Descontar cada fluxo de caixa pelo valor presente** usando a taxa de desconto.
+3. **Calcular a média ponderada dos anos de vencimento dos fluxos de caixa**.
+
+### Passo 1: Identificar os fluxos de caixa
+
+- **Valor de face (FV)**: R$ 1.000
+- **Taxa de juros (Cupom)**: 6% ao ano
+- **Taxa de desconto (YTM)**: 4% ao ano
+- **Período de vencimento**: 9 anos
+
+**Fluxos de caixa anuais**:
+- **Fluxo de juros (C)**: 6% de R$ 1.000 = R$ 60
+- **Fluxo de principal (FV)**: R$ 1.000 (no final do 9º ano)
+
+### Passo 2: Descontar cada fluxo de caixa pelo valor presente
+
+| Ano | Fluxo de Caixa (C) | Valor Presente (PV) |
+|-----|--------------------|---------------------|
+| 1   | R$ 60              | R$ 60 / (1 + 0.04)^1 = R$ 57.69 |
+| 2   | R$ 60              | R$ 60 / (1 + 0.04)^2 = R$ 55.47 |
+| 3   | R$ 60              | R$ 60 / (1 + 0.04)^3 = R$ 53.36 |
+| 4   | R$ 60              | R$ 60 / (1 + 0.04)^4 = R$ 51.34 |
+| 5   | R$ 60              | R$ 60 / (1 + 0.04)^5 = R$ 49.41 |
+| 6   | R$ 60              | R$ 60 / (1 + 0.04)^6 = R$ 47.56 |
+| 7   | R$ 60              | R$ 60 / (1 + 0.04)^7 = R$ 45.79 |
+| 8   | R$ 60              | R$ 60 / (1 + 0.04)^8 = R$ 44.10 |
+| 9   | R$ 1.060           | R$ 1.060 / (1 + 0.04)^9 = R$ 775.11 |
+
+### Passo 3: Calcular a média ponderada dos anos de vencimento dos fluxos de caixa
+
+A **duration de Macaulay** é dada pela fórmula:
+
+\[ \text{Duration} = \frac{\sum_{t=1}^{n} t \cdot PV_t}{\sum_{t=1}^{n} PV_t} \]
+
+Onde:
+- \( t \) é o ano do fluxo de caixa.
+- \( PV_t \) é o valor presente do fluxo de caixa no ano \( t \).
+
+**Cálculo do numerador**:
+
+\[ \sum_{t=1}^{9} t \cdot PV_t = 1 \cdot 57.69 + 2 \cdot 55.47 + 3 \cdot 53.36 + 4 \cdot 51.34 + 5 \cdot 49.41 + 6 \cdot 47.56 + 7 \cdot 45.79 + 8 \cdot 44.10 + 9 \cdot 775.11 \]
+
+\[ = 57.69 + 110.94 + 160.08 + 205.36 + 247.05 + 285.36 + 320.53 + 352.80 + 6975.99 \]
+
+\[ = 8281.84 \]
+
+**Cálculo do denominador**:
+
+\[ \sum_{t=1}^{9} PV_t = 57.69 + 55.47 + 53.36 + 51.34 + 49.41 + 47.56 + 45.79 + 44.10 + 775.11 \]
+
+\[ = 1120.02 \]
+
+**Duration de Macaulay**:
+
+\[ \text{Duration} = \frac{8281.84}{1120.02} \approx 7.39 \]
+
+### RESPOSTA: 7.39 anos

@@ -1,0 +1,44 @@
+Para calcular a Duration de Macaulay, precisamos primeiro entender o conceito e como aplicá-lo a este cenário. A Duration de Macaulay é uma medida que indica a sensibilidade da dívida ao tempo. Ela é calculada como a média ponderada dos prazos de pagamento, onde cada prazo é ponderado pelo valor do fluxo de caixa correspondente dividido pelo valor do ativo.
+
+Vamos seguir os passos:
+
+1. **Calcular o valor do cupom de face ao longo do tempo:**
+   - O cupom de face é R$ 1.000.
+   - O cupom é pago anualmente, então o valor do cupom ao longo de 5 anos é R$ 1.000.
+
+2. **Calcular o valor do ativo (dívida) ao longo do tempo:**
+   - A dívida inicial é R$ 1.000.
+   - A taxa de desconto é de 10% ao ano.
+   - O cupom é de 11% ao ano.
+   - O cupom de face é R$ 1.000.
+   - O cupom de face é pago anualmente.
+
+3. **Calcular o valor do ativo (dívida) para cada ano:**
+   - Ano 1: R$ 1.000 (cupom) + R$ 1.000 (face) = R$ 2.000
+   - Ano 2: R$ 1.000 (cupom) + R$ 1.000 (face) = R$ 2.000
+   - Ano 3: R$ 1.000 (cupom) + R$ 1.000 (face) = R$ 2.000
+   - Ano 4: R$ 1.000 (cupom) + R$ 1.000 (face) = R$ 2.000
+   - Ano 5: R$ 1.000 (cupom) + R$ 1.000 (face) = R$ 2.000
+
+4. **Calcular o valor descontado do ativo para cada ano:**
+   - Ano 1: R$ 2.000 / (1 + 0.10)^1 = R$ 1.818.18
+   - Ano 2: R$ 2.000 / (1 + 0.10)^2 = R$ 1.652.98
+   - Ano 3: R$ 2.000 / (1 + 0.10)^3 = R$ 1.502.71
+   - Ano 4: R$ 2.000 / (1 + 0.10)^4 = R$ 1.366.10
+   - Ano 5: R$ 2.000 / (1 + 0.10)^5 = R$ 1.242.82
+
+5. **Calcular a tabela de fluxos descontados:**
+   - Ano 1: R$ 1.818.18
+   - Ano 2: R$ 1.652.98
+   - Ano 3: R$ 1.502.71
+   - Ano 4: R$ 1.366.10
+   - Ano 5: R$ 1.242.82
+
+6. **Calcular a Duration de Macaulay:**
+   - Duration = (Ano 1 * R$ 1.818.18 + Ano 2 * R$ 1.652.98 + Ano 3 * R$ 1.502.71 + Ano 4 * R$ 1.366.10 + Ano 5 * R$ 1.242.82) / (R$ 1.818.18 + R$ 1.652.98 + R$ 1.502.71 + R$ 1.366.10 + R$ 1.242.82)
+   - Duration = (R$ 1.818.18 + R$ 1.652.98 + R$ 1.502.71 + R$ 1.366.10 + R$ 1.242.82) / (R$ 7.582.79)
+   - Duration = R$ 6.562.69 / R$ 7.582.79 = 0.862
+
+Portanto, a Duration de Macaulay é de aproximadamente 0.862 anos.
+
+**RESPOSTA: 0.862 anos**

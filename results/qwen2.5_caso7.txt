@@ -1,0 +1,75 @@
+Para calcular a **duration de Macaulay** de um cupom, precisamos seguir os seguintes passos:
+
+1. **Identificar os fluxos de caixa**: incluindo os pagamentos de juros e o principal.
+2. **Descontar cada fluxo de caixa pelo valor presente**.
+3. **Calcular a **duration de Macaulay****.
+
+### Passo 1: Identificar os Fluxos de Caixa
+
+- **Valor de face (FV)**: R$ 1.000
+- **Taxa de juros (Cupom)**: 7% ao ano
+- **Taxa de desconto (YTM)**: 5% ao ano
+- **Período de vencimento (n)**: 6 anos
+
+**Fluxos de caixa anuais**:
+- **Fluxo de juros anual (C)**: \( 1.000 \times 0.07 = 70 \) reais
+- **Fluxo de principal no final (FV)**: \( 1.000 \) reais
+
+### Passo 2: Descontar cada fluxo de caixa pelo valor presente
+
+Vamos calcular o valor presente de cada fluxo de caixa:
+
+| Ano | Fluxo de Caixa | Valor Presente (PV) |
+|-----|---------------|---------------------|
+| 1   | 70            | \( \frac{70}{1.05} \) = 66.67 |
+| 2   | 70            | \( \frac{70}{1.05^2} \) = 63.45 |
+| 3   | 70            | \( \frac{70}{1.05^3} \) = 60.38 |
+| 4   | 70            | \( \frac{70}{1.05^4} \) = 57.46 |
+| 5   | 70            | \( \frac{70}{1.05^5} \) = 54.68 |
+| 6   | 1070          | \( \frac{1070}{1.05^6} \) = 822.70 |
+
+### Passo 3: Calcular a **duration de Macaulay**
+
+A **duration de Macaulay** é dada pela fórmula:
+
+\[ \text{Duration} = \frac{\sum_{t=1}^{n} \left( \frac{t \times \text{PV}_t}{(1 + r)^t} \right)}{\sum_{t=1}^{n} \left( \frac{\text{PV}_t}{(1 + r)^t} \right)} \]
+
+Onde:
+- \( \text{PV}_t \) é o valor presente do fluxo de caixa no ano \( t \)
+- \( r \) é a taxa de desconto (5% ou 0.05)
+
+Vamos calcular o numerador e o denominador:
+
+**Numerador**:
+\[ \sum_{t=1}^{6} \left( \frac{t \times \text{PV}_t}{(1 + 0.05)^t} \right) \]
+
+| Ano | \( t \times \text{PV}_t \) | \( \frac{t \times \text{PV}_t}{(1.05)^t} \) |
+|-----|---------------------------|--------------------------------------------|
+| 1   | 66.67                     | \( \frac{1 \times 66.67}{1.05} \) = 63.45   |
+| 2   | 127.01                     | \( \frac{2 \times 63.45}{1.05^2} \) = 116.90 |
+| 3   | 181.14                     | \( \frac{3 \times 60.38}{1.05^3} \) = 168.14 |
+| 4   | 229.84                     | \( \frac{4 \times 57.46}{1.05^4} \) = 198.57 |
+| 5   | 273.40                     | \( \frac{5 \times 54.68}{1.05^5} \) = 218.02 |
+| 6   | 5138.90                    | \( \frac{6 \times 822.70}{1.05^6} \) = 4336.20 |
+
+\[ \text{Numerador} = 63.45 + 116.90 + 168.14 + 198.57 + 218.02 + 4336.20 = 4992.30 \]
+
+**Denominador**:
+\[ \sum_{t=1}^{6} \left( \frac{\text{PV}_t}{(1 + 0.05)^t} \right) \]
+
+| Ano | \( \text{PV}_t \) | \( \frac{\text{PV}_t}{(1.05)^t} \) |
+|-----|-------------------|------------------------------------|
+| 1   | 66.67             | \( \frac{66.67}{1.05} \) = 63.45    |
+| 2   | 63.45             | \( \frac{63.45}{1.05^2} \) = 58.57  |
+| 3   | 60.38             | \( \frac{60.38}{1.05^3} \) = 53.88  |
+| 4   | 57.46             | \( \frac{57.46}{1.05^4} \) = 49.37  |
+| 5   | 54.68             | \( \frac{54.68}{1.05^5} \) = 45.07  |
+| 6   | 822.70            | \( \frac{822.70}{1.05^6} \) = 622.70 |
+
+\[ \text{Denominador} = 63.45 + 58.57 + 53.88 + 49.37 + 45.07 + 622.70 = 842.14 \]
+
+### Finalmente, a **duration de Macaulay**:
+
+\[ \text{Duration} = \frac{4992.30}{842.14} \approx 5.94 \]
+
+### RESPOSTA: 5.94 anos

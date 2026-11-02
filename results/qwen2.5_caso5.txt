@@ -1,0 +1,90 @@
+Para calcular a **duration de Macaulay** de um cupom, precisamos seguir os seguintes passos:
+
+1. **Identificar os fluxos de caixa**: incluindo os pagamentos de juros e o principal.
+2. **Descontar cada fluxo de caixa pelo valor presente** usando a taxa de desconto.
+3. **Calcular a média ponderada dos anos em que os fluxos de caixa ocorrem**.
+
+### Passo 1: Identificar os Fluxos de Caixa
+
+- **Valor de face (FV)**: R$ 1.000
+- **Taxa de juros (Cupom)**: 6% ao ano
+- **Taxa de desconto (YTM)**: 4% ao ano
+- **Período de vencimento**: 6 anos
+
+**Fluxos de caixa anuais**:
+- **Fluxo de juros anual**: 6% de R$ 1.000 = R$ 60
+- **Fluxo de principal no final**: R$ 1.000
+
+### Passo 2: Descontar cada fluxo de caixa pelo valor presente
+
+| Ano | Fluxo de Caixa (R$) | Valor Presente (R$) |
+|-----|---------------------|---------------------|
+| 1   | 60                  | 60 / (1 + 0.04)^1    |
+| 2   | 60                  | 60 / (1 + 0.04)^2    |
+| 3   | 60                  | 60 / (1 + 0.04)^3    |
+| 4   | 60                  | 60 / (1 + 0.04)^4    |
+| 5   | 60                  | 60 / (1 + 0.04)^5    |
+| 6   | 1060                | 1060 / (1 + 0.04)^6  |
+
+### Passo 3: Calcular a média ponderada dos anos em que os fluxos de caixa ocorrem
+
+A **duration de Macaulay** é dada pela fórmula:
+
+\[
+\text{Duration} = \frac{\sum_{t=1}^{n} t \cdot \frac{C_t}{(1 + r)^t} + n \cdot \frac{FV}{(1 + r)^n}}{\sum_{t=1}^{n} \frac{C_t}{(1 + r)^t} + \frac{FV}{(1 + r)^n}}
+\]
+
+Onde:
+- \( C_t \) é o fluxo de caixa no ano \( t \)
+- \( r \) é a taxa de desconto (0.04)
+- \( FV \) é o valor de face (1000)
+- \( n \) é o número de anos (6)
+
+### Cálculo dos valores:
+
+1. **Valor Presente dos Juros**:
+   \[
+   \sum_{t=1}^{6} \frac{60}{(1 + 0.04)^t} = 60 \left( \frac{1 - (1 + 0.04)^{-6}}{0.04} \right) = 60 \left( \frac{1 - 0.7903}{0.04} \right) = 60 \times 5.2421 = 314.526
+   \]
+
+2. **Valor Presente do Principal**:
+   \[
+   \frac{1000}{(1 + 0.04)^6} = \frac{1000}{1.2653} = 790.31
+   \]
+
+3. **Soma dos valores presentes**:
+   \[
+   314.526 + 790.31 = 1104.836
+   \]
+
+4. **Soma dos fluxos de caixa descontados multiplicados pelos anos**:
+   \[
+   1 \times 60 \times \frac{1}{1.04} + 2 \times 60 \times \frac{1}{1.04^2} + 3 \times 60 \times \frac{1}{1.04^3} + 4 \times 60 \times \frac{1}{1.04^4} + 5 \times 60 \times \frac{1}{1.04^5} + 6 \times 1060 \times \frac{1}{1.04^6}
+   \]
+   \[
+   = 60 \left( \frac{1}{1.04} + \frac{2}{1.04^2} + \frac{3}{1.04^3} + \frac{4}{1.04^4} + \frac{5}{1.04^5} + \frac{6 \times 1060}{1.04^6} \right)
+   \]
+   \[
+   = 60 \left( 0.9615 + 1.8594 + 2.6974 + 3.4823 + 4.2241 + 4.7527 \right)
+   \]
+   \[
+   = 60 \times 18.9934 = 1139.604
+   \]
+
+5. **Duration de Macaulay**:
+   \[
+   \text{Duration} = \frac{1139.604}{1104.836} = 1.031
+   \]
+
+### Tabela de Fluxos Descontados
+
+| Ano | Fluxo de Caixa (R$) | Valor Presente (R$) |
+|-----|---------------------|---------------------|
+| 1   | 60                  | 57.6923             |
+| 2   | 60                  | 54.4884             |
+| 3   | 60                  | 51.4352             |
+| 4   | 60                  | 48.5208             |
+| 5   | 60                  | 45.7337             |
+| 6   | 1060                | 790.31              |
+
+### RESPOSTA: 1.031 anos

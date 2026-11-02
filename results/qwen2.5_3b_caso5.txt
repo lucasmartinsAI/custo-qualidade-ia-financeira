@@ -1,0 +1,53 @@
+Para calcular a Duration de Macaulay, precisamos primeiro entender o conceito e como ele é calculado. A Duration de Macaulay é uma medida que indica a sensibilidade da taxa de juros ao longo do tempo. Ela é calculada como a média ponderada dos tempos de vencimento dos fluxos de caixa, onde os pesos são os valores descontados desses fluxos de caixa.
+
+Vamos seguir os passos para calcular a Duration de Macaulay:
+
+1. **Calcular o valor presente de cada fluxo de caixa**:
+   - O valor presente de cada fluxo de caixa é calculado usando a fórmula de desconto de uma série de fluxos de caixa, onde a taxa de desconto é a taxa de juros (4% ao ano).
+
+2. **Calcular a tabela de fluxos descontados**:
+   - Fluxo de caixa inicial: R$ 1.000
+   - Cada ano, o valor do cupom de 6% é R$ 1.000 * 0.06 = R$ 60
+   - O cupom é pago anualmente, então o valor do cupom no final do 1º ano é R$ 60, no final do 2º ano é R$ 60, e assim por diante.
+
+3. **Descontar cada fluxo de caixa**:
+   - O valor presente do cupom no final do 1º ano é R$ 60 / (1 + 0.04)^1 = R$ 57.69
+   - O valor presente do cupom no final do 2º ano é R$ 60 / (1 + 0.04)^2 = R$ 55.56
+   - E assim por diante.
+
+4. **Calcular a soma dos valores presentes dos fluxos de caixa**:
+   - O valor presente do cupom no final do 6º ano é R$ 60 / (1 + 0.04)^6 = R$ 44.56
+   - A soma dos valores presentes dos fluxos de caixa é a soma dos valores presentes dos cupons mais o valor inicial.
+
+5. **Calcular a Duration de Macaulay**:
+   - A Duration de Macaulay é calculada como a soma dos tempos de vencimento dos fluxos de caixa multiplicados pelos valores presentes dos fluxos de caixa, dividida pela soma dos valores presentes dos fluxos de caixa.
+
+Vamos agora calcular a tabela de fluxos descontados e a Duration de Macaulay:
+
+| Ano | Fluxo de Caixa | Valor Presente |
+|-----|---------------|-----------------|
+| 0   | R$ 1.000      | R$ 1.000        |
+| 1   | R$ 60         | R$ 57.69        |
+| 2   | R$ 60         | R$ 55.56        |
+| 3   | R$ 60         | R$ 53.58        |
+| 4   | R$ 60         | R$ 51.74        |
+| 5   | R$ 60         | R$ 49.99        |
+| 6   | R$ 60         | R$ 48.32        |
+
+A soma dos valores presentes dos fluxos de caixa é R$ 1.000 + R$ 57.69 + R$ 55.56 + R$ 53.58 + R$ 51.74 + R$ 49.99 + R$ 48.32 = R$ 367.28
+
+A soma dos tempos de vencimento dos fluxos de caixa é 1 + 2 + 3 + 4 + 5 + 6 = 21 anos
+
+A Duration de Macaulay é então calculada como:
+
+\[ \text{Duration} = \frac{\sum (\text{tempo de vencimento} \times \text{valor presente})}{\text{valor presente total}} \]
+
+\[ \text{Duration} = \frac{1 \times 57.69 + 2 \times 55.56 + 3 \times 53.58 + 4 \times 51.74 + 5 \times 49.99 + 6 \times 48.32}{367.28} \]
+
+\[ \text{Duration} = \frac{57.69 + 111.12 + 160.74 + 206.96 + 249.95 + 290.08}{367.28} \]
+
+\[ \text{Duration} = \frac{1075.44}{367.28} \approx 2.91 \]
+
+Portanto, a Duration de Macaulay é de aproximadamente 2.91 anos.
+
+**RESPOSTA: 2.91 anos**
