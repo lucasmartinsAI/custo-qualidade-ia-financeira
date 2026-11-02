@@ -4,54 +4,54 @@ Quanto custa, e quanto de qualidade se perde, ao trocar um modelo de API de topo
 
 Projeto em andamento. Este repositório registra o benchmark passo a passo.
 
-## Primeiro experimento (01/11/2026)
+## Experimento 1: duration de Macaulay (10 casos, modelos open locais)
 
-**Tarefa:** calcular a duration de Macaulay de um título prefixado (face R$ 1.000, cupom de 10% a.a. pago anualmente, 5 anos, desconto de 5% a.a.). Gabarito: **4,25 anos** (duration modificada: 4,05).
+**Tarefa:** calcular a duration de Macaulay de um título prefixado (face R$ 1.000, cupom anual). Os casos variam cupom (6-14%), prazo (3-10 anos) e taxa de desconto (4-16%), sorteados com seed fixa. O gabarito é calculado por código.
 
-**Ambiente:** Windows, CPU apenas (Intel Iris Xe integrada, 24 GB de RAM), modelos rodando via [Ollama](https://ollama.com).
+**Ambiente:** Windows, só CPU (Intel Iris Xe integrada, 24 GB de RAM), modelos via [Ollama](https://ollama.com). Temperatura 0, seed 42, mesmo prompt para todos.
 
-**Parâmetros fixos:** temperatura 0, seed 42, mesmo prompt para todos os modelos.
+| Métrica | qwen2.5 3B | qwen2.5 7B |
+|---|---|---|
+| Acertos (erro ≤ 1%) | 0/10 | 4/10 |
+| Acertos (erro ≤ 5%) | 0/10 | 6/10 |
+| Erro mediano | 48,6% | 2,4% |
+| Erro médio | 57,1% | 23,3% |
+| Respostas impossíveis* | 4/10 | 0/10 |
+| Sem resposta no formato | 1 | 0 |
+| Tempo médio por caso | 206 s | 396 s |
+| Velocidade média | 7,7 tok/s | 3,4 tok/s |
 
-| Modelo | Resposta | Erro | Tempo total | Velocidade | Método certo? |
-|---|---|---|---|---|---|
-| qwen2.5:3b | 5,13 anos | 20,6% | 2m29 | 10,7 tok/s | Não |
-| qwen2.5 (7B) | 4,25 anos | 0,07% | 4m26 | 4,6 tok/s | Parcial |
+\* A duration de Macaulay de um título com cupom anual está sempre entre 1 e o prazo. Resposta fora disso é impossível.
 
-### Observações
+### O que os dados mostram
 
-- **3B:** conhece a fórmula, mas monta os fluxos de caixa errados (valores negativos, principal misturado com cupom, descontos que não batem).
-- **7B:** acerta a estrutura (fluxos, tabela, fórmula), mas erra a aritmética: esqueceu o último cupom (fluxo do ano 5 deveria ser R$ 1.100) e errou um desconto. O número final bateu em parte porque os erros se compensaram, por isso "Parcial".
-- Um único caso não prova nada. Uma rodada anterior do 3B, sem parâmetros fixos, deu 4,5 anos, e a seguinte deu 5,13. Isso reforça a necessidade de testar dezenas de casos.
+- **3B** não serve para essa tarefa: nenhum acerto, e em 4 dos 10 casos deu uma resposta matematicamente impossível.
+- **7B** é "tudo ou nada": 6 casos com erro de até 3% e 4 com erros de 15% a 80%, sem meio-termo. Por isso média e mediana diferem tanto.
+- **Qualidade custou tempo:** o 7B levou o dobro do tempo por caso.
+- Um teste de plausibilidade (resposta entre 1 e o prazo) pegaria o 3B em 4 dos 10 casos. É uma ideia para o roteador entre modelos, mas não basta sozinha.
 
-### Prompt padrão
+### Limitações
+
+Apenas 10 casos, uma execução por caso, só modelos open locais, e o método de cálculo ainda não foi avaliado caso a caso. Um primeiro teste manual mostrou o 7B acertando o número final com dois erros de conta que se compensaram.
+
+## Como reproduzir
 
 ```
-Título prefixado: valor de face R$ 1.000, cupom de 10% ao ano pago anualmente, vencimento em 5 anos, taxa de desconto de 5% ao ano. Calcule a duration de Macaulay, em anos. Mostre a tabela de fluxos descontados e termine com uma linha no formato: RESPOSTA: X anos
+pip install requests
+ollama pull qwen2.5:3b
+ollama pull qwen2.5
+python benchmark.py
 ```
 
-### Como reproduzir
-
-```
-ollama run qwen2.5:3b --verbose
-/set parameter temperature 0
-/set parameter seed 42
-(cole o prompt padrão)
-```
-
-## Métricas (as mesmas em todo o benchmark)
-
-| Métrica | Como medir |
-|---|---|
-| Erro no número | (resposta − gabarito) ÷ gabarito |
-| Método certo? | Sim / Parcial / Não (descontou os fluxos e ponderou por prazo?) |
-| Tempo total | `total duration` do Ollama |
-| Velocidade | `eval rate` (tokens por segundo) |
-| Custo | por 1.000 tarefas (a definir para APIs) |
+Os resultados vão para `results/resultados_casos.csv`, com as respostas completas em `results/*.txt`. O script retoma de onde parou se for interrompido.
 
 ## Roadmap
 
-- [ ] Gabarito com 30-50 casos financeiros
-- [ ] Comparação com API de topo e API barata
-- [ ] Roteador entre modelos e economia medida
+- [x] Teste padronizado com parâmetros fixos
+- [x] Script automatizado e 10 casos de renda fixa
+- [ ] Subir para 30 casos
+- [ ] Comparação com API de topo e API barata (custo por 1.000 tarefas)
+- [ ] Roteador entre modelos com checagem de plausibilidade
+- [ ] Casos com documentos reais (lâminas de fundos, CVM)
 - [ ] Servidor MCP expondo o benchmark
 - [ ] Post com os resultados
