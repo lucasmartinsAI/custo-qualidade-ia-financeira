@@ -1,0 +1,58 @@
+Para calcular a **duration de Macaulay** de um cupom, precisamos seguir os seguintes passos:
+
+1. **Identificar os fluxos de caixa**: incluindo os pagamentos de juros e o principal.
+2. **Descontar cada fluxo de caixa pelo valor presente** usando a taxa de desconto.
+3. **Calcular a média ponderada dos anos de fluxo de caixa**.
+
+### Passo 1: Identificar os Fluxos de Caixa
+
+- **Valor de face (FV)**: R$ 1.000
+- **Taxa de juros (Cupom)**: 9% ao ano
+- **Taxa de desconto (YTM)**: 13% ao ano
+- **Período de vencimento**: 4 anos
+
+**Fluxos de caixa anuais**:
+- **Fluxo de juros (C)**: 9% de R$ 1.000 = R$ 90
+- **Fluxo de principal (FV)**: R$ 1.000 (no final do 4º ano)
+
+### Passo 2: Descontar cada fluxo de caixa pelo valor presente
+
+| Ano | Fluxo de Caixa (C + FV) | Valor Presente (PV) | Ano Ponderado |
+|-----|------------------------|---------------------|---------------|
+| 1   | R$ 90                  | R$ 80.703            | 1 - 0.8776    |
+| 2   | R$ 90                  | R$ 70.248            | 2 - 0.8776    |
+| 3   | R$ 90                  | R$ 61.349            | 3 - 0.8776    |
+| 4   | R$ 1.090               | R$ 53.029            | 4 - 0.8776    |
+
+### Passo 3: Calcular a média ponderada dos anos de fluxo de caixa
+
+A **duration de Macaulay** é dada pela fórmula:
+
+\[
+\text{Duration} = \frac{\sum_{t=1}^{n} \left( t \cdot \frac{C_t}{(1 + YTM)^t} \right) + \left( n \cdot \frac{FV}{(1 + YTM)^n} \right)}{\sum_{t=1}^{n} \frac{C_t}{(1 + YTM)^t} + \frac{FV}{(1 + YTM)^n}}
+\]
+
+Substituindo os valores:
+
+\[
+\text{Duration} = \frac{(1 \cdot 80.703) + (2 \cdot 70.248) + (3 \cdot 61.349) + (4 \cdot 53.029)}{80.703 + 70.248 + 61.349 + 53.029}
+\]
+
+\[
+\text{Duration} = \frac{80.703 + 140.496 + 184.047 + 212.116}{365.416}
+\]
+
+\[
+\text{Duration} = \frac{617.362}{365.416} \approx 1.691
+\]
+
+### Tabela de Fluxos Descontados
+
+| Ano | Fluxo de Caixa (C + FV) | Valor Presente (PV) | Ano Ponderado |
+|-----|------------------------|---------------------|---------------|
+| 1   | R$ 90                  | R$ 80.703           | 0.1224        |
+| 2   | R$ 90                  | R$ 70.248           | 0.3448        |
+| 3   | R$ 90                  | R$ 61.349           | 0.5672        |
+| 4   | R$ 1.090               | R$ 53.029           | 0.8088        |
+
+### RESPOSTA: 1.691 anos

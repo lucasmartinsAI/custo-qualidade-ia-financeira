@@ -1,0 +1,75 @@
+Para calcular a **duration de Macaulay** de um cupom, precisamos seguir os seguintes passos:
+
+1. **Identificar os fluxos de caixa**: O valor nominal do título é R$ 1.000, e há um cupom de 11% ao ano pago anualmente, o que equivale a R$ 110 (10% do valor nominal) a cada ano. O título vence em 5 anos, então teremos 5 pagamentos de R$ 110, mais o pagamento final de R$ 1.000.
+
+2. **Descontar os fluxos de caixa**: Usaremos a taxa de desconto de 11% ao ano para descontar os fluxos de caixa.
+
+3. **Calcular a **duration de Macaulay**: A fórmula para a **duration de Macaulay** é:
+
+\[
+\text{Duration de Macaulay} = \frac{\sum_{t=1}^{n} \frac{C_t}{(1+r)^t} \cdot t + \frac{F}{(1+r)^n} \cdot n}{\sum_{t=1}^{n} \frac{C_t}{(1+r)^t} + \frac{F}{(1+r)^n}}
+\]
+
+onde:
+- \( C_t \) é o fluxo de caixa no período \( t \),
+- \( F \) é o valor nominal do título,
+- \( r \) é a taxa de desconto,
+- \( n \) é o número de períodos.
+
+Vamos calcular os fluxos descontados e a **duration de Macaulay**.
+
+### Tabela de Fluxos Descontados
+
+| Período (t) | Fluxo de Caixa (C_t) | Desconto (1+r)^t | Fluxo Descontado (C_t / (1+r)^t) | t * (C_t / (1+r)^t) |
+|-------------|----------------------|------------------|----------------------------------|---------------------|
+| 1           | 110                  | 1.11             | 99.10                            | 99.10               |
+| 2           | 110                  | 1.2321           | 89.28                            | 178.56              |
+| 3           | 110                  | 1.367631         | 79.99                            | 239.97              |
+| 4           | 110                  | 1.51807041       | 72.38                            | 289.52              |
+| 5           | 1100                 | 1.6850581551     | 65.32                            | 326.60              |
+
+### Soma dos Fluxos Descontados
+
+\[
+\sum_{t=1}^{5} \frac{C_t}{(1+r)^t} = 99.10 + 89.28 + 79.99 + 72.38 + 65.32 = 405.17
+\]
+
+### Soma dos Fluxos Descontados Ponderados
+
+\[
+\sum_{t=1}^{5} \frac{C_t}{(1+r)^t} \cdot t = 99.10 + 178.56 + 239.97 + 289.52 + 326.60 = 1133.75
+\]
+
+### Soma dos Fluxos Descontados do Valor Nominal
+
+\[
+\frac{F}{(1+r)^5} = \frac{1000}{1.6850581551} = 593.83
+\]
+
+### Soma dos Fluxos Descontados do Valor Nominal Ponderados
+
+\[
+\frac{F}{(1+r)^5} \cdot 5 = 593.83 \cdot 5 = 2969.15
+\]
+
+### Soma Total dos Fluxos Descontados
+
+\[
+\sum_{t=1}^{5} \frac{C_t}{(1+r)^t} + \frac{F}{(1+r)^5} = 405.17 + 593.83 = 1000
+\]
+
+### Soma Total dos Fluxos Descontados Ponderados
+
+\[
+\sum_{t=1}^{5} \frac{C_t}{(1+r)^t} \cdot t + \frac{F}{(1+r)^5} \cdot 5 = 1133.75 + 2969.15 = 4102.90
+\]
+
+### Duration de Macaulay
+
+\[
+\text{Duration de Macaulay} = \frac{4102.90}{1000} = 4.1029 \text{ anos}
+\]
+
+### RESPOSTA: 4.10 anos
+
+Portanto, a **duration de Macaulay** do título é **4.10 anos**.

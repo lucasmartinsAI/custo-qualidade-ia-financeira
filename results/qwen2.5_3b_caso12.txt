@@ -1,0 +1,59 @@
+Para calcular a Duration de Macaulay, precisamos primeiro entender o conceito e como ele é calculado. A Duration de Macaulay é uma medida da sensibilidade da taxa de juros ao longo do tempo. Ela é medida em anos e é calculada como a média ponderada da duração de cada fluxo de caixa, onde os pesos são os valores descontados do fluxo de caixa.
+
+Vamos seguir os passos para calcular a Duration de Macaulay:
+
+1. **Calcular o valor descontado de cada fluxo de caixa**: Isso é feito usando a fórmula de desconto de uma série de fluxos de caixa, onde o valor descontado é calculado usando a taxa de desconto (10% neste caso) e o prazo até o vencimento do fluxo de caixa.
+
+2. **Calcular a duração de cada fluxo de caixa**: A duração de cada fluxo de caixa é calculada usando a fórmula de duração de Macaulay, que é a diferença entre o prazo até o vencimento do fluxo de caixa e o valor descontado do fluxo de caixa dividido pelo valor descontado do fluxo de caixa.
+
+3. **Calcular a média ponderada dessas durações**: Isso é feito multiplicando cada duração pelo valor descontado do respectivo fluxo de caixa e dividindo pelo valor total descontado.
+
+Vamos agora calcular os valores necessários:
+
+### Passo 1: Calcular o valor descontado de cada fluxo de caixa
+
+- **Fluxo de caixa inicial (R$ 1.000)**: Como é o valor inicial, não há desconto necessário.
+- **Fluxo de caixa anual (R$ 1.000) para 7 anos**: 
+  - Ano 1: R$ 1.000 / (1 + 0,10)^1 = R$ 909,09
+  - Ano 2: R$ 1.000 / (1 + 0,10)^2 = R$ 826,44
+  - Ano 3: R$ 1.000 / (1 + 0,10)^3 = R$ 751,31
+  - Ano 4: R$ 1.000 / (1 + 0,10)^4 = R$ 683,01
+  - Ano 5: R$ 1.000 / (1 + 0,10)^5 = R$ 619,19
+  - Ano 6: R$ 1.000 / (1 + 0,10)^6 = R$ 557,46
+  - Ano 7: R$ 1.000 / (1 + 0,10)^7 = R$ 500,42
+
+### Passo 2: Calcular a duração de cada fluxo de caixa
+
+- **Fluxo de caixa inicial (R$ 1.000)**: Duração = 0 anos
+- **Fluxo de caixa anual (R$ 1.000) para 7 anos**:
+  - Ano 1: Duração = 1 ano - (R$ 909,09 / R$ 1.000) = 0,0909 anos
+  - Ano 2: Duração = 2 anos - (R$ 826,44 / R$ 1.000) = 0,1736 anos
+  - Ano 3: Duração = 3 anos - (R$ 751,31 / R$ 1.000) = 0,2483 anos
+  - Ano 4: Duração = 4 anos - (R$ 683,01 / R$ 1.000) = 0,3167 anos
+  - Ano 5: Duração = 5 anos - (R$ 619,19 / R$ 1.000) = 0,4182 anos
+  - Ano 6: Duração = 6 anos - (R$ 557,46 / R$ 1.000) = 0,5428 anos
+  - Ano 7: Duração = 7 anos - (R$ 500,42 / R$ 1.000) = 0,6000 anos
+
+### Passo 3: Calcular a média ponderada dessas durações
+
+A média ponderada é calculada como:
+
+\[
+\text{Duration} = \frac{\sum (\text{Duração} \times \text{Valor descontado})}{\sum (\text{Valor descontado})}
+\]
+
+Substituindo os valores:
+
+\[
+\text{Duration} = \frac{(0 \times 1.000) + (0,0909 \times 909,09) + (0,1736 \times 826,44) + (0,2483 \times 751,31) + (0,4182 \times 683,01) + (0,5428 \times 557,46) + (0,6000 \times 500,42)}{1.000 + 909,09 + 826,44 + 751,31 + 683,01 + 557,46 + 500,42}
+\]
+
+\[
+\text{Duration} = \frac{0 + 0,788 + 143,67 + 187,56 + 286,00 + 299,99 + 300,25}{4,076}
+\]
+
+\[
+\text{Duration} = \frac{1,731}{4,076} \approx 0,423 \text{ anos}
+\]
+
+### RESPOSTA: 0,423 anos

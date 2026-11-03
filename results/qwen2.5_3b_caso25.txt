@@ -1,0 +1,65 @@
+Para calcular a Duration de Macaulay, precisamos primeiro entender o conceito e como ele é calculado. A Duration de Macaulay é uma medida de sensibilidade da taxa de juros ao longo do tempo. Ela é calculada como a média ponderada dos prazos de pagamento, onde cada prazo é ponderado pelo valor do fluxo de caixa correspondente dividido pelo valor do ativo.
+
+Vamos seguir os passos para calcular a Duration de Macaulay:
+
+1. **Calcular o valor do ativo (V)**: Isso é o valor do ativo atualizado para o valor futuro, considerando o cupom de juros e a taxa de desconto.
+2. **Calcular o fluxo de caixa (CF)**: Isso é o valor do cupom de juros ao longo do tempo.
+3. **Calcular a tabela de fluxos descontados**: Isso é o valor atualizado de cada fluxo de caixa.
+4. **Calcular a Duration de Macaulay**: Isso é a média ponderada dos prazos de pagamento, onde cada prazo é ponderado pelo valor do fluxo de caixa correspondente dividido pelo valor do ativo.
+
+Vamos começar com o cálculo do valor do ativo (V):
+
+- **Cupom de juros**: R$ 1.000 * 12% = R$ 120
+- **Taxa de desconto**: 16% ao ano
+- **Vencimento**: 5 anos
+
+O valor do ativo (V) é calculado usando a fórmula da série geométrica:
+
+\[ V = CF \times \frac{1 - (1 + r)^{-n}}{r} \]
+
+Onde:
+- \( CF \) é o cupom de juros (R$ 120)
+- \( r \) é a taxa de desconto (16% ou 0,16)
+- \( n \) é o número de períodos (5 anos)
+
+\[ V = 120 \times \frac{1 - (1 + 0,16)^{-5}}{0,16} \]
+
+Agora, vamos calcular o valor do ativo (V):
+
+\[ V = 120 \times \frac{1 - (1 + 0,16)^{-5}}{0,16} \]
+\[ V = 120 \times \frac{1 - (1.16)^{-5}}{0,16} \]
+\[ V = 120 \times \frac{1 - 0.47619}{0,16} \]
+\[ V = 120 \times \frac{0,52381}{0,16} \]
+\[ V = 120 \times 3,27381 \]
+\[ V = 392,857 \]
+
+Agora que temos o valor do ativo (V), podemos calcular a tabela de fluxos descontados e a Duration de Macaulay.
+
+**Tabela de fluxos descontados:**
+
+| Período (anos) | Fluxo de Caixa (CF) | Valor descontado (VCF) |
+|-----------------|---------------------|------------------------|
+| 0                | 392,857             | 392,857                |
+| 1                | 120                 | 103,571                |
+| 2                | 120                 | 87,059                 |
+| 3                | 120                 | 69,246                 |
+| 4                | 120                 | 52,631                 |
+| 5                | 120                 | 39,285                 |
+
+**Calcular a Duration de Macaulay:**
+
+\[ \text{Duration} = \frac{\sum (t \times VCF_t)}{\sum VCF_t} \]
+
+Onde:
+- \( t \) é o período (anos)
+- \( VCF_t \) é o valor descontado do fluxo de caixa no período \( t \)
+
+\[ \text{Duration} = \frac{0 \times 392,857 + 1 \times 103,571 + 2 \times 87,059 + 3 \times 69,246 + 4 \times 52,631 + 5 \times 39,285}{392,857} \]
+
+\[ \text{Duration} = \frac{103,571 + 174,118 + 207,738 + 209,324 + 190,745}{392,857} \]
+
+\[ \text{Duration} = \frac{885,396}{392,857} \]
+
+\[ \text{Duration} = 2,27 \]
+
+**RESPOSTA: 2,27 anos**

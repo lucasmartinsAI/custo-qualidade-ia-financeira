@@ -1,0 +1,74 @@
+Para calcular a Duration de Macaulay, precisamos primeiro entender o conceito e como ele é calculado. A Duration de Macaulay é uma medida da sensibilidade da taxa de juros ao longo do tempo. Ela é calculada como a média ponderada dos prazos de pagamento, onde cada prazo é ponderado pelo valor do fluxo de caixa correspondente dividido pelo valor do ativo.
+
+Vamos seguir os passos para calcular a Duration de Macaulay:
+
+1. **Calcular o valor do ativo (preço do ativo):**
+   - Valor de Face: R$ 1.000
+   - Cupom de 13% ao ano: R$ 130
+   - Taxa de Desconto de 8% ao ano
+   - Vencimento em 8 anos
+
+   O valor do ativo é o presente valor do cupom de juros e do valor de face, calculado usando a fórmula da série de cash flows:
+
+   \[
+   \text{Valor do Ativo} = \sum_{t=1}^{n} \frac{C}{(1+r)^t} + \frac{F}{(1+r)^n}
+   \]
+
+   onde:
+   - \( C \) é o cupom de juros (R$ 130)
+   - \( F \) é o valor de face (R$ 1.000)
+   - \( r \) é a taxa de desconto (8% ou 0,08)
+   - \( n \) é o número de períodos (8 anos)
+
+   \[
+   \text{Valor do Ativo} = 130 \times \left( \frac{1 - (1+0,08)^{-8}}{0,08} \right) + \frac{1.000}{(1+0,08)^8}
+   \]
+
+   \[
+   \text{Valor do Ativo} = 130 \times 6,71006 + 1.000 \times 0,54026
+   \]
+
+   \[
+   \text{Valor do Ativo} = 872,31 + 540,26 = R$ 1.412,57
+   \]
+
+2. **Calcular o fluxo de caixa descontado:**
+   - O cupom de juros é descontado anualmente, então o fluxo de caixa descontado é R$ 130 para cada ano.
+   - O valor de face é descontado no final do 8º ano, então o fluxo de caixa descontado é R$ 1.000 no 8º ano.
+
+   A tabela de fluxos descontados é:
+
+   | Período (anos) | Fluxo de Caixa (R$) | Valor Descontado (R$) |
+   |----------------|---------------------|------------------------|
+   | 1               | 130                  | 112,57                 |
+   | 2               | 130                  | 99,33                  |
+   | 3               | 130                  | 87,99                  |
+   | 4               | 130                  | 78,36                  |
+   | 5               | 130                  | 69,94                  |
+   | 6               | 130                  | 62,52                  |
+   | 7               | 130                  | 56,10                  |
+   | 8               | 130 + 1.000 = 1.130 | 540,26                 |
+
+3. **Calcular a Duration de Macaulay:**
+
+   A formula para calcular a Duration de Macaulay é:
+
+   \[
+   \text{Duration} = \frac{\sum_{t=1}^{n} t \times \text{Fluxo de Caixa Descontado}_t}{\text{Valor do Ativo}}
+   \]
+
+   Substituindo os valores:
+
+   \[
+   \text{Duration} = \frac{1 \times 112,57 + 2 \times 99,33 + 3 \times 87,99 + 4 \times 78,36 + 5 \times 69,94 + 6 \times 62,52 + 7 \times 56,10 + 8 \times 540,26}{1.412,57}
+   \]
+
+   \[
+   \text{Duration} = \frac{112,57 + 198,66 + 263,97 + 313,44 + 349,7 + 375,12 + 392,7 + 4321,92}{1.412,57}
+   \]
+
+   \[
+   \text{Duration} = \frac{6866,36}{1.412,57} \approx 4,86
+   \]
+
+**RESPOSTA: 4,86 anos**

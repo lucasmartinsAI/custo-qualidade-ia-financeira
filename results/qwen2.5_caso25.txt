@@ -1,0 +1,38 @@
+Para calcular a **duration de Macaulay** de um cupom, precisamos seguir os seguintes passos:
+
+1. **Identificar os fluxos de caixa**: O valor nominal (face value) é pago no final do período, e os cupons são pagos anualmente.
+2. **Descontar os fluxos de caixa**: Usar a taxa de desconto para descontar cada fluxo de caixa.
+3. **Calcular a duration de Macaulay**: Usar a fórmula da duration de Macaulay, que é a soma ponderada dos tempos dos fluxos de caixa descontados.
+
+### Passo 1: Identificar os fluxos de caixa
+
+- **Fluxo de caixa anual (cupom)**: \( C = 1.000 \times 12\% = 120 \) reais
+- **Fluxo de caixa final (valor nominal)**: \( F = 1.000 \) reais
+- **Taxa de desconto**: \( r = 16\% \)
+- **Período**: \( n = 5 \) anos
+
+### Passo 2: Descontar os fluxos de caixa
+
+| Ano | Fluxo de Caixa | Desconto | Valor Descontado | Peso do Fluxo |
+|-----|---------------|----------|-----------------|--------------|
+| 1   | 120           | 1 / (1 + 0.16) | 103.45           | 103.45 / 1034.55 |
+| 2   | 120           | (1 / (1 + 0.16))^2 | 87.97           | 87.97 / 1034.55 |
+| 3   | 120           | (1 / (1 + 0.16))^3 | 74.98           | 74.98 / 1034.55 |
+| 4   | 120           | (1 / (1 + 0.16))^4 | 64.07           | 64.07 / 1034.55 |
+| 5   | 120 + 1000    | (1 / (1 + 0.16))^5 | 542.16          | 542.16 / 1034.55 |
+
+### Passo 3: Calcular a duration de Macaulay
+
+A fórmula da duration de Macaulay é:
+
+\[ \text{Duration} = \frac{\sum_{t=1}^{n} \frac{t \times CF_t}{(1 + r)^t}}{\sum_{t=1}^{n} \frac{CF_t}{(1 + r)^t}} \]
+
+Onde \( CF_t \) é o fluxo de caixa no período \( t \).
+
+\[ \text{Duration} = \frac{1 \times 103.45 + 2 \times 87.97 + 3 \times 74.98 + 4 \times 64.07 + 5 \times 542.16}{1034.55} \]
+
+\[ \text{Duration} = \frac{103.45 + 175.94 + 224.94 + 256.28 + 2710.80}{1034.55} \]
+
+\[ \text{Duration} = \frac{3571.41}{1034.55} \approx 3.45 \]
+
+### RESPOSTA: 3.45 anos

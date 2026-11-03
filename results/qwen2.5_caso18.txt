@@ -1,0 +1,69 @@
+Para calcular a **duration de Macaulay** de um cupom de dívida, precisamos seguir os seguintes passos:
+
+1. **Identificar os fluxos de caixa**: esses incluem os pagamentos de juros anuais e o pagamento do principal no vencimento.
+2. **Descontar cada fluxo de caixa pelo valor presente usando a taxa de desconto**.
+3. **Calcular a **duration de Macaulay****.
+
+### Passo 1: Identificar os Fluxos de Caixa
+
+- **Valor de face (principal)**: R$ 1.000
+- **Taxa de juros (cupom)**: 11% ao ano
+- **Taxa de desconto**: 13% ao ano
+- **Período de vencimento**: 10 anos
+
+**Fluxos de caixa anuais**:
+- **Fluxo de juros anual**: 11% de R$ 1.000 = R$ 110
+- **Fluxo de principal no vencimento**: R$ 1.000
+
+### Passo 2: Descontar os Fluxos de Caixa
+
+Vamos calcular o valor presente (VP) de cada fluxo de caixa:
+
+| Ano | Fluxo de Caixa | Taxa de Desconto (13%) | Valor Presente (VP) |
+|-----|---------------|-----------------------|---------------------|
+| 1   | R$ 110        | 0.884956               | R$ 97.3412          |
+| 2   | R$ 110        | 0.783147               | R$ 86.1462          |
+| 3   | R$ 110        | 0.693050               | R$ 76.2355          |
+| 4   | R$ 110        | 0.612067               | R$ 67.3274          |
+| 5   | R$ 110        | 0.540302               | R$ 59.4332          |
+| 6   | R$ 110        | 0.476104               | R$ 52.3715          |
+| 7   | R$ 110        | 0.420000               | R$ 46.2000          |
+| 8   | R$ 110        | 0.369722               | R$ 40.6694          |
+| 9   | R$ 110        | 0.324038               | R$ 35.6442          |
+| 10  | R$ 1.110      | 0.282237               | R$ 313.4597         |
+
+### Passo 3: Calcular a **Duration de Macaulay**
+
+A **duration de Macaulay** é dada pela fórmula:
+
+\[
+\text{Duration} = \frac{\sum_{t=1}^{n} \left( \frac{t \cdot CF_t}{(1 + r)^t} \right)}{\sum_{t=1}^{n} \left( \frac{CF_t}{(1 + r)^t} \right)}
+\]
+
+Onde:
+- \( CF_t \) é o fluxo de caixa no período \( t \)
+- \( r \) é a taxa de desconto
+
+**Soma dos valores presentes (VP) dos fluxos de caixa**:
+
+\[
+\text{VP total} = 97.3412 + 86.1462 + 76.2355 + 67.3274 + 59.4332 + 52.3715 + 46.2000 + 40.6694 + 35.6442 + 313.4597 = 745.6028
+\]
+
+**Soma dos valores presentes multiplicados pelo período (t) dos fluxos de caixa**:
+
+\[
+\sum_{t=1}^{10} \left( t \cdot \frac{CF_t}{(1 + r)^t} \right) = 1 \cdot 97.3412 + 2 \cdot 86.1462 + 3 \cdot 76.2355 + 4 \cdot 67.3274 + 5 \cdot 59.4332 + 6 \cdot 52.3715 + 7 \cdot 46.2000 + 8 \cdot 40.6694 + 9 \cdot 35.6442 + 10 \cdot 313.4597
+\]
+
+\[
+= 97.3412 + 172.2924 + 228.7065 + 269.3096 + 297.166 + 314.229 + 323.400 + 325.3552 + 320.7978 + 3134.597 = 4655.2163
+\]
+
+**Duration de Macaulay**:
+
+\[
+\text{Duration} = \frac{4655.2163}{745.6028} \approx 6.23
+\]
+
+### RESPOSTA: 6.23 anos

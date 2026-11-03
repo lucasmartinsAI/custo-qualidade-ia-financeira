@@ -1,0 +1,45 @@
+Para calcular a **duration de Macaulay** de um cupom de dívida, precisamos seguir os seguintes passos:
+
+1. **Identificar os fluxos de caixa**: O cupom paga 10% ao ano, então o fluxo anual será de R$ 100 (10% de R$ 1.000).
+2. **Descontar os fluxos de caixa**: Usaremos a taxa de desconto de 15% ao ano.
+3. **Calcular a duration de Macaulay**: A fórmula é:
+
+\[
+\text{Duration de Macaulay} = \frac{\sum_{t=1}^{n} \frac{t \cdot CF_t}{(1 + r)^t}}{\sum_{t=1}^{n} \frac{CF_t}{(1 + r)^t}}
+\]
+
+onde:
+- \( CF_t \) é o fluxo de caixa no período \( t \)
+- \( r \) é a taxa de desconto
+- \( n \) é o número de períodos
+
+Vamos calcular passo a passo:
+
+### Passo 1: Fluxos de Caixa
+- Fluxo anual: R$ 100
+- Valor final: R$ 1.000 (pagamento do principal)
+
+### Passo 2: Fluxos descontados
+| Período (t) | Fluxo de Caixa (CF_t) | Desconto (1 + r)^t | Fluxo descontado (CF_t / (1 + r)^t) | t * (CF_t / (1 + r)^t) |
+|-------------|----------------------|--------------------|-------------------------------------|------------------------|
+| 1           | 100                  | 1.15               | 86.96                               | 86.96                  |
+| 2           | 100                  | 1.3225             | 75.61                               | 151.22                 |
+| 3           | 100                  | 1.520875           | 65.75                               | 197.25                 |
+| 4           | 100                  | 1.74900625         | 57.10                               | 228.40                 |
+| 5           | 100                  | 2.0113929375       | 49.67                               | 248.35                 |
+| 6           | 100                  | 2.309861303125     | 43.32                               | 259.92                 |
+| 7           | 100                  | 2.6434389344375    | 37.88                               | 265.16                 |
+| 8           | 100                  | 3.01333333333333   | 33.22                               | 265.76                 |
+| 9           | 100                  | 3.42295081967213   | 29.23                               | 263.07                 |
+| 10          | 1100                 | 4.8684269330335   | 22.61                               | 226.10                 |
+
+### Passo 3: Soma dos fluxos descontados e dos t * (CF_t / (1 + r)^t)
+- Soma dos fluxos descontados: 453.55
+- Soma de t * (CF_t / (1 + r)^t): 2025.25
+
+### Passo 4: Calcular a duration de Macaulay
+\[
+\text{Duration de Macaulay} = \frac{2025.25}{453.55} \approx 4.46 \text{ anos}
+\]
+
+### RESPOSTA: 4.46 anos

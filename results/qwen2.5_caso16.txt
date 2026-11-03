@@ -1,0 +1,57 @@
+Para calcular a **duration de Macaulay** de um cupom, precisamos seguir os seguintes passos:
+
+1. **Identificar os fluxos de caixa**: incluindo os pagamentos de juros e o principal.
+2. **Descontar cada fluxo de caixa pelo valor presente** usando a taxa de desconto.
+3. **Calcular a média ponderada dos anos de vencimento dos fluxos de caixa**.
+
+### Passo 1: Identificar os fluxos de caixa
+
+- **Valor de face (FV)**: R$ 1.000
+- **Taxa de juros (Cupom)**: 6% ao ano
+- **Taxa de desconto (YTM)**: 11% ao ano
+- **Período de vencimento**: 6 anos
+
+**Fluxos de caixa anuais**:
+- **Fluxo de juros (C)**: 6% de R$ 1.000 = R$ 60
+- **Fluxo de principal (FV)**: R$ 1.000 (no final do 6º ano)
+
+### Passo 2: Descontar cada fluxo de caixa pelo valor presente
+
+| Ano | Fluxo de Caixa (C + FV) | Valor Presente (PV) |
+|-----|------------------------|---------------------|
+| 1   | R$ 60                  | R$ 54.054           |
+| 2   | R$ 60                  | R$ 48.686           |
+| 3   | R$ 60                  | R$ 43.987           |
+| 4   | R$ 60                  | R$ 39.988           |
+| 5   | R$ 60                  | R$ 36.661           |
+| 6   | R$ 1.060               | R$ 33.929           |
+
+**Cálculo do valor presente**:
+- **PV(1) = 60 / (1 + 0.11)^1 = 54.054**
+- **PV(2) = 60 / (1 + 0.11)^2 = 48.686**
+- **PV(3) = 60 / (1 + 0.11)^3 = 43.987**
+- **PV(4) = 60 / (1 + 0.11)^4 = 39.988**
+- **PV(5) = 60 / (1 + 0.11)^5 = 36.661**
+- **PV(6) = 1060 / (1 + 0.11)^6 = 33.929**
+
+### Passo 3: Calcular a média ponderada dos anos de vencimento dos fluxos de caixa
+
+**Duration de Macaulay** é calculado pela fórmula:
+\[ \text{Duration} = \frac{\sum_{t=1}^{n} t \cdot PV_t}{\sum_{t=1}^{n} PV_t} \]
+
+Onde:
+- \( t \) é o ano do fluxo de caixa.
+- \( PV_t \) é o valor presente do fluxo de caixa no ano \( t \).
+
+**Cálculo**:
+- **Soma dos valores presentes (PV_total)**:
+  \[ PV_{\text{total}} = 54.054 + 48.686 + 43.987 + 39.988 + 36.661 + 33.929 = 266.215 \]
+
+- **Soma ponderada dos anos de vencimento**:
+  \[ \sum_{t=1}^{6} t \cdot PV_t = 1 \cdot 54.054 + 2 \cdot 48.686 + 3 \cdot 43.987 + 4 \cdot 39.988 + 5 \cdot 36.661 + 6 \cdot 33.929 \]
+  \[ = 54.054 + 97.372 + 131.961 + 159.952 + 183.305 + 203.574 = 849.218 \]
+
+- **Duration de Macaulay**:
+  \[ \text{Duration} = \frac{849.218}{266.215} \approx 3.20 \]
+
+### RESPOSTA: 3.20 anos

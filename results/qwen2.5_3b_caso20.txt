@@ -1,0 +1,61 @@
+Para calcular a Duration de Macaulay, precisamos primeiro entender o conceito e como aplicá-lo neste cenário. A Duration de Macaulay é uma medida que indica a sensibilidade da curva de yield à mudança na taxa de juros. Ela é calculada como a média ponderada dos períodos de tempo até o vencimento de cada fluxo de caixa, onde os pesos são dadas pela razão do fluxo de caixa ao valor do ativo.
+
+Vamos seguir os passos para calcular a Duration de Macaulay:
+
+1. **Determinar os fluxos de caixa**: Como o cupom de juros é de 9% ao ano e o valor de face é R$ 1.000, o cupom de juros anual é R$ 90 (9% de R$ 1.000). Como o cupom de juros é pago anualmente, o único fluxo de caixa é o cupom de juros, que é pago ao final de cada ano.
+
+2. **Calcular o valor do ativo no vencimento**: O valor do ativo no vencimento é o valor de face, que é R$ 1.000.
+
+3. **Calcular o valor do ativo no início do período**: Como o cupom de juros é pago anualmente, o valor do ativo no início do período é o valor de face, que é R$ 1.000.
+
+4. **Calcular a taxa de desconto**: A taxa de desconto é de 15% ao ano.
+
+5. **Calcular o valor do ativo no início do período descontado pela taxa de desconto**: Como o cupom de juros é pago ao final de cada ano, o valor do ativo no início do período é descontado pela taxa de desconto para cada ano até o vencimento.
+
+6. **Calcular a tabela de fluxos descontados**:
+
+| Ano | Fluxo de Caixa | Valor do Ativo no Início do Período | Valor do Ativo no Final do Período (Descontado) |
+|-----|----------------|-------------------------------------|-----------------------------------------------|
+| 1   | R$ 90          | R$ 1.000                           | R$ 1.000 - (R$ 90 / (1 + 0.15)^1) = R$ 861.54 |
+| 2   | R$ 90          | R$ 1.000 - R$ 90 = R$ 910          | R$ 910 - (R$ 90 / (1 + 0.15)^2) = R$ 743.76 |
+| 3   | R$ 90          | R$ 1.000 - R$ 180 = R$ 820          | R$ 820 - (R$ 90 / (1 + 0.15)^3) = R$ 639.04 |
+| 4   | R$ 90          | R$ 1.000 - R$ 270 = R$ 730          | R$ 730 - (R$ 90 / (1 + 0.15)^4) = R$ 547.36 |
+| 5   | R$ 90          | R$ 1.000 - R$ 360 = R$ 640          | R$ 640 - (R$ 90 / (1 + 0.15)^5) = R$ 477.76 |
+| 6   | R$ 90          | R$ 1.000 - R$ 450 = R$ 550          | R$ 550 - (R$ 90 / (1 + 0.15)^6) = R$ 420.00 |
+| 7   | R$ 90          | R$ 1.000 - R$ 540 = R$ 460          | R$ 460 - (R$ 90 / (1 + 0.15)^7) = R$ 373.28 |
+| 8   | R$ 90          | R$ 1.000 - R$ 630 = R$ 370          | R$ 370 - (R$ 90 / (1 + 0.15)^8) = R$ 327.64 |
+| 9   | R$ 90          | R$ 1.000 - R$ 720 = R$ 280          | R$ 280 - (R$ 90 / (1 + 0.15)^9) = R$ 282.00 |
+| 10  | R$ 90          | R$ 1.000 - R$ 810 = R$ 190          | R$ 190 - (R$ 90 / (1 + 0.15)^10) = R$ 184.44 |
+| 11  | R$ 90          | R$ 1.000 - R$ 900 = R$ 100          | R$ 100 - (R$ 90 / (1 + 0.15)^11) = R$ 100.00 |
+| 12  | R$ 90          | R$ 1.000 - R$ 990 = R$ 10          | R$ 10 - (R$ 90 / (1 + 0.15)^12) = R$ 10.00 |
+
+7. **Calcular a soma dos pesos dos fluxos de caixa**:
+
+| Ano | Fluxo de Caixa | Valor do Ativo no Final do Período (Descontado) | Peso (Fluxo de Caixa / Valor do Ativo no Final do Período) |
+|-----|----------------|--------------------------------------------------|---------------------------------------------------------|
+| 1   | R$ 90          | R$ 861.54                                        | R$ 90 / R$ 861.54 = 0.1047                                |
+| 2   | R$ 90          | R$ 743.76                                        | R$ 90 / R$ 743.76 = 0.1201                                |
+| 3   | R$ 90          | R$ 639.04                                        | R$ 90 / R$ 639.04 = 0.1403                                |
+| 4   | R$ 90          | R$ 547.36                                        | R$ 90 / R$ 547.36 = 0.1632                                |
+| 5   | R$ 90          | R$ 477.76                                        | R$ 90 / R$ 477.76 = 0.1863                                |
+| 6   | R$ 90          | R$ 420.00                                        | R$ 90 / R$ 420.00 = 0.2186                                |
+| 7   | R$ 90          | R$ 373.28                                        | R$ 90 / R$ 373.28 = 0.2449                                |
+| 8   | R$ 90          | R$ 327.64                                        | R$ 90 / R$ 327.64 = 0.2768                                |
+| 9   | R$ 90          | R$ 282.00                                        | R$ 90 / R$ 282.00 = 0.3209                                |
+| 10  | R$ 90          | R$ 184.44                                        | R$ 90 / R$ 184.44 = 0.4885                                |
+| 11  | R$ 90          | R$ 100.00                                        | R$ 90 / R$ 100.00 = 0.9000                                |
+| 12  | R$ 90          | R$ 10.00                                         | R$ 90 / R$ 10.00 = 9.0000                                |
+
+8. **Calcular a soma dos pesos**:
+
+0.1047 + 0.1201 + 0.1403 + 0.1632 + 0.1863 + 0.2186 + 0.2449 + 0.2768 + 0.3209 + 0.4885 + 0.9000 + 9.0000 = 14.0000
+
+9. **Calcular a soma dos pesos multiplicados pelos valores do ativo no final do período**:
+
+0.1047 * R$ 861.54 + 0.1201 * R$ 743.76 + 0.1403 * R$ 639.04 + 0.1632 * R$ 547.36 + 0.1863 * R$ 477.76 + 0.2186 * R$ 420.00 + 0.2449 * R$ 373.28 + 0.2768 * R$ 327.64 + 0.3209 * R$ 282.00 + 0.4885 * R$ 184.44 + 0.9000 * R$ 100.00 + 9.0000 * R$ 10.00 = R$ 1.920.00
+
+10. **Calcular a Duration de Macaulay**:
+
+Duration de Macaulay = (Soma dos pesos * Valor do Ativo no Final do Período) / (Soma dos pesos) = R$ 1.920.00 / 14.0000 = 136.43 anos
+
+**RESPOSTA: 136.43 anos**

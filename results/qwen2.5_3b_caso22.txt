@@ -1,0 +1,45 @@
+Para calcular a Duration de Macaulay, precisamos primeiro entender o conceito e como ele é calculado. A Duration de Macaulay é uma medida da sensibilidade da taxa de juros ao longo do tempo. Ela é calculada como a média aritmética dos tempos de vencimento dos fluxos de caixa, onde cada fluxo de caixa é descontado à taxa de desconto média.
+
+Vamos seguir os passos para calcular a Duration de Macaulay:
+
+1. **Calcular o valor do cupom de juros ao longo do tempo**: Isso envolve descontar o valor do cupom de juros (R$ 1.000) para cada ano, considerando o cupom de 10% ao ano e a taxa de desconto de 9% ao ano.
+
+2. **Calcular a média aritmética dos tempos de vencimento**: Isso envolve somar os tempos de vencimento dos fluxos de caixa e dividir pelo número total de fluxos de caixa.
+
+Vamos começar com o cálculo do valor do cupom de juros ao longo do tempo:
+
+- **Ano 1**: Valor do cupom = R$ 1.000
+- **Ano 2**: Valor do cupom = R$ 1.000 / (1 + 0,09) = R$ 917,43
+- **Ano 3**: Valor do cupom = R$ 1.000 / (1 + 0,09)^2 = R$ 839,62
+- **Ano 4**: Valor do cupom = R$ 1.000 / (1 + 0,09)^3 = R$ 767,18
+- **Ano 5**: Valor do cupom = R$ 1.000 / (1 + 0,09)^4 = R$ 698,68
+- **Ano 6**: Valor do cupom = R$ 1.000 / (1 + 0,09)^5 = R$ 634,38
+- **Ano 7**: Valor do cupom = R$ 1.000 / (1 + 0,09)^6 = R$ 574,36
+- **Ano 8**: Valor do cupom = R$ 1.000 / (1 + 0,09)^7 = R$ 518,22
+- **Ano 9**: Valor do cupom = R$ 1.000 / (1 + 0,09)^8 = R$ 466,15
+- **Ano 10**: Valor do cupom = R$ 1.000 / (1 + 0,09)^9 = R$ 417,99
+- **Ano 11**: Valor do cupom = R$ 1.000 / (1 + 0,09)^10 = R$ 373,23
+
+Agora, vamos calcular a média aritmética dos tempos de vencimento:
+
+- **Ano 1**: Tempo de vencimento = 1 ano
+- **Ano 2**: Tempo de vencimento = 2 anos
+- **Ano 3**: Tempo de vencimento = 3 anos
+- **Ano 4**: Tempo de vencimento = 4 anos
+- **Ano 5**: Tempo de vencimento = 5 anos
+- **Ano 6**: Tempo de vencimento = 6 anos
+- **Ano 7**: Tempo de vencimento = 7 anos
+- **Ano 8**: Tempo de vencimento = 8 anos
+- **Ano 9**: Tempo de vencimento = 9 anos
+- **Ano 10**: Tempo de vencimento = 10 anos
+- **Ano 11**: Tempo de vencimento = 11 anos
+
+A média aritmética dos tempos de vencimento é:
+
+\[
+\text{Duration} = \frac{1 + 2 + 3 + 4 + 5 + 6 + 7 + 8 + 9 + 10 + 11}{11} = \frac{66}{11} = 6 \text{ anos}
+\]
+
+Portanto, a Duration de Macaulay é de 6 anos.
+
+**RESPOSTA: 6 anos**

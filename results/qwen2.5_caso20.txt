@@ -1,0 +1,45 @@
+Para calcular a **duration de Macaulay** de um cupom de dívida, precisamos seguir os seguintes passos:
+
+1. **Identificar os fluxos de caixa**: O cupom paga 9% do valor nominal anualmente, e o valor nominal será pago no final do período.
+2. **Descontar os fluxos de caixa**: Usaremos a taxa de desconto de 15% ao ano para descontar os fluxos de caixa.
+3. **Calcular a **duration de Macaulay**: A fórmula é a soma ponderada dos tempos dos fluxos de caixa descontados.
+
+### Passo 1: Identificar os fluxos de caixa
+
+- **Fluxo de caixa anual (cupom)**: 9% de R$ 1.000 = R$ 90
+- **Fluxo de caixa final (valor nominal)**: R$ 1.000
+
+### Passo 2: Descontar os fluxos de caixa
+
+| Ano | Fluxo de Caixa | Desconto (15%) | Valor Descontado | Peso (Fluxo / Valor Total) | Tempo Ponderado |
+|-----|---------------|----------------|------------------|----------------------------|-----------------|
+| 1   | R$ 90         | 0.8696         | R$ 78.26         | 0.07826                    | 0.07826         |
+| 2   | R$ 90         | 0.7561         | R$ 68.05         | 0.06805                    | 0.13610         |
+| 3   | R$ 90         | 0.6575         | R$ 59.18         | 0.05918                    | 0.17754         |
+| 4   | R$ 90         | 0.5718         | R$ 51.46         | 0.05146                    | 0.20584         |
+| 5   | R$ 1.090      | 0.4972         | R$ 542.23        | 0.54223                    | 2.71115         |
+
+### Passo 3: Calcular a **duration de Macaulay**
+
+A **duration de Macaulay** é dada pela fórmula:
+
+\[
+\text{Duration} = \frac{\sum_{t=1}^{n} \left( \frac{t \cdot CF_t}{(1 + r)^t} \right)}{\sum_{t=1}^{n} \left( \frac{CF_t}{(1 + r)^t} \right)}
+\]
+
+Onde:
+- \( CF_t \) é o fluxo de caixa no período \( t \)
+- \( r \) é a taxa de desconto (15% ou 0.15)
+- \( n \) é o número de períodos (5 anos)
+
+Substituindo os valores:
+
+\[
+\text{Duration} = \frac{0.07826 + 0.13610 + 0.17754 + 0.20584 + 2.71115}{0.07826 + 0.13610 + 0.17754 + 0.20584 + 0.54223}
+\]
+
+\[
+\text{Duration} = \frac{3.32989}{1.13007} \approx 2.94
+\]
+
+### RESPOSTA: 2.94 anos

@@ -1,0 +1,65 @@
+Para calcular a **duration de Macaulay** de um título, precisamos seguir os seguintes passos:
+
+1. **Identificar os fluxos de caixa**: Isso inclui os pagamentos de juros e o principal.
+2. **Descontar cada fluxo de caixa pelo valor presente** usando a taxa de desconto.
+3. **Calcular a média ponderada dos anos de vencimento dos fluxos de caixa**.
+
+### Passo 1: Identificar os fluxos de caixa
+
+- **Valor de face (FV)**: R$ 1.000
+- **Taxa de juros (Cupom)**: 14% ao ano
+- **Taxa de desconto (YTM)**: 16% ao ano
+- **Período de vencimento (n)**: 9 anos
+
+**Fluxos de caixa anuais**:
+- **Fluxo de juros (C)**: 14% de R$ 1.000 = R$ 140
+- **Fluxo de principal (FV)**: R$ 1.000 (no final do 9º ano)
+
+### Passo 2: Descontar cada fluxo de caixa pelo valor presente
+
+A fórmula para o valor presente (PV) de um fluxo de caixa é:
+\[ PV = \frac{C}{(1 + YTM)^t} + \frac{FV}{(1 + YTM)^n} \]
+
+Onde:
+- \( C \) = fluxo de juros
+- \( FV \) = fluxo de principal
+- \( YTM \) = taxa de desconto
+- \( t \) = ano do fluxo
+- \( n \) = período de vencimento
+
+**Tabela de fluxos descontados**:
+
+| Ano (t) | Fluxo de Juros (C) | Fluxo de Principal (FV) | Valor Presente (PV) |
+|---------|--------------------|------------------------|---------------------|
+| 1       | R$ 140             | 0                      | \(\frac{140}{1.16} \approx R$ 120.69\) |
+| 2       | R$ 140             | 0                      | \(\frac{140}{1.16^2} \approx R$ 104.96\) |
+| 3       | R$ 140             | 0                      | \(\frac{140}{1.16^3} \approx R$ 90.83\) |
+| 4       | R$ 140             | 0                      | \(\frac{140}{1.16^4} \approx R$ 78.13\) |
+| 5       | R$ 140             | 0                      | \(\frac{140}{1.16^5} \approx R$ 66.69\) |
+| 6       | R$ 140             | 0                      | \(\frac{140}{1.16^6} \approx R$ 56.41\) |
+| 7       | R$ 140             | 0                      | \(\frac{140}{1.16^7} \approx R$ 47.16\) |
+| 8       | R$ 140             | 0                      | \(\frac{140}{1.16^8} \approx R$ 39.00\) |
+| 9       | 0                  | R$ 1.000               | \(\frac{1000}{1.16^9} \approx R$ 322.27\) |
+
+### Passo 3: Calcular a média ponderada dos anos de vencimento dos fluxos de caixa
+
+A fórmula para a **duration de Macaulay** é:
+\[ \text{Duration} = \frac{\sum_{t=1}^{n} t \cdot PV_t}{\sum_{t=1}^{n} PV_t} \]
+
+Onde:
+- \( t \) = ano do fluxo
+- \( PV_t \) = valor presente do fluxo no ano \( t \)
+
+**Cálculo do numerador**:
+\[ \sum_{t=1}^{9} t \cdot PV_t = 1 \cdot 120.69 + 2 \cdot 104.96 + 3 \cdot 90.83 + 4 \cdot 78.13 + 5 \cdot 66.69 + 6 \cdot 56.41 + 7 \cdot 47.16 + 8 \cdot 39.00 + 9 \cdot 322.27 \]
+\[ = 120.69 + 209.92 + 272.49 + 312.52 + 333.45 + 338.46 + 330.12 + 312.00 + 2900.43 \]
+\[ = 4,838.72 \]
+
+**Cálculo do denominador**:
+\[ \sum_{t=1}^{9} PV_t = 120.69 + 104.96 + 90.83 + 78.13 + 66.69 + 56.41 + 47.16 + 39.00 + 322.27 \]
+\[ = 1,136.13 \]
+
+**Duration de Macaulay**:
+\[ \text{Duration} = \frac{4,838.72}{1,136.13} \approx 4.27 \]
+
+### RESPOSTA: 4.27 anos

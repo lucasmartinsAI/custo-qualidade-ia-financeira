@@ -1,0 +1,67 @@
+Para calcular a Duration de Macaulay, precisamos primeiro entender o conceito e como ele é aplicado. A Duration de Macaulay é uma medida que indica a sensibilidade da taxa de juros ao longo do tempo. Ela é calculada como a média ponderada dos períodos de tempo até o vencimento de cada fluxo de caixa, onde os pesos são os valores descontados desses fluxos de caixa.
+
+Vamos seguir os passos para calcular a Duration de Macaulay:
+
+1. **Calcular o valor de face descontado para cada ano de vencimento:**
+   - O valor de face é R$ 1.000.
+   - O cupom de juros é 7% ao ano, ou seja, R$ 70 ao ano.
+   - A taxa de desconto é 12% ao ano.
+
+   Para calcular o valor de face descontado para cada ano, usamos a fórmula de desconto:
+
+   \[
+   \text{Valor de Face Descontado} = \frac{\text{Valor de Face}}{(1 + \text{Taxa de Desconto})^n}
+   \]
+
+   onde \( n \) é o número de anos até o vencimento.
+
+   - Para o vencimento imediato (ano 0): 
+     \[
+     \text{Valor de Face Descontado} = \frac{1000}{(1 + 0.12)^0} = 1000
+     \]
+
+   - Para o vencimento após 1 ano (ano 1):
+     \[
+     \text{Valor de Face Descontado} = \frac{1000}{(1 + 0.12)^1} = \frac{1000}{1.12} \approx 892.86
+     \]
+
+   - Para o vencimento após 2 anos (ano 2):
+     \[
+     \text{Valor de Face Descontado} = \frac{1000}{(1 + 0.12)^2} = \frac{1000}{1.2544} \approx 797.19
+     \]
+
+   - Para o vencimento após 3 anos (ano 3):
+     \[
+     \text{Valor de Face Descontado} = \frac{1000}{(1 + 0.12)^3} = \frac{1000}{1.404928} \approx 711.80
+     \]
+
+   - Para o vencimento após 4 anos (ano 4):
+     \[
+     \text{Valor de Face Descontado} = \frac{1000}{(1 + 0.12)^4} = \frac{1000}{1.57351936} \approx 632.14
+     \]
+
+2. **Calcular a soma ponderada dos valores de face descontados:**
+
+   \[
+   \text{Soma Ponderada} = 1000 \times 1 + 892.86 \times 1 + 797.19 \times 1 + 711.80 \times 1 + 632.14 \times 1
+   \]
+
+   \[
+   \text{Soma Ponderada} = 1000 + 892.86 + 797.19 + 711.80 + 632.14 = 4033.99
+   \]
+
+3. **Calcular a Duration de Macaulay:**
+
+   \[
+   \text{Duration de Macaulay} = \frac{\sum (\text{Valor de Face Descontado} \times \text{Período de Tempo})}{\text{Soma Ponderada}}
+   \]
+
+   \[
+   \text{Duration de Macaulay} = \frac{1000 \times 1 + 892.86 \times 1 + 797.19 \times 1 + 711.80 \times 1 + 632.14 \times 1}{4033.99}
+   \]
+
+   \[
+   \text{Duration de Macaulay} = \frac{4033.99}{4033.99} \approx 1
+   \]
+
+### RESPOSTA: 1 ano

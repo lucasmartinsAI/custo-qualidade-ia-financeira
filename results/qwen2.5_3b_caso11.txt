@@ -1,0 +1,58 @@
+Para calcular a Duration de Macaulay, precisamos primeiro construir a tabela de fluxos descontados e então calcular a média ponderada desses fluxos, considerando a taxa de desconto.
+
+### Passo 1: Construir a tabela de fluxos descontados
+
+- **Cupom de juros (C)**: R$ 1.000 * 9% = R$ 90
+- **Taxa de desconto (r)**: 12% ao ano
+- **Vencimento (n)**: 3 anos
+
+**Fluxo de caixa (CF)**:
+- **Ano 0 (atual)**: -R$ 1.000 (valor de face)
+- **Ano 1**: R$ 90 (cúpom de juros)
+- **Ano 2**: R$ 90 (cúpom de juros)
+- **Ano 3**: R$ 1.090 (valor de face + juros)
+
+**Tabela de fluxos descontados**:
+
+| Ano | CF (R$) | Desconto (1/(1+r)^n) | CF * Desconto (R$) |
+|-----|----------|-------------------------|----------------------|
+| 0   | -1.000   | 1.000.000 / (1.12^0)  | -1.000.000          |
+| 1   | 90       | 1.000.000 / (1.12^1)   | -80.35               |
+| 2   | 90       | 1.000.000 / (1.12^2)   | -71.50               |
+| 3   | 1.090    | 1.000.000 / (1.12^3)   | -73.15               |
+
+**Soma dos fluxos descontados**:
+- CF0: -1.000.000
+- CF1: -80.35
+- CF2: -71.50
+- CF3: -73.15
+
+**Total dos fluxos descontados**: -1.087.068
+
+### Passo 2: Calcular a Duration de Macaulay
+
+A formula para a Duration de Macaulay é:
+
+\[ \text{Duration} = \frac{\sum_{t=1}^{n} t \cdot CF_t \cdot \text{Desconto}}{\sum_{t=1}^{n} CF_t \cdot \text{Desconto}} \]
+
+Substituindo os valores:
+
+- **CF0**: -1.000
+- **CF1**: -80.35
+- **CF2**: -71.50
+- **CF3**: -73.15
+- **n**: 3
+
+\[ \text{Duration} = \frac{1 \cdot (-80.35) \cdot \frac{1}{1.12^1} + 2 \cdot (-71.50) \cdot \frac{1}{1.12^2} + 3 \cdot (-73.15) \cdot \frac{1}{1.12^3}}{-1.000 \cdot \frac{1}{1.12^0} - 80.35 \cdot \frac{1}{1.12^1} - 71.50 \cdot \frac{1}{1.12^2} - 73.15 \cdot \frac{1}{1.12^3}} \]
+
+\[ \text{Duration} = \frac{-80.35 \cdot 0.8929 + 2 \cdot (-71.50) \cdot 0.7972 + 3 \cdot (-73.15) \cdot 0.6756}{-1.000 \cdot 1.000 - 80.35 \cdot 0.8929 - 71.50 \cdot 0.7972 - 73.15 \cdot 0.6756} \]
+
+\[ \text{Duration} = \frac{-71.50 + 2 \cdot (-56.64) + 3 \cdot (-48.55)}{-1.000 - 80.35 \cdot 0.8929 - 71.50 \cdot 0.7972 - 73.15 \cdot 0.6756} \]
+
+\[ \text{Duration} = \frac{-71.50 - 113.28 - 145.65}{-1.000 - 70.35 - 56.64 - 49.23} \]
+
+\[ \text{Duration} = \frac{-330.43}{-177.22} \]
+
+\[ \text{Duration} = 1.86 \]
+
+### Resposta: 1.86 anos

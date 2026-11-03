@@ -1,0 +1,57 @@
+Para calcular a **duration de Macaulay** de um título prefixado, precisamos seguir os passos abaixo:
+
+1. **Identificar os fluxos de caixa**: O cupom é pago anualmente, então teremos três fluxos de caixa (12% do valor nominal R$ 1.000) e o valor nominal no final do período.
+2. **Descontar os fluxos de caixa**: Usaremos a taxa de desconto de 14% ao ano para descontar os fluxos de caixa.
+3. **Calcular a **duration de Macaulay**: Usaremos a fórmula da **duration de Macaulay**.
+
+### Passo 1: Identificar os fluxos de caixa
+
+- **Fluxo de caixa 1 (ano 1)**: R$ 120 (12% de R$ 1.000)
+- **Fluxo de caixa 2 (ano 2)**: R$ 120 (12% de R$ 1.000)
+- **Fluxo de caixa 3 (ano 3)**: R$ 1.120 (R$ 1.000 + R$ 120)
+
+### Passo 2: Descontar os fluxos de caixa
+
+- **Fluxo de caixa 1 descontado**: R$ 120 / (1 + 0.14)^1 = R$ 105.263
+- **Fluxo de caixa 2 descontado**: R$ 120 / (1 + 0.14)^2 = R$ 92.686
+- **Fluxo de caixa 3 descontado**: R$ 1.120 / (1 + 0.14)^3 = R$ 782.686
+
+### Passo 3: Calcular a **duration de Macaulay**
+
+A **duration de Macaulay** é dada pela fórmula:
+
+\[ \text{Duration} = \frac{\sum_{t=1}^{n} \frac{t \cdot CF_t}{(1 + r)^t}}{\sum_{t=1}^{n} \frac{CF_t}{(1 + r)^t}} \]
+
+Onde:
+- \( CF_t \) é o fluxo de caixa no período \( t \)
+- \( r \) é a taxa de desconto (14% ou 0.14)
+- \( n \) é o número de períodos (3 anos)
+
+Vamos calcular o numerador e o denominador:
+
+- **Denominador**:
+  \[
+  \sum_{t=1}^{3} \frac{CF_t}{(1 + 0.14)^t} = \frac{120}{1.14} + \frac{120}{1.14^2} + \frac{1120}{1.14^3} = 105.263 + 92.686 + 782.686 = 980.635
+  \]
+
+- **Numerador**:
+  \[
+  \sum_{t=1}^{3} \frac{t \cdot CF_t}{(1 + 0.14)^t} = \frac{1 \cdot 120}{1.14} + \frac{2 \cdot 120}{1.14^2} + \frac{3 \cdot 1120}{1.14^3} = 105.263 + 161.372 + 2347.058 = 2613.7
+  \]
+
+- **Duration**:
+  \[
+  \text{Duration} = \frac{2613.7}{980.635} \approx 2.665
+  \]
+
+### Tabela de fluxos descontados
+
+| Período | Fluxo de Caixa | Fluxo de Caixa Descontado |
+|---------|---------------|--------------------------|
+| 1       | R$ 120        | R$ 105.263               |
+| 2       | R$ 120        | R$ 92.686                |
+| 3       | R$ 1120       | R$ 782.686               |
+
+### RESPOSTA: 2.665 anos
+
+Portanto, a **duration de Macaulay** é aproximadamente **2.665 anos**.

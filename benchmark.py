@@ -1,5 +1,11 @@
-"""Benchmark v2: roda varios casos de duration de Macaulay em cada modelo local (Ollama)
+"""Benchmark v3: roda varios casos de duration de Macaulay em cada modelo local (Ollama)
 e grava as metricas em results/resultados_casos.csv.
+
+Mudancas da v3 (depois que o 3B travou no caso 14 e derrubou a rodada da noite):
+- limita o tamanho de cada resposta (NUM_PREDICT), para o modelo nao entrar em loop
+- se um caso falhar (timeout, erro de conexao), registra a falha e segue para o proximo
+- nova coluna 'obs' no CSV: marca 'truncado' ou 'FALHA: ...'
+- o CSV antigo (sem a coluna 'obs') e atualizado sozinho, com backup
 
 Uso:
     python benchmark.py
@@ -11,6 +17,7 @@ import csv
 import os
 import random
 import re
+import shutil
 import statistics
 from datetime import datetime
 
@@ -18,16 +25,18 @@ import requests
 
 URL = "http://localhost:11434/api/generate"
 MODELOS = ["qwen2.5:3b", "qwen2.5"]  # edite aqui para incluir outros modelos
-N_CASOS = 10          # comece com 10; depois suba para 30
+N_CASOS = 30
 SEED_CASOS = 7        # fixa quais casos sao sorteados (resultado reproduzivel)
 LIMITE_ACERTO = 1.0   # erro maximo (em %) para contar como acerto
+NUM_PREDICT = 4000    # maximo de tokens por resposta (a maior ate agora foi 3410)
+TIMEOUT_S = 1800      # espera maxima por caso (30 min)
 PASTA = "results"
 ARQUIVO = os.path.join(PASTA, "resultados_casos.csv")
 
 COLUNAS = [
     "data", "caso", "cupom_pct", "anos", "taxa_pct", "modelo", "resposta",
     "gabarito", "erro_pct", "tempo_total_s", "tokens_gerados", "tokens_por_s",
-    "metodo_certo",
+    "metodo_certo", "obs",
 ]
 
 PROMPT = (
@@ -70,15 +79,34 @@ def roda(modelo, prompt):
         "model": modelo,
         "prompt": prompt,
         "stream": False,
-        "options": {"temperature": 0, "seed": 42},
+        "options": {"temperature": 0, "seed": 42, "num_predict": NUM_PREDICT},
     }
-    r = requests.post(URL, json=corpo, timeout=1800)
+    r = requests.post(URL, json=corpo, timeout=TIMEOUT_S)
     r.raise_for_status()
     return r.json()
 
 
+def garante_coluna_obs():
+    """Se o CSV e da versao antiga (sem 'obs'), guarda um backup e reescreve com a coluna."""
+    if not os.path.exists(ARQUIVO):
+        return
+    with open(ARQUIVO, newline="", encoding="utf-8") as f:
+        leitor = csv.DictReader(f)
+        if "obs" in (leitor.fieldnames or []):
+            return
+        linhas = list(leitor)
+    shutil.copyfile(ARQUIVO, ARQUIVO.replace(".csv", "_backup.csv"))
+    with open(ARQUIVO, "w", newline="", encoding="utf-8") as f:
+        w = csv.DictWriter(f, fieldnames=COLUNAS)
+        w.writeheader()
+        for linha in linhas:
+            linha["obs"] = ""
+            w.writerow(linha)
+    print(f"CSV antigo atualizado com a coluna 'obs' ({len(linhas)} linhas). Backup salvo.")
+
+
 def ja_feitos():
-    """Pares (modelo, caso) que ja estao no CSV, para poder retomar."""
+    """Pares (modelo, caso) que ja estao no CSV (inclusive os que falharam), para retomar."""
     if not os.path.exists(ARQUIVO):
         return set()
     with open(ARQUIVO, encoding="utf-8") as f:
@@ -95,18 +123,22 @@ def resumo():
             continue
         erros = [float(l["erro_pct"]) for l in L if l["erro_pct"] != ""]
         acertos = sum(1 for e in erros if e <= LIMITE_ACERTO)
-        sem_resp = len(L) - len(erros)
-        tempo = statistics.mean(float(l["tempo_total_s"]) for l in L)
-        tps = statistics.mean(float(l["tokens_por_s"]) for l in L)
-        print(f"{modelo}: {len(L)} casos | acertos (erro <= {LIMITE_ACERTO}%): {acertos}/{len(L)}"
-              f" | sem resposta: {sem_resp}")
+        truncados = sum(1 for l in L if l["obs"] == "truncado")
+        falhas = sum(1 for l in L if l["obs"].startswith("FALHA"))
+        medidos = [l for l in L if l["tokens_por_s"] != ""]
+        print(f"{modelo}: {len(L)} casos | acertos (erro <= {LIMITE_ACERTO}%): {acertos}/{len(L)}")
+        print(f"   sem resposta: {len(L) - len(erros)} (truncados: {truncados}, falhas: {falhas})")
         if erros:
             print(f"   erro medio {statistics.mean(erros):.2f}% | erro mediano {statistics.median(erros):.2f}%")
-        print(f"   tempo medio {tempo:.0f}s | velocidade media {tps:.1f} tok/s")
+        if medidos:
+            tempo = statistics.mean(float(l["tempo_total_s"]) for l in medidos)
+            tps = statistics.mean(float(l["tokens_por_s"]) for l in medidos)
+            print(f"   tempo medio {tempo:.0f}s | velocidade media {tps:.1f} tok/s")
 
 
 def main():
     os.makedirs(PASTA, exist_ok=True)
+    garante_coluna_obs()
     casos = gerar_casos(N_CASOS)
     feitos = ja_feitos()
     novo = not os.path.exists(ARQUIVO)
@@ -124,7 +156,22 @@ def main():
                 print(f"[{modelo}] caso {k}/{len(casos)}: cupom {cupom}%, {anos} anos, "
                       f"taxa {taxa}% (gabarito {alvo:.3f})...")
 
-                d = roda(modelo, PROMPT.format(cupom=cupom, anos=anos, taxa=taxa))
+                base = {
+                    "data": datetime.now().isoformat(timespec="seconds"),
+                    "caso": k, "cupom_pct": cupom, "anos": anos, "taxa_pct": taxa,
+                    "modelo": modelo, "gabarito": round(alvo, 4), "metodo_certo": "",
+                }
+
+                try:
+                    d = roda(modelo, PROMPT.format(cupom=cupom, anos=anos, taxa=taxa))
+                except requests.exceptions.RequestException as e:
+                    print(f"   FALHA ({type(e).__name__}). Registrando e seguindo para o proximo.")
+                    w.writerow({**base, "resposta": "", "erro_pct": "", "tempo_total_s": "",
+                                "tokens_gerados": "", "tokens_por_s": "",
+                                "obs": f"FALHA: {type(e).__name__}"})
+                    f.flush()
+                    continue
+
                 texto = d.get("response", "")
                 nome = modelo.replace(":", "_")
                 with open(os.path.join(PASTA, f"{nome}_caso{k}.txt"), "w", encoding="utf-8") as t:
@@ -134,17 +181,14 @@ def main():
                 erro = None if resposta is None else round(abs(resposta - alvo) / alvo * 100, 2)
                 tempo = d["total_duration"] / 1e9
                 tps = d["eval_count"] / (d["eval_duration"] / 1e9)
+                obs = "truncado" if d.get("done_reason") == "length" else ""
 
-                w.writerow({
-                    "data": datetime.now().isoformat(timespec="seconds"),
-                    "caso": k, "cupom_pct": cupom, "anos": anos, "taxa_pct": taxa,
-                    "modelo": modelo, "resposta": resposta, "gabarito": round(alvo, 4),
-                    "erro_pct": erro, "tempo_total_s": round(tempo, 1),
-                    "tokens_gerados": d["eval_count"], "tokens_por_s": round(tps, 2),
-                    "metodo_certo": "",  # preencher a mao depois de ler o .txt
-                })
+                w.writerow({**base, "resposta": resposta, "erro_pct": erro,
+                            "tempo_total_s": round(tempo, 1), "tokens_gerados": d["eval_count"],
+                            "tokens_por_s": round(tps, 2), "obs": obs})
                 f.flush()
-                print(f"   resposta={resposta}  erro={erro}%  tempo={tempo:.0f}s  {tps:.1f} tok/s")
+                print(f"   resposta={resposta}  erro={erro}%  tempo={tempo:.0f}s  "
+                      f"{tps:.1f} tok/s  {obs}")
 
     resumo()
     print(f"\nPronto. Resultados em {ARQUIVO}")

@@ -1,0 +1,49 @@
+Para calcular a Duration de Macaulay, precisamos primeiro entender o conceito e como ele é calculado. A Duration de Macaulay é uma medida da sensibilidade da taxa de juros ao longo do tempo. Ela é calculada como a média aritmética dos tempos de vencimento dos fluxos de caixa, onde cada fluxo de caixa é descontado à taxa de desconto média.
+
+Vamos seguir os passos para calcular a Duration de Macaulay:
+
+1. **Calcular o valor do cupom de face após desconto:**
+   - Valor do cupom de face: R$ 1.000
+   - Taxa de desconto: 13% ao ano
+   - Tempo de vencimento: 4 anos
+   - Valor do cupom de face após desconto: R$ 1.000 / (1 + 0.13)^4 = R$ 627.51
+
+2. **Calcular o valor do cupom de face após desconto anualmente:**
+   - Cada cupom de face é de R$ 90 (10% de R$ 1.000)
+   - Taxa de desconto anual: 13% ao ano
+   - Valor do cupom de face após desconto anualmente: R$ 90 / (1 + 0.13)^1 = R$ 79.77
+
+3. **Calcular o valor do cupom de face após desconto anualmente em 4 anos:**
+   - Valor do cupom de face após desconto anualmente em 4 anos: R$ 90 / (1 + 0.13)^4 = R$ 56.37
+
+4. **Calcular a tabela de fluxos descontados:**
+
+| Tempo (anos) | Fluxo de Caixa (R$) | Valor Descontado (R$) |
+|---------------|----------------------|-------------------------|
+| 0             | 1.000                 | 1.000                   |
+| 1             | 90                    | 79.77                   |
+| 2             | 90                    | 66.44                   |
+| 3             | 90                    | 54.22                   |
+| 4             | 90                    | 43.99                   |
+
+5. **Calcular a média aritmética dos tempos de vencimento dos fluxos de caixa:**
+
+| Tempo (anos) | Fluxo de Caixa (R$) | Valor Descontado (R$) | Tempo x Valor Descontado (anos x R$) |
+|---------------|----------------------|-------------------------|----------------------------------------|
+| 0             | 1.000                 | 1.000                   | 0.000                                 |
+| 1             | 90                    | 79.77                   | 1.000                                 |
+| 2             | 90                    | 66.44                   | 2.000                                 |
+| 3             | 90                    | 54.22                   | 3.000                                 |
+| 4             | 90                    | 43.99                   | 4.000                                 |
+
+**Soma dos produtos:**
+0.000 + 1.000 + 2.000 + 3.000 + 4.000 = 10.000
+
+**Número de períodos:**
+5
+
+**Duration de Macaulay:**
+Duration = 10.000 / 5 = 2.000 anos
+
+**Resposta:**
+RESPOSTA: 2 anos

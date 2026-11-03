@@ -1,0 +1,63 @@
+Para calcular a **duration de Macaulay** de um cupom, precisamos seguir os seguintes passos:
+
+1. **Identificar os fluxos de caixa**: incluindo os pagamentos de juros e o principal.
+2. **Descontar cada fluxo de caixa pelo valor presente** usando a taxa de desconto.
+3. **Calcular a média ponderada dos anos de vencimento dos fluxos de caixa**.
+
+### Passo 1: Identificar os Fluxos de Caixa
+
+- **Valor de face (FV)**: R$ 1.000
+- **Taxa de juros (Cupom)**: 13% ao ano
+- **Taxa de desconto (YTM)**: 8% ao ano
+- **Período de vencimento (n)**: 8 anos
+
+**Fluxos de caixa anuais**:
+- **Fluxo de juros (C)**: 13% de R$ 1.000 = R$ 130
+- **Fluxo de principal (FV)**: R$ 1.000 (no final do 8º ano)
+
+### Passo 2: Descontar os Fluxos de Caixa
+
+Vamos calcular o valor presente (PV) de cada fluxo de caixa:
+
+| Ano | Fluxo de Juros (C) | Fluxo de Principal (FV) | Valor Presente (PV) |
+|-----|-------------------|------------------------|--------------------|
+| 1   | R$ 130            | 0                      | R$ 130 / (1 + 0.08)^1 = R$ 120.37 |
+| 2   | R$ 130            | 0                      | R$ 130 / (1 + 0.08)^2 = R$ 111.46 |
+| 3   | R$ 130            | 0                      | R$ 130 / (1 + 0.08)^3 = R$ 103.28 |
+| 4   | R$ 130            | 0                      | R$ 130 / (1 + 0.08)^4 = R$ 95.74  |
+| 5   | R$ 130            | 0                      | R$ 130 / (1 + 0.08)^5 = R$ 88.81  |
+| 6   | R$ 130            | 0                      | R$ 130 / (1 + 0.08)^6 = R$ 82.48  |
+| 7   | R$ 130            | 0                      | R$ 130 / (1 + 0.08)^7 = R$ 76.72  |
+| 8   | R$ 130 + R$ 1.000  | 0                      | R$ 1130 / (1 + 0.08)^8 = R$ 715.02 |
+
+### Passo 3: Calcular a Média Ponderada dos Anos de Vencimento
+
+A **duration de Macaulay** é dada pela fórmula:
+
+\[ \text{Duration} = \frac{\sum_{t=1}^{n} t \cdot \text{PV}_t}{\sum_{t=1}^{n} \text{PV}_t} \]
+
+Onde:
+- \( t \) é o ano do fluxo de caixa.
+- \( \text{PV}_t \) é o valor presente do fluxo de caixa no ano \( t \).
+
+Vamos calcular o numerador e o denominador:
+
+- **Denominador (PV total)**:
+  \[
+  \text{PV total} = 120.37 + 111.46 + 103.28 + 95.74 + 88.81 + 82.48 + 76.72 + 715.02 = 1203.76
+  \]
+
+- **Numerador (PV ponderado)**:
+  \[
+  \text{Numerador} = (1 \cdot 120.37) + (2 \cdot 111.46) + (3 \cdot 103.28) + (4 \cdot 95.74) + (5 \cdot 88.81) + (6 \cdot 82.48) + (7 \cdot 76.72) + (8 \cdot 715.02)
+  \]
+  \[
+  \text{Numerador} = 120.37 + 222.92 + 309.84 + 382.96 + 444.05 + 494.88 + 537.04 + 5720.16 = 7494.02
+  \]
+
+- **Duration**:
+  \[
+  \text{Duration} = \frac{7494.02}{1203.76} \approx 6.23 \text{ anos}
+  \]
+
+### RESPOSTA: 6.23 anos

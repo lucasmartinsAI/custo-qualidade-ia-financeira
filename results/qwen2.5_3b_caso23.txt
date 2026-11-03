@@ -1,0 +1,35 @@
+Para calcular a Duration de Macaulay, precisamos primeiro entender o conceito e como ele é calculado. A Duration de Macaulay é uma medida da sensibilidade da taxa de juros ao longo do tempo. Ela é calculada como a média aritmética dos tempos de vencimento dos fluxos de caixa, onde cada fluxo de caixa é descontado à taxa de desconto média.
+
+Vamos seguir os passos para calcular a Duration de Macaulay:
+
+1. **Calcular o valor do cupom de juros ao longo do tempo:**
+   - O valor do cupom é R$ 1.000, que é pago anualmente.
+   - O cupom é descontado à taxa de 13% ao ano.
+
+2. **Calcular o valor do cupom ao longo do tempo:**
+   - O valor do cupom no vencimento (ano 7) é R$ 1.000.
+   - O valor do cupom no ano 1 é R$ 1.000 / (1 + 0.13)^1 = R$ 884.93.
+   - O valor do cupom no ano 2 é R$ 1.000 / (1 + 0.13)^2 = R$ 782.56.
+   - E assim por diante, até o ano 6, cujo valor do cupom é R$ 1.000 / (1 + 0.13)^6 = R$ 481.67.
+
+3. **Calcular a média aritmética dos tempos de vencimento dos fluxos de caixa:**
+   - A média aritmética dos tempos de vencimento é a soma dos tempos de vencimento dividida pelo número de tempos de vencimento.
+   - Neste caso, temos 7 tempos de vencimento (ano 1 até ano 7).
+   - A soma dos tempos de vencimento é 1 + 2 + 3 + 4 + 5 + 6 + 7 = 28.
+   - A média é 28 / 7 = 4 anos.
+
+Portanto, a Duration de Macaulay é de 4 anos.
+
+**Tabela de fluxos descontados:**
+
+| Ano | Valor do Cupom |
+|-----|----------------|
+| 1   | R$ 884.93      |
+| 2   | R$ 782.56      |
+| 3   | R$ 695.32      |
+| 4   | R$ 619.87      |
+| 5   | R$ 552.98      |
+| 6   | R$ 494.44      |
+| 7   | R$ 481.67      |
+
+**RESPOSTA: 4 anos**

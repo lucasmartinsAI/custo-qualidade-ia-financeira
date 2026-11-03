@@ -1,0 +1,58 @@
+Para calcular a Duration de Macaulay, precisamos primeiro entender o conceito e como ele é calculado. A Duration de Macaulay é uma medida da sensibilidade da curva de rendimento de um ativo à mudança na taxa de juros. Ela é calculada como a média ponderada da duração de cada fluxo de caixa, onde os pesos são os valores descontados do fluxo de caixa.
+
+Vamos seguir os passos para calcular a Duration de Macaulay:
+
+1. **Calcular o valor descontado de cada fluxo de caixa**:
+   - O valor do ativo é R$ 1.000.
+   - O cupom de 10% ao ano é pago anualmente.
+   - O vencimento é em 10 anos.
+   - A taxa de desconto é de 15% ao ano.
+
+   O valor descontado de cada fluxo de caixa é calculado usando a fórmula de desconto:
+
+   \[
+   \text{Valor Descontado} = \frac{\text{Fluxo de Caixa}}{(1 + \text{Taxa de Desconto})^n
+   \]
+
+   O fluxo de caixa anual é de R$ 100 (10% de R$ 1.000).
+
+   Para cada ano de vencimento \( n \):
+
+   - \( n = 1 \): \(\text{Valor Descontado} = \frac{100}{(1 + 0.15)^1} = \frac{100}{1.15} = 86.96 \)
+   - \( n = 2 \): \(\text{Valor Descontado} = \frac{100}{(1 + 0.15)^2} = \frac{100}{1.3225} = 75.61 \)
+   - \( n = 3 \): \(\text{Valor Descontado} = \frac{100}{(1 + 0.15)^3} = \frac{100}{1.520875} = 65.75 \)
+   - \( n = 4 \): \(\text{Valor Descontado} = \frac{100}{(1 + 0.15)^4} = \frac{100}{1.74900625} = 57.29 \)
+   - \( n = 5 \): \(\text{Valor Descontado} = \frac{100}{(1 + 0.15)^5} = \frac{100}{1.968745625} = 50.73 \)
+   - \( n = 6 \): \(\text{Valor Descontado} = \frac{100}{(1 + 0.15)^6} = \frac{100}{2.21164075} = 45.23 \)
+   - \( n = 7 \): \(\text{Valor Descontado} = \frac{100}{(1 + 0.15)^7} = \frac{100}{2.5256737875} = 39.53 \)
+   - \( n = 8 \): \(\text{Valor Descontado} = \frac{100}{(1 + 0.15)^8} = \frac{100}{2.8531155625} = 35.13 \)
+   - \( n = 9 \): \(\text{Valor Descontado} = \frac{100}{(1 + 0.15)^9} = \frac{100}{3.25605953125} = 30.69 \)
+   - \( n = 10 \): \(\text{Valor Descontado} = \frac{100}{(1 + 0.15)^{10}} = \frac{100}{3.724442546875} = 26.73 \)
+
+2. **Calcular a soma dos valores descontados**:
+
+   \[
+   \text{Soma dos Valores Descontados} = 86.96 + 75.61 + 65.75 + 57.29 + 50.73 + 45.23 + 39.53 + 35.13 + 30.69 + 26.73 = 525.05
+   \]
+
+3. **Calcular a duração de Macaulay**:
+
+   A duração de Macaulay é calculada como a soma dos valores descontados multiplicados por seus respectivos pesos (que são os valores descontados divididos pela soma dos valores descontados):
+
+   \[
+   \text{Duration de Macaulay} = \frac{\sum (\text{Valor Descontado} \times \text{Fluxo de Caixa})}{\text{Soma dos Valores Descontados}}
+   \]
+
+   Substituindo os valores:
+
+   \[
+   \text{Duration de Macaulay} = \frac{(86.96 \times 100) + (75.61 \times 100) + (65.75 \times 100) + (57.29 \times 100) + (50.73 \times 100) + (45.23 \times 100) + (39.53 \times 100) + (35.13 \times 100) + (30.69 \times 100) + (26.73 \times 100)}{525.05}
+   \]
+
+   \[
+   \text{Duration de Macaulay} = \frac{8696 + 7561 + 6575 + 5729 + 5073 + 4523 + 3953 + 3513 + 3069 + 2673}{525.05} = \frac{46055}{525.05} \approx 87.00
+   \]
+
+Portanto, a duração de Macaulay é de aproximadamente 87 anos.
+
+**RESPOSTA: 87 anos**

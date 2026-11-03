@@ -1,0 +1,52 @@
+Para calcular a **duration de Macaulay** de um cupom, precisamos seguir os seguintes passos:
+
+1. **Identificar os fluxos de caixa**: incluindo os pagamentos de juros e o principal.
+2. **Descontar cada fluxo de caixa pelo valor presente** usando a taxa de desconto.
+3. **Calcular a média ponderada dos tempos dos fluxos de caixa descontados**.
+
+### Passo 1: Identificar os Fluxos de Caixa
+
+- **Valor de face (FV)**: R$ 1.000
+- **Taxa de juros (Cupom)**: 8% ao ano
+- **Taxa de desconto (YTM)**: 13% ao ano
+- **Período de vencimento (n)**: 4 anos
+
+**Fluxos de caixa anuais**:
+- **Fluxo de juros (C)**: 8% de R$ 1.000 = R$ 80
+- **Fluxo de principal (FV)**: R$ 1.000 (no final do 4º ano)
+
+### Passo 2: Descontar os Fluxos de Caixa
+
+Vamos calcular o valor presente (PV) de cada fluxo de caixa:
+
+| Ano | Fluxo de Caixa (C) | Fator de Desconto (1/(1+0.13)^n) | Valor Presente (PV) |
+|-----|-------------------|---------------------------------|---------------------|
+| 1   | R$ 80             | 1 / (1 + 0.13)^1 = 0.88496       | R$ 80 * 0.88496 = R$ 70.7968 |
+| 2   | R$ 80             | 1 / (1 + 0.13)^2 = 0.78314       | R$ 80 * 0.78314 = R$ 62.6512 |
+| 3   | R$ 80             | 1 / (1 + 0.13)^3 = 0.69321       | R$ 80 * 0.69321 = R$ 55.4568 |
+| 4   | R$ 1.080          | 1 / (1 + 0.13)^4 = 0.61334       | R$ 1.080 * 0.61334 = R$ 664.9712 |
+
+### Passo 3: Calcular a Média Ponderada dos Tempos dos Fluxos de Caixa Descontados
+
+A **duration de Macaulay** é dada por:
+
+\[ \text{Duration} = \frac{\sum_{t=1}^{n} t \cdot \text{PV}_t}{\sum_{t=1}^{n} \text{PV}_t} \]
+
+Onde:
+- \( t \) é o tempo do fluxo de caixa.
+- \( \text{PV}_t \) é o valor presente do fluxo de caixa no tempo \( t \).
+
+**Soma dos valores presentes (PV total)**:
+
+\[ \text{PV total} = 70.7968 + 62.6512 + 55.4568 + 664.9712 = 854.876 \]
+
+**Soma ponderada dos tempos dos fluxos de caixa descontados**:
+
+\[ \sum_{t=1}^{n} t \cdot \text{PV}_t = 1 \cdot 70.7968 + 2 \cdot 62.6512 + 3 \cdot 55.4568 + 4 \cdot 664.9712 \]
+\[ = 70.7968 + 125.3024 + 166.3704 + 2659.8848 = 2,922.3544 \]
+
+**Duration de Macaulay**:
+
+\[ \text{Duration} = \frac{2,922.3544}{854.876} \approx 3.416 \]
+
+### RESPOSTA: 3.416 anos

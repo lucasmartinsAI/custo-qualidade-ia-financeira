@@ -1,0 +1,34 @@
+Para calcular a Duration de Macaulay, precisamos primeiro entender a estrutura do problema e depois calcular o valor presente de cada fluxo de caixa, que será descontado à taxa de desconto de 11% ao ano. Vamos seguir os passos:
+
+1. **Calcular o valor do cupom de 6% ao ano pago anualmente:**
+   - O valor do cupom é 6% do valor face R$ 1.000, ou seja, R$ 60.
+   - Como o cupom é pago anualmente, o valor do cupom é R$ 60 por ano.
+
+2. **Calcular o valor do cupom ao longo dos 6 anos:**
+   - No final do 1º ano, o valor do cupom é R$ 60.
+   - No final do 2º ano, o valor do cupom é R$ 60.
+   - E assim por diante, até o final do 6º ano, quando o valor do cupom é R$ 60.
+
+3. **Calcular o valor do cupom ao longo dos 6 anos, descontado à taxa de 11% ao ano:**
+   - O valor do cupom no final do 1º ano, descontado à taxa de 11%, é R$ 60 / (1 + 0,11)^1 = R$ 54,09.
+   - O valor do cupom no final do 2º ano, descontado à taxa de 11%, é R$ 60 / (1 + 0,11)^2 = R$ 48,53.
+   - E assim por diante, até o final do 6º ano, quando o valor do cupom é R$ 60 / (1 + 0,11)^6 = R$ 34,37.
+
+4. **Calcular o valor do valor face R$ 1.000, descontado à taxa de 11% ao ano:**
+   - O valor do valor face no final do 1º ano, descontado à taxa de 11%, é R$ 1.000 / (1 + 0,11)^1 = R$ 899,91.
+   - O valor do valor face no final do 2º ano, descontado à taxa de 11%, é R$ 1.000 / (1 + 0,11)^2 = R$ 809,92.
+   - E assim por diante, até o final do 6º ano, quando o valor do valor face é R$ 1.000 / (1 + 0,11)^6 = R$ 597,27.
+
+5. **Calcular o valor presente de cada fluxo de caixa:**
+   - Fluxo de caixa no final do 1º ano: R$ 899,91 + R$ 60 = R$ 959,91.
+   - Fluxo de caixa no final do 2º ano: R$ 809,92 + R$ 60 = R$ 869,92.
+   - Fluxo de caixa no final do 3º ano: R$ 728,73 + R$ 60 = R$ 788,73.
+   - Fluxo de caixa no final do 4º ano: R$ 655,14 + R$ 60 = R$ 715,14.
+   - Fluxo de caixa no final do 5º ano: R$ 587,03 + R$ 60 = R$ 647,03.
+   - Fluxo de caixa no final do 6º ano: R$ 524,21 + R$ 60 = R$ 584,21.
+
+6. **Calcular a Duration de Macaulay:**
+   - A Duration de Macaulay é dada pela fórmula: Duration = ∑(t * PVt) / ∑PVt, onde PVt é o valor presente do fluxo de caixa no final do período t.
+   - Então, Duration = (1 * 959,91 + 2 * 869,92 + 3 * 788,73 + 4 * 715,14 + 5 * 647,03 + 6 * 584,21) / (959,91 + 869,92 + 788,73 + 715,14 + 647,03 + 584,21) = 3,25 anos.
+
+**RESPOSTA: 3,25 anos**

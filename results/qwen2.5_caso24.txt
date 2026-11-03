@@ -1,0 +1,57 @@
+Para calcular a **duration de Macaulay** de um cupom, precisamos seguir os seguintes passos:
+
+1. **Identificar os fluxos de caixa**: incluindo os pagamentos de juros e o principal.
+2. **Descontar cada fluxo de caixa pelo valor presente** usando a taxa de desconto.
+3. **Calcular a média ponderada dos anos de vencimento dos fluxos de caixa**.
+
+### Passo 1: Identificar os Fluxos de Caixa
+
+- **Valor de face (FV)**: R$ 1.000
+- **Taxa de juros (Cupom)**: 7% ao ano
+- **Taxa de desconto (YTM)**: 12% ao ano
+- **Período de vencimento**: 4 anos
+
+**Fluxos de caixa anuais**:
+- **Fluxo de juros (C)**: 7% de R$ 1.000 = R$ 70
+- **Fluxo de principal (FV)**: R$ 1.000 (no final do 4º ano)
+
+### Passo 2: Descontar os Fluxos de Caixa
+
+| Ano | Fluxo de Caixa (C + FV) | Valor Presente (PV) |
+|-----|------------------------|---------------------|
+| 1   | R$ 70                   | R$ 63.496            |
+| 2   | R$ 70                   | R$ 56.743            |
+| 3   | R$ 70                   | R$ 50.663            |
+| 4   | R$ 1.070                | R$ 608.223           |
+
+**Cálculos para o valor presente (PV)**:
+- Ano 1: \( \frac{70}{1.12^1} = 62.50 \)
+- Ano 2: \( \frac{70}{1.12^2} = 55.71 \)
+- Ano 3: \( \frac{70}{1.12^3} = 49.52 \)
+- Ano 4: \( \frac{1070}{1.12^4} = 608.22 \)
+
+### Passo 3: Calcular a Média Ponderada dos Anos de Vencimento
+
+A **duration de Macaulay** é dada pela fórmula:
+\[ \text{Duration} = \frac{\sum_{t=1}^{n} \left( \frac{t \cdot CF_t}{(1 + YTM)^t} \right)}{\sum_{t=1}^{n} \left( \frac{CF_t}{(1 + YTM)^t} \right)} \]
+
+Onde:
+- \( CF_t \) é o fluxo de caixa no ano \( t \)
+- \( YTM \) é a taxa de desconto (12% ou 0.12)
+
+**Cálculos**:
+- Ano 1: \( \frac{1 \cdot 62.50}{1.12} = 55.71 \)
+- Ano 2: \( \frac{2 \cdot 55.71}{1.12^2} = 88.52 \)
+- Ano 3: \( \frac{3 \cdot 49.52}{1.12^3} = 113.28 \)
+- Ano 4: \( \frac{4 \cdot 608.22}{1.12^4} = 1753.79 \)
+
+**Soma dos valores presentes**:
+\[ \sum_{t=1}^{4} \left( \frac{CF_t}{(1 + YTM)^t} \right) = 62.50 + 55.71 + 49.52 + 608.22 = 776.95 \]
+
+**Soma dos valores presentes ponderados pelos anos**:
+\[ \sum_{t=1}^{4} \left( \frac{t \cdot CF_t}{(1 + YTM)^t} \right) = 55.71 + 88.52 + 113.28 + 1753.79 = 1991.30 \]
+
+**Duration de Macaulay**:
+\[ \text{Duration} = \frac{1991.30}{776.95} = 2.56 \]
+
+### RESPOSTA: 2.56 anos

@@ -1,0 +1,54 @@
+Para calcular a Duration de Macaulay, precisamos primeiro entender o conceito e como ele é calculado. A Duration de Macaulay é uma medida da sensibilidade da renda de um ativo a mudanças na taxa de juros. Ela é calculada como a média ponderada da duração de cada fluxo de caixa, onde os pesos são os valores descontados do fluxo de caixa.
+
+Vamos começar pela análise dos fluxos de caixa:
+
+1. **Valor de Face (FV):** R$ 1.000
+2. **Cupom de Juros:** 13% ao ano, pago anualmente
+3. **Taxa de Desconto:** 5% ao ano
+4. **Vencimento:** 4 anos
+
+### Fluxos de Caixa:
+
+- **Ano 0 (atual):** R$ 0 (não há fluxo de caixa neste momento)
+- **Ano 1:** R$ 1.130 (1.000 + 13% de 1.000)
+- **Ano 2:** R$ 1.130 (1.000 + 13% de 1.000)
+- **Ano 3:** R$ 1.130 (1.000 + 13% de 1.000)
+- **Ano 4:** R$ 1.130 + R$ 1.000 (valor de face) = R$ 2.130
+
+### Fluxos Descontados:
+
+- **Ano 0:** R$ 0 (já descontado)
+- **Ano 1:** R$ 1.130 / (1 + 0.05)^1 = R$ 1.130 / 1.05 = R$ 1.076.19
+- **Ano 2:** R$ 1.130 / (1 + 0.05)^2 = R$ 1.130 / 1.1025 = R$ 1.022.33
+- **Ano 3:** R$ 1.130 / (1 + 0.05)^3 = R$ 1.130 / 1.157625 = R$ 0.9745
+- **Ano 4:** R$ 2.130 / (1 + 0.05)^4 = R$ 2.130 / 1.21550625 = R$ 1.755.75
+
+### Tabela de Fluxos Descontados:
+
+| Ano | Fluxo de Caixa | Valor Descontado |
+|-----|---------------|------------------|
+| 0   | 0             | 0                 |
+| 1   | 1.130         | 1.076.19          |
+| 2   | 1.130         | 1.022.33          |
+| 3   | 1.130         | 0.9745            |
+| 4   | 2.130         | 1.755.75          |
+
+### Cálculo da Duration de Macaulay:
+
+A formula para a Duration de Macaulay é:
+
+\[ \text{Duration} = \frac{\sum_{t=1}^{n} t \times \text{PV}_t}{\text{PV}_{\text{Total}}} \]
+
+Onde:
+- \(\text{PV}_t\) é o valor descontado do fluxo de caixa no ano \(t\).
+- \(\text{PV}_{\text{Total}}\) é o valor total dos fluxos de caixa descontados.
+
+Substituindo os valores:
+
+\[ \text{Duration} = \frac{1 \times 1.076.19 + 2 \times 1.022.33 + 3 \times 0.9745 + 4 \times 1.755.75}{1.076.19 + 1.022.33 + 0.9745 + 1.755.75} \]
+
+\[ \text{Duration} = \frac{1.076.19 + 2.044.66 + 2.923.65 + 7.023.00}{4.078.42} \]
+
+\[ \text{Duration} = \frac{12.067.30}{4.078.42} \approx 2.96 \]
+
+### RESPOSTA: 2.96 anos

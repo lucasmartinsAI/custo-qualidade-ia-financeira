@@ -1,0 +1,60 @@
+Para calcular a **duration de Macaulay** de um cupom de dívida, precisamos seguir os seguintes passos:
+
+1. **Identificar os fluxos de caixa**: O cupom paga 8% ao ano do valor nominal (R$ 1.000), ou seja, R$ 80 anualmente. O valor nominal será pago no final do período (7 anos).
+
+2. **Descontar os fluxos de caixa**: Usaremos a taxa de desconto de 10% ao ano para descontar os fluxos de caixa.
+
+3. **Calcular a **duration de Macaulay****: A fórmula é:
+
+   \[
+   \text{Duration} = \frac{\sum_{t=1}^{n} \frac{C_t}{(1 + r)^t} \cdot t + \frac{F}{(1 + r)^n} \cdot n}{\sum_{t=1}^{n} \frac{C_t}{(1 + r)^t} + \frac{F}{(1 + r)^n}}
+   \]
+
+   Onde:
+   - \( C_t \) é o fluxo de caixa no período \( t \)
+   - \( r \) é a taxa de desconto
+   - \( F \) é o valor nominal
+   - \( n \) é o número de períodos
+
+### Passo a Passo:
+
+1. **Fluxos de caixa**:
+   - Anos 1 a 6: R$ 80 (cupom)
+   - Ano 7: R$ 1.080 (cupom + valor nominal)
+
+2. **Descontar os fluxos de caixa**:
+   - Ano 1: \( \frac{80}{(1 + 0.10)^1} = \frac{80}{1.10} = 72.73 \)
+   - Ano 2: \( \frac{80}{(1 + 0.10)^2} = \frac{80}{1.21} = 66.12 \)
+   - Ano 3: \( \frac{80}{(1 + 0.10)^3} = \frac{80}{1.331} = 60.11 \)
+   - Ano 4: \( \frac{80}{(1 + 0.10)^4} = \frac{80}{1.4641} = 54.65 \)
+   - Ano 5: \( \frac{80}{(1 + 0.10)^5} = \frac{80}{1.61051} = 49.68 \)
+   - Ano 6: \( \frac{80}{(1 + 0.10)^6} = \frac{80}{1.771561} = 45.26 \)
+   - Ano 7: \( \frac{1080}{(1 + 0.10)^7} = \frac{1080}{1.9487171} = 553.62 \)
+
+3. **Calcular a **duration de Macaulay****:
+
+   \[
+   \text{Duration} = \frac{72.73 \cdot 1 + 66.12 \cdot 2 + 60.11 \cdot 3 + 54.65 \cdot 4 + 49.68 \cdot 5 + 45.26 \cdot 6 + 553.62 \cdot 7}{72.73 + 66.12 + 60.11 + 54.65 + 49.68 + 45.26 + 553.62}
+   \]
+
+   \[
+   \text{Duration} = \frac{72.73 + 132.24 + 180.33 + 218.60 + 248.40 + 271.56 + 3875.34}{1653.17}
+   \]
+
+   \[
+   \text{Duration} = \frac{4639.30}{1653.17} \approx 2.81
+   \]
+
+### Tabela de Fluxos Descontados:
+
+| Ano | Fluxo de Caixa | Fluxo Descontado | Ano x Fluxo Descontado |
+|-----|---------------|-----------------|-----------------------|
+| 1   | 72.73         | 72.73           | 72.73                 |
+| 2   | 66.12         | 66.12           | 132.24                |
+| 3   | 60.11         | 60.11           | 180.33                |
+| 4   | 54.65         | 54.65           | 218.60                |
+| 5   | 49.68         | 49.68           | 248.40                |
+| 6   | 45.26         | 45.26           | 271.56                |
+| 7   | 553.62        | 553.62          | 3875.34               |
+
+### RESPOSTA: 2.81 anos

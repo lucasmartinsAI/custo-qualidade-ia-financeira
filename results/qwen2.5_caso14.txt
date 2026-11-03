@@ -1,0 +1,90 @@
+Para calcular a **duration de Macaulay** de um cupom de dívida, precisamos seguir os seguintes passos:
+
+1. **Identificar os fluxos de caixa**: esses incluem os pagamentos de juros e o principal.
+2. **Descontar cada fluxo de caixa pelo valor presente** usando a taxa de desconto.
+3. **Calcular a **duration de Macaulay**** usando a fórmula:
+
+\[
+\text{Duration de Macaulay} = \frac{\sum_{t=1}^{n} t \cdot CF_t \cdot (1 + r)^{-t}}{\sum_{t=1}^{n} CF_t \cdot (1 + r)^{-t}}
+\]
+
+onde:
+- \( CF_t \) é o fluxo de caixa no período \( t \),
+- \( r \) é a taxa de desconto,
+- \( n \) é o número de períodos.
+
+### Passo a Passo:
+
+1. **Identificar os fluxos de caixa**:
+   - **Fluxo de juros anual**: \( 1000 \times 0.09 = 90 \) reais.
+   - **Fluxo de principal no vencimento**: \( 1000 \) reais.
+
+2. **Descontar cada fluxo de caixa**:
+   - **Taxa de desconto**: \( 5\% \) ao ano.
+   - **Períodos**: \( 8 \) anos.
+
+3. **Cálculo dos valores presentes**:
+   - **Fluxo de juros anual**:
+     \[
+     \text{PV}_\text{juros} = 90 \times \left( \frac{1 - (1 + 0.05)^{-8}}{0.05} \right) = 90 \times 6.4632 = 581.69 \text{ reais}
+     \]
+   - **Fluxo de principal no vencimento**:
+     \[
+     \text{PV}_\text{principal} = 1000 \times (1 + 0.05)^{-8} = 1000 \times 0.6768 = 676.80 \text{ reais}
+     \]
+
+4. **Total do valor presente**:
+   \[
+   \text{PV total} = 581.69 + 676.80 = 1258.49 \text{ reais}
+   \]
+
+5. **Cálculo da **duration de Macaulay****:
+   - **Fluxo de juros anual**:
+     \[
+     \text{PV}_\text{juros} \times t = 581.69 \times \left( 1 + 2 + 3 + 4 + 5 + 6 + 7 + 8 \right) \times (1 + 0.05)^{-t}
+     \]
+     \[
+     \text{PV}_\text{juros} \times t = 581.69 \times 36 \times (1 + 0.05)^{-t}
+     \]
+     \[
+     \text{PV}_\text{juros} \times t = 20940.84 \times (1 + 0.05)^{-t}
+     \]
+   - **Fluxo de principal no vencimento**:
+     \[
+     \text{PV}_\text{principal} \times t = 676.80 \times 8 \times (1 + 0.05)^{-8}
+     \]
+     \[
+     \text{PV}_\text{principal} \times t = 5414.40 \times (1 + 0.05)^{-8}
+     \]
+
+6. **Soma dos valores presentes**:
+   \[
+   \sum_{t=1}^{8} t \cdot CF_t \cdot (1 + 0.05)^{-t} = 20940.84 \times (1 + 0.05)^{-1} + 20940.84 \times (1 + 0.05)^{-2} + \ldots + 20940.84 \times (1 + 0.05)^{-8} + 5414.40 \times (1 + 0.05)^{-8}
+   \]
+
+7. **Dividir pela soma dos valores presentes**:
+   \[
+   \text{Duration de Macaulay} = \frac{\sum_{t=1}^{8} t \cdot CF_t \cdot (1 + 0.05)^{-t}}{1258.49}
+   \]
+
+### Tabela de Fluxos Descontados:
+
+| Período (t) | Fluxo de Juros (CF_t) | Valor Presente (PV) | t * PV |
+|-------------|----------------------|--------------------|--------|
+| 1           | 90                   | 85.88              | 85.88  |
+| 2           | 90                   | 79.46              | 158.92 |
+| 3           | 90                   | 73.63              | 220.89 |
+| 4           | 90                   | 68.37              | 273.48 |
+| 5           | 90                   | 63.59              | 317.95 |
+| 6           | 90                   | 59.26              | 355.56 |
+| 7           | 90                   | 55.38              | 387.66 |
+| 8           | 90 + 1000            | 676.80             | 5414.40|
+| **Total**    |                      | 1258.49            | 6685.81|
+
+### Cálculo Final:
+
+\[
+\text{Duration de Macaulay} = \frac{6685.81}{1258.49} = 5.32 \text{ anos}
+\]
+
+### RESPOSTA: 5.32 anos

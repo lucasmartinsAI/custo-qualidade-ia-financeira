@@ -1,0 +1,64 @@
+Para calcular a **duration de Macaulay** de um cupom, precisamos seguir os seguintes passos:
+
+1. **Identificar os fluxos de caixa**: incluindo os pagamentos de juros e o principal.
+2. **Descontar cada fluxo de caixa pelo valor presente** usando a taxa de desconto.
+3. **Calcular a média ponderada dos tempos dos fluxos de caixa**.
+
+### Passo 1: Identificar os Fluxos de Caixa
+
+- **Valor de face (Principal)**: R$ 1.000
+- **Taxa de juros (Cupom)**: 13% ao ano
+- **Taxa de desconto**: 13% ao ano
+- **Período de vencimento**: 7 anos
+
+**Fluxos de caixa anuais**:
+- **Juros anuais**: 13% de R$ 1.000 = R$ 130
+- **Fluxo final (Principal + Juros)**: R$ 1.000 + R$ 130 = R$ 1.130
+
+### Passo 2: Descontar os Fluxos de Caixa
+
+Vamos calcular o valor presente (VP) de cada fluxo de caixa usando a fórmula:
+
+\[ \text{VP} = \frac{\text{Fluxo de Caixa}}{(1 + r)^t} \]
+
+Onde:
+- \( r \) é a taxa de desconto (13% ou 0.13)
+- \( t \) é o tempo do fluxo de caixa
+
+| Ano | Fluxo de Caixa | Valor Presente (VP) |
+|-----|---------------|---------------------|
+| 1   | R$ 130        | \(\frac{130}{1.13}\) = R$ 115.043121693933 |
+| 2   | R$ 130        | \(\frac{130}{1.13^2}\) = R$ 101.812276605505 |
+| 3   | R$ 130        | \(\frac{130}{1.13^3}\) = R$ 89.926285626767  |
+| 4   | R$ 130        | \(\frac{130}{1.13^4}\) = R$ 79.266654947853  |
+| 5   | R$ 130        | \(\frac{130}{1.13^5}\) = R$ 69.806365836747  |
+| 6   | R$ 130        | \(\frac{130}{1.13^6}\) = R$ 61.423668468828  |
+| 7   | R$ 1.130      | \(\frac{1130}{1.13^7}\) = R$ 53.999999999999  |
+
+### Passo 3: Calcular a Média Ponderada dos Tempos dos Fluxos de Caixa
+
+A **duration de Macaulay** é dada pela fórmula:
+
+\[ \text{Duration} = \frac{\sum_{t=1}^{n} t \cdot \text{VP}_t}{\sum_{t=1}^{n} \text{VP}_t} \]
+
+Onde:
+- \( t \) é o tempo do fluxo de caixa
+- \( \text{VP}_t \) é o valor presente do fluxo de caixa no tempo \( t \)
+
+**Soma dos valores presentes (VP)**:
+
+\[ \text{VP Total} = 115.043121693933 + 101.812276605505 + 89.926285626767 + 79.266654947853 + 69.806365836747 + 61.423668468828 + 53.999999999999 = 660.375062349633 \]
+
+**Soma dos produtos de tempo e valor presente**:
+
+\[ \sum_{t=1}^{7} t \cdot \text{VP}_t = 1 \cdot 115.043121693933 + 2 \cdot 101.812276605505 + 3 \cdot 89.926285626767 + 4 \cdot 79.266654947853 + 5 \cdot 69.806365836747 + 6 \cdot 61.423668468828 + 7 \cdot 53.999999999999 \]
+
+\[ = 115.043121693933 + 203.62455321101 + 269.778856880301 + 317.066619791412 + 349.031829183735 + 368.542010816968 + 377.999999999993 \]
+
+\[ = 1962.08517266424 \]
+
+**Duration de Macaulay**:
+
+\[ \text{Duration} = \frac{1962.08517266424}{660.375062349633} \approx 2.977 \]
+
+### RESPOSTA: 2.98 anos

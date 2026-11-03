@@ -1,0 +1,58 @@
+Para calcular a **duration de Macaulay** de um cupom, precisamos seguir os seguintes passos:
+
+1. **Identificar os fluxos de caixa**: incluindo o valor nominal (face value) e os fluxos de juros (cupons) pagos anualmente.
+2. **Descontar cada fluxo de caixa pelo valor presente** usando a taxa de desconto.
+3. **Calcular a **duration de Macaulay**** usando a fórmula:
+
+\[
+\text{Duration} = \frac{\sum_{t=1}^{n} \frac{t \cdot CF_t}{(1 + r)^t}}{\sum_{t=1}^{n} \frac{CF_t}{(1 + r)^t}}
+\]
+
+onde:
+- \( CF_t \) é o fluxo de caixa no período \( t \).
+- \( r \) é a taxa de desconto.
+- \( n \) é o número de períodos.
+
+### Passo a Passo:
+
+1. **Identificar os fluxos de caixa**:
+   - Cupom anual: \( 1.000 \times 13\% = 130 \) reais.
+   - Valor nominal (face value): \( 1.000 \) reais.
+   - Taxa de desconto: \( 5\% \) ao ano.
+   - Vencimento: 4 anos.
+
+2. **Fluxos de caixa anuais**:
+   - Ano 1: \( 130 \) reais.
+   - Ano 2: \( 130 \) reais.
+   - Ano 3: \( 130 \) reais.
+   - Ano 4: \( 130 + 1.000 = 1.130 \) reais.
+
+3. **Descontar cada fluxo de caixa**:
+   - Fluxo de caixa no ano 1: \( \frac{130}{(1 + 0.05)^1} = \frac{130}{1.05} \approx 123.81 \) reais.
+   - Fluxo de caixa no ano 2: \( \frac{130}{(1 + 0.05)^2} = \frac{130}{1.1025} \approx 118.06 \) reais.
+   - Fluxo de caixa no ano 3: \( \frac{130}{(1 + 0.05)^3} = \frac{130}{1.157625} \approx 112.44 \) reais.
+   - Fluxo de caixa no ano 4: \( \frac{1.130}{(1 + 0.05)^4} = \frac{1.130}{1.21550625} \approx 930.24 \) reais.
+
+4. **Calcular o valor presente total**:
+   \[
+   \text{Valor presente total} = 123.81 + 118.06 + 112.44 + 930.24 = 1384.55 \text{ reais}
+   \]
+
+5. **Calcular a **duration de Macaulay****:
+   \[
+   \text{Duration} = \frac{1 \cdot 123.81 + 2 \cdot 118.06 + 3 \cdot 112.44 + 4 \cdot 930.24}{1384.55}
+   \]
+   \[
+   \text{Duration} = \frac{123.81 + 236.12 + 337.32 + 3720.96}{1384.55} = \frac{4528.21}{1384.55} \approx 3.28 \text{ anos}
+   \]
+
+### Tabela de Fluxos Descontados:
+
+| Período | Fluxo de Caixa | Valor Presente | t \cdot CF_t / (1 + r)^t |
+|---------|---------------|----------------|-------------------------|
+| 1       | 130           | 123.81         | 123.81                  |
+| 2       | 130           | 118.06         | 236.12                  |
+| 3       | 130           | 112.44         | 337.32                  |
+| 4       | 1.130         | 930.24         | 3720.96                 |
+
+### RESPOSTA: 3.28 anos

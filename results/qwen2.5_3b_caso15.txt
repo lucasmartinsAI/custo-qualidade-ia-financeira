@@ -1,0 +1,34 @@
+Para calcular a Duration de Macaulay, precisamos primeiro entender o conceito e como ele é aplicado. A Duration de Macaulay é uma medida que indica a sensibilidade da renda de um ativo a mudanças na taxa de juros. Ela é calculada como a média ponderada dos períodos de vencimento dos fluxos de caixa, onde os pesos são os valores dos fluxos de caixa descontados à taxa de juros atual.
+
+Vamos seguir os passos para calcular a Duration de Macaulay:
+
+1. **Cálculo do Cupom de Juros**: O cupom de juros é calculado como 14% do valor face R$ 1.000, ou seja, R$ 140.
+
+2. **Cálculo do Cupom de Juros Anualizado**: Como o cupom é pago anualmente, o cupom de juros anualizado é o mesmo, R$ 140.
+
+3. **Cálculo do Valor Face Descontado**: O valor face R$ 1.000 é descontado à taxa de desconto de 13% ao ano para cada ano de vencimento.
+
+   - **Ano 1**: R$ 1.000 / (1 + 0,13)^1 = R$ 884,93
+   - **Ano 2**: R$ 1.000 / (1 + 0,13)^2 = R$ 782,54
+   - **Ano 3**: R$ 1.000 / (1 + 0,13)^3 = R$ 693,77
+   - **Ano 4**: R$ 1.000 / (1 + 0,13)^4 = R$ 615,03
+
+4. **Cálculo do Cupom de Juros Descontado**: O cupom de juros anualizado é descontado para cada ano de vencimento.
+
+   - **Ano 1**: R$ 140 / (1 + 0,13)^1 = R$ 124,93
+   - **Ano 2**: R$ 140 / (1 + 0,13)^2 = R$ 108,93
+   - **Ano 3**: R$ 140 / (1 + 0,13)^3 = R$ 94,67
+   - **Ano 4**: R$ 140 / (1 + 0,13)^4 = R$ 81,67
+
+5. **Cálculo da Duração de Macaulay**: A Duração de Macaulay é calculada como a soma ponderada dos períodos de vencimento dos fluxos de caixa, onde os pesos são os valores dos fluxos de caixa descontados à taxa de juros atual.
+
+   - **Ano 1**: 1 * R$ 884,93 / R$ 1.000 = 0,88493
+   - **Ano 2**: 2 * R$ 782,54 / R$ 1.000 = 1,56508
+   - **Ano 3**: 3 * R$ 693,77 / R$ 1.000 = 2,08131
+   - **Ano 4**: 4 * R$ 615,03 / R$ 1.000 = 2,46012
+
+   A Duração de Macaulay é então calculada como a soma desses valores:
+
+   Duração de Macaulay = 0,88493 + 1,56508 + 2,08131 + 2,46012 = 7,09144 anos
+
+**RESPOSTA: 7,09 anos**

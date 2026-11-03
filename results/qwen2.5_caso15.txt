@@ -1,0 +1,53 @@
+Para calcular a **duration de Macaulay** de um título, precisamos seguir os passos abaixo:
+
+1. **Identificar os fluxos de caixa**: O cupom é pago anualmente, então teremos quatro pagamentos de R$ 140 (14% de R$ 1.000) e um pagamento final de R$ 1.140 (valor nominal + cupom final).
+
+2. **Descontar os fluxos de caixa**: Usaremos a taxa de desconto de 13% ao ano para descontar cada fluxo de caixa.
+
+3. **Calcular a **duration de Macaulay**: A fórmula é:
+
+\[
+\text{Duration de Macaulay} = \frac{\sum_{t=1}^{n} \frac{t \cdot CF_t}{(1 + r)^t}}{\sum_{t=1}^{n} \frac{CF_t}{(1 + r)^t}}
+\]
+
+onde \( CF_t \) é o fluxo de caixa no período \( t \), e \( r \) é a taxa de desconto.
+
+### Passo a Passo:
+
+1. **Fluxos de caixa**:
+   - Ano 1: R$ 140
+   - Ano 2: R$ 140
+   - Ano 3: R$ 140
+   - Ano 4: R$ 1.140
+
+2. **Descontar os fluxos de caixa**:
+   - Fluxo descontado do ano 1: \( \frac{140}{(1 + 0.13)^1} = \frac{140}{1.13} \approx 123.94 \)
+   - Fluxo descontado do ano 2: \( \frac{140}{(1 + 0.13)^2} = \frac{140}{1.2769} \approx 109.87 \)
+   - Fluxo descontado do ano 3: \( \frac{140}{(1 + 0.13)^3} = \frac{140}{1.4429} \approx 96.99 \)
+   - Fluxo descontado do ano 4: \( \frac{1140}{(1 + 0.13)^4} = \frac{1140}{1.6305} \approx 697.96 \)
+
+3. **Soma dos fluxos descontados**:
+   \[
+   \sum_{t=1}^{4} \frac{CF_t}{(1 + r)^t} = 123.94 + 109.87 + 96.99 + 697.96 = 1030.76
+   \]
+
+4. **Soma dos fluxos descontados multiplicados pelo tempo**:
+   \[
+   \sum_{t=1}^{4} \frac{t \cdot CF_t}{(1 + r)^t} = 1 \cdot 123.94 + 2 \cdot 109.87 + 3 \cdot 96.99 + 4 \cdot 697.96 = 123.94 + 219.74 + 290.97 + 2791.84 = 3426.49
+   \]
+
+5. **Calcular a **duration de Macaulay**:
+   \[
+   \text{Duration de Macaulay} = \frac{3426.49}{1030.76} \approx 3.34 \text{ anos}
+   \]
+
+### Tabela de fluxos descontados:
+
+| Ano | Fluxo de Caixa | Fluxo Descontado |
+|-----|---------------|-----------------|
+| 1   | R$ 140        | R$ 123.94       |
+| 2   | R$ 140        | R$ 109.87       |
+| 3   | R$ 140        | R$ 96.99        |
+| 4   | R$ 1140       | R$ 697.96       |
+
+### RESPOSTA: 3.34 anos

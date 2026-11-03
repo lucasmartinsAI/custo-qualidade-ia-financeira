@@ -1,0 +1,42 @@
+Para calcular a Duration de Macaulay, precisamos primeiro entender o conceito e como ele é calculado. A Duration de Macaulay é uma medida da sensibilidade da taxa de juros ao longo do tempo. Ela é calculada como a média aritmética dos tempos de vencimento dos fluxos de caixa, onde cada fluxo de caixa é descontado à taxa de desconto média.
+
+Vamos seguir os passos para calcular a Duration de Macaulay:
+
+1. **Calcular o valor do cupom de juros ao longo do tempo:**
+   - O valor do cupom é R$ 1.000.
+   - O cupom é pago anualmente, com um desconto de 9% ao ano.
+   - O vencimento é em 8 anos.
+
+2. **Calcular o valor do cupom descontado:**
+   - O valor do cupom descontado para cada ano é calculado usando a fórmula de desconto: \( \text{Valor Descontado} = \text{Valor do Cupom} \times \left(1 - \text{Taxa de Desconto}\right)^n \)
+   - Para o primeiro ano: \( \text{Valor Descontado} = 1.000 \times (1 - 0.09)^1 = 1.000 \times 0.91 = 910 \)
+   - Para o segundo ano: \( \text{Valor Descontado} = 1.000 \times (1 - 0.09)^2 = 1.000 \times 0.8281 = 828.10 \)
+   - Para o terceiro ano: \( \text{Valor Descontado} = 1.000 \times (1 - 0.09)^3 = 1.000 \times 0.753571 = 753.57 \)
+   - Para o quarto ano: \( \text{Valor Descontado} = 1.000 \times (1 - 0.09)^4 = 1.000 \times 0.689 \approx 689.00 \)
+   - Para o quinto ano: \( \text{Valor Descontado} = 1.000 \times (1 - 0.09)^5 = 1.000 \times 0.627424 \approx 627.42 \)
+   - Para o sexto ano: \( \text{Valor Descontado} = 1.000 \times (1 - 0.09)^6 = 1.000 \times 0.571869 \approx 571.87 \)
+   - Para o sétimo ano: \( \text{Valor Descontado} = 1.000 \times (1 - 0.09)^7 = 1.000 \times 0.521339 \approx 521.34 \)
+   - Para o oitavo ano: \( \text{Valor Descontado} = 1.000 \times (1 - 0.09)^8 = 1.000 \times 0.478328 \approx 478.33 \)
+
+3. **Calcular a média dos tempos de vencimento dos fluxos de caixa:**
+   - A média é calculada como a soma dos tempos de vencimento dividida pelo número de tempos de vencimento.
+   - A soma dos tempos de vencimento é: \( 1 + 2 + 3 + 4 + 5 + 6 + 7 + 8 = 36 \)
+   - O número de tempos de vencimento é 8.
+   - A média é: \( \text{Media} = \frac{36}{8} = 4.5 \)
+
+Portanto, a Duration de Macaulay é de 4.5 anos.
+
+**Tabela de Fluxos Descontados:**
+
+| Ano | Valor do Cupom Descontado |
+|-----|---------------------------|
+| 1   | 910                        |
+| 2   | 828.10                     |
+| 3   | 753.57                     |
+| 4   | 689.00                     |
+| 5   | 627.42                     |
+| 6   | 571.87                     |
+| 7   | 521.34                     |
+| 8   | 478.33                     |
+
+**RESPOSTA: 4.5 anos**

@@ -1,0 +1,51 @@
+Para calcular a **duration de Macaulay** de um cupom de dívida, precisamos seguir os seguintes passos:
+
+1. **Identificar os fluxos de caixa**: O cupom de dívida paga um fluxo de caixa anual de 10% do valor nominal (R$ 1.000), ou seja, R$ 100 por ano, e no final do período (10 anos) há um fluxo de caixa final que inclui o valor nominal (R$ 1.000).
+
+2. **Descontar os fluxos de caixa**: Utilizamos a taxa de desconto de 9% ao ano para descontar cada fluxo de caixa.
+
+3. **Calcular a **duration de Macaulay**: A formula é dada por:
+
+   \[
+   \text{Duration} = \frac{\sum_{t=1}^{n} \frac{C_t}{(1 + r)^t} \cdot t + \frac{F}{(1 + r)^n} \cdot n}{\sum_{t=1}^{n} \frac{C_t}{(1 + r)^t} + \frac{F}{(1 + r)^n}}
+   \]
+
+   onde:
+   - \( C_t \) é o fluxo de caixa no período \( t \),
+   - \( r \) é a taxa de desconto,
+   - \( F \) é o fluxo de caixa final (valor nominal),
+   - \( n \) é o número de períodos.
+
+### Passo a Passo:
+
+1. **Fluxos de caixa anuais**:
+   - Fluxo de caixa anual (Cupom): R$ 100 por ano.
+   - Fluxo de caixa final (Valor nominal): R$ 1.000.
+
+2. **Descontar os fluxos de caixa**:
+
+| Período (t) | Fluxo de Caixa (C_t) | Desconto (1 + r)^t | Fluxo descontado (C_t / (1 + r)^t) | t * Fluxo descontado (t * C_t / (1 + r)^t) |
+|-------------|---------------------|--------------------|------------------------------------|--------------------------------------------|
+| 1           | 100                 | 1.09               | 91.74                              | 91.74                                      |
+| 2           | 100                 | 1.1881             | 84.17                              | 168.34                                     |
+| 3           | 100                 | 1.2749             | 78.35                              | 235.05                                     |
+| 4           | 100                 | 1.3605             | 73.50                              | 294.00                                     |
+| 5           | 100                 | 1.4487             | 69.57                              | 347.85                                     |
+| 6           | 100                 | 1.5387             | 66.44                              | 398.64                                     |
+| 7           | 100                 | 1.6305             | 63.83                              | 446.81                                     |
+| 8           | 100                 | 1.7241             | 61.60                              | 492.80                                     |
+| 9           | 100                 | 1.8194             | 59.34                              | 534.06                                     |
+| 10          | 1.100               | 1.9178             | 57.20                              | 572.00                                     |
+
+3. **Soma dos fluxos descontados**:
+   - Soma dos fluxos descontados: 572.00 + 492.80 + 446.81 + 398.64 + 347.85 + 298.64 + 256.81 + 222.80 + 193.06 + 91.74 = 3,353.85
+
+4. **Soma dos termos ponderados**:
+   - Soma dos termos ponderados: 91.74 + 168.34 + 235.05 + 294.00 + 347.85 + 398.64 + 446.81 + 492.80 + 534.06 + 572.00 = 3,353.85
+
+5. **Calcular a **duration de Macaulay**:
+   \[
+   \text{Duration} = \frac{3,353.85 + 572.00 \cdot 10}{3,353.85} = \frac{3,353.85 + 5,720.00}{3,353.85} = \frac{9,073.85}{3,353.85} \approx 2.70
+   \]
+
+### RESPOSTA: 2.70 anos

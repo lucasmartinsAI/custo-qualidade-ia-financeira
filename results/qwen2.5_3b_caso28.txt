@@ -1,0 +1,59 @@
+Para calcular a Duration de Macaulay, precisamos primeiro entender o conceito e como ele é calculado. A Duration de Macaulay é uma medida da sensibilidade da taxa de juros ao longo do tempo. Ela é calculada como a média aritmética dos tempos de vencimento dos fluxos de caixa, onde cada fluxo de caixa é descontado à taxa de desconto média.
+
+Vamos seguir os passos para calcular a Duration de Macaulay:
+
+1. **Calcular o valor presente de cada fluxo de caixa:**
+   - O valor do cupom de juros é R$ 1.000.
+   - O cupom de juros é de 7% ao ano, pago anualmente.
+   - A taxa de desconto é de 9% ao ano.
+   - O vencimento é em 8 anos.
+
+   O valor presente de cada cupom de juros é calculado usando a fórmula de desconto:
+
+   \[
+   PV = \frac{C}{(1 + r)^n}
+   \]
+
+   onde \( C \) é o cupom de juros, \( r \) é a taxa de desconto e \( n \) é o número de períodos.
+
+   Para o primeiro cupom de juros (que vence em 1 ano):
+
+   \[
+   PV_1 = \frac{1000}{(1 + 0.09)^1} = \frac{1000}{1.09} \approx 917.43
+   \]
+
+   Para o segundo cupom de juros (que vence em 2 anos):
+
+   \[
+   PV_2 = \frac{1000}{(1 + 0.09)^2} = \frac{1000}{1.1881} \approx 841.68
+   \]
+
+   E assim por diante, até o último cupom de juros (que vence em 8 anos):
+
+   \[
+   PV_8 = \frac{1000}{(1 + 0.09)^8} = \frac{1000}{1.8082} \approx 553.57
+   \]
+
+2. **Calcular a média dos tempos de vencimento dos fluxos de caixa:**
+
+   A média dos tempos de vencimento é calculada como:
+
+   \[
+   \text{Duration} = \frac{\sum_{t=1}^{n} t \cdot PV_t}{\sum_{t=1}^{n} PV_t}
+   \]
+
+   onde \( PV_t \) é o valor presente do cupom de juros no período \( t \).
+
+   Substituindo os valores:
+
+   \[
+   \text{Duration} = \frac{1 \cdot 917.43 + 2 \cdot 841.68 + 3 \cdot 773.31 + 4 \cdot 708.54 + 5 \cdot 647.21 + 6 \cdot 590.19 + 7 \cdot 536.46 + 8 \cdot 553.57}{917.43 + 841.68 + 773.31 + 708.54 + 647.21 + 590.19 + 536.46 + 553.57}
+   \]
+
+   \[
+   \text{Duration} = \frac{917.43 + 1683.36 + 2320.23 + 2834.16 + 3236.05 + 3530.74 + 3755.22 + 4428.56}{4704.92} \approx \frac{20000.3}{4704.92} \approx 4.24
+   \]
+
+Portanto, a Duration de Macaulay é aproximadamente 4.24 anos.
+
+**RESPOSTA: 4.24 anos**

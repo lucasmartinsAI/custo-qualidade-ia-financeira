@@ -1,0 +1,52 @@
+Para calcular a Duration de Macaulay, precisamos primeiro entender a estrutura do problema e construir a tabela de fluxos descontados. Vamos seguir os passos abaixo:
+
+1. **Calcular o valor do cupom de face ao longo dos anos:**
+   - O valor do cupom é R$ 1.000.
+   - O cupom é pago anualmente.
+   - O cupom é de 8% ao ano, ou seja, R$ 80 (1.000 * 0.08).
+
+2. **Calcular o valor do face ao longo dos anos:**
+   - O valor do face é R$ 1.000.
+   - O face é pago ao final do 4º ano.
+
+3. **Calcular o valor do desconto ao longo dos anos:**
+   - A taxa de desconto é de 13% ao ano.
+   - O desconto é aplicado anualmente.
+
+4. **Calcular o valor presente de cada fluxo:**
+   - Fluxo de cupom no 1º ano: R$ 1.000 / (1 + 0.13)^1 = R$ 888.77
+   - Fluxo de cupom no 2º ano: R$ 1.000 / (1 + 0.13)^2 = R$ 785.34
+   - Fluxo de cupom no 3º ano: R$ 1.000 / (1 + 0.13)^3 = R$ 694.56
+   - Fluxo de cupom no 4º ano: R$ 1.000 / (1 + 0.13)^4 = R$ 612.77
+   - Fluxo de face no 4º ano: R$ 1.000 / (1 + 0.13)^4 = R$ 612.77
+
+5. **Calcular a tabela de fluxos descontados:**
+
+| Ano | Fluxo de Cupom | Fluxo de Face | Valor Presente de Cupom | Valor Presente de Face |
+|-----|----------------|---------------|-------------------------|-------------------------|
+| 1   | R$ 888.77      | R$ 0         | R$ 888.77               | R$ 0                    |
+| 2   | R$ 785.34      | R$ 0         | R$ 785.34               | R$ 0                    |
+| 3   | R$ 694.56      | R$ 0         | R$ 694.56               | R$ 0                    |
+| 4   | R$ 612.77      | R$ 612.77     | R$ 612.77               | R$ 612.77               |
+
+6. **Calcular a Duration de Macaulay:**
+
+A formula para a Duration de Macaulay é:
+
+\[ \text{Duration} = \frac{\sum_{t=1}^{n} t \times \text{PV}_t}{\sum_{t=1}^{n} \text{PV}_t} \]
+
+Onde:
+- \( \text{PV}_t \) é o valor presente do fluxo de t ano.
+- \( n \) é o número de anos.
+
+Substituindo os valores:
+
+\[ \text{Duration} = \frac{1 \times 888.77 + 2 \times 785.34 + 3 \times 694.56 + 4 \times 612.77}{888.77 + 785.34 + 694.56 + 612.77} \]
+
+\[ \text{Duration} = \frac{888.77 + 1570.68 + 2083.68 + 2451.08}{3041.96} \]
+
+\[ \text{Duration} = \frac{6993.11}{3041.96} \]
+
+\[ \text{Duration} \approx 2.29 \]
+
+**RESPOSTA: 2.29 anos**
