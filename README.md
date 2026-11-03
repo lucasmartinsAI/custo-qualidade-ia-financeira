@@ -4,35 +4,37 @@ Quanto custa, e quanto de qualidade se perde, ao trocar um modelo de API de topo
 
 Projeto em andamento. Este repositório registra o benchmark passo a passo.
 
-## Experimento 1: duration de Macaulay (10 casos, modelos open locais)
+## Experimento 1: duration de Macaulay (30 casos, modelos open locais)
 
-**Tarefa:** calcular a duration de Macaulay de um título prefixado (face R$ 1.000, cupom anual). Os casos variam cupom (6-14%), prazo (3-10 anos) e taxa de desconto (4-16%), sorteados com seed fixa. O gabarito é calculado por código.
+**Tarefa:** calcular a duration de Macaulay de um título prefixado (face R$ 1.000, cupom anual). Os 30 casos variam cupom (6-14%), prazo (3-10 anos) e taxa de desconto (4-16%): o caso 1 é o do primeiro teste e os outros 29 são sorteados com seed fixa. O gabarito é calculado por código.
 
-**Ambiente:** Windows, só CPU (Intel Iris Xe integrada, 24 GB de RAM), modelos via [Ollama](https://ollama.com). Temperatura 0, seed 42, mesmo prompt para todos.
+**Ambiente:** Windows, só CPU (Intel Iris Xe integrada, 24 GB de RAM), modelos via [Ollama](https://ollama.com). Temperatura 0, seed 42, limite de 4.000 tokens por resposta, mesmo prompt para todos.
 
 | Métrica | qwen2.5 3B | qwen2.5 7B |
 |---|---|---|
-| Acertos (erro ≤ 1%) | 0/10 | 4/10 |
-| Acertos (erro ≤ 5%) | 0/10 | 6/10 |
-| Erro mediano | 48,6% | 2,4% |
-| Erro médio | 57,1% | 23,3% |
-| Respostas impossíveis* | 4/10 | 0/10 |
-| Sem resposta no formato | 1 | 0 |
-| Tempo médio por caso | 206 s | 396 s |
-| Velocidade média | 7,7 tok/s | 3,4 tok/s |
+| Acertos (erro ≤ 1%) | 0/30 | 8/30 |
+| Acertos (erro ≤ 5%) | 0/30 | 14/30 |
+| Acertos (erro ≤ 25%) | 6/30 | 19/30 |
+| Erro mediano | 42,8% | 10,8% |
+| Respostas impossíveis* | 10/30 | 0/30 |
+| Sem resposta no formato | 3 (1 cortada pelo limite de tokens) | 0 |
+| Tempo médio por caso** | 150 s | 265 s |
+| Velocidade média** | 10,0 tok/s | 5,0 tok/s |
 
 \* A duration de Macaulay de um título com cupom anual está sempre entre 1 e o prazo. Resposta fora disso é impossível.
+\** Medido com o computador em uso e com grande variação entre lotes (3B: 7,7 a 11,1 tok/s; 7B: 3,4 a 5,8). Tratar como indicativo.
 
 ### O que os dados mostram
 
-- **3B** não serve para essa tarefa: nenhum acerto, e em 4 dos 10 casos deu uma resposta matematicamente impossível.
-- **7B** é "tudo ou nada": 6 casos com erro de até 3% e 4 com erros de 15% a 80%, sem meio-termo. Por isso média e mediana diferem tanto.
-- **Qualidade custou tempo:** o 7B levou o dobro do tempo por caso.
-- Um teste de plausibilidade (resposta entre 1 e o prazo) pegaria o 3B em 4 dos 10 casos. É uma ideia para o roteador entre modelos, mas não basta sozinha.
+- **3B não serve para essa tarefa:** nenhum caso com erro menor que 10%, 10 respostas impossíveis e valores absurdos (ex.: 305 anos para um título de menos de 3 anos). O erro médio dele (626%) é distorcido por essas respostas, por isso a tabela usa a mediana.
+- **7B acerta quase metade dentro de 5% (14/30), mas em 11 dos 30 casos o erro passa de 25%.** Nunca deu resposta impossível.
+- **Prazo curto ajuda o 7B:** 9 de 13 casos de 3 a 5 anos ficaram a até 5% de erro, contra 5 de 17 casos de 6 anos ou mais (amostra pequena).
+- **Amostra pequena engana:** nos 10 primeiros casos o 7B parecia bem melhor (4/10 a 1%, mediana de 2,4%). Com 30, caiu para 8/30 e mediana de 10,8%.
+- **Teste de plausibilidade (resposta entre 1 e o prazo):** pega 10 dos erros do 3B, mas outras 12 respostas dele estavam dentro do intervalo e erradas por mais de 25%. Sozinho, não basta para um roteador entre modelos.
 
 ### Limitações
 
-Apenas 10 casos, uma execução por caso, só modelos open locais, e o método de cálculo ainda não foi avaliado caso a caso. Um primeiro teste manual mostrou o 7B acertando o número final com dois erros de conta que se compensaram.
+30 casos, uma execução por caso, só modelos open locais e só duration de Macaulay com cupom anual. Avaliei o número final, não o método de cálculo caso a caso (um teste manual inicial mostrou o 7B acertando o número com dois erros de conta que se compensaram).
 
 ## Como reproduzir
 
@@ -43,15 +45,14 @@ ollama pull qwen2.5
 python benchmark.py
 ```
 
-Os resultados vão para `results/resultados_casos.csv`, com as respostas completas em `results/*.txt`. O script retoma de onde parou se for interrompido.
+Os resultados vão para `results/resultados_casos.csv`, com as respostas completas em `results/*.txt`. O script limita o tamanho das respostas, registra falhas sem parar e retoma de onde parou se for interrompido.
 
 ## Roadmap
 
 - [x] Teste padronizado com parâmetros fixos
-- [x] Script automatizado e 10 casos de renda fixa
-- [ ] Subir para 30 casos
+- [x] Script automatizado e 30 casos de renda fixa
 - [ ] Comparação com API de topo e API barata (custo por 1.000 tarefas)
-- [ ] Roteador entre modelos com checagem de plausibilidade
+- [ ] Roteador entre modelos
 - [ ] Casos com documentos reais (lâminas de fundos, CVM)
 - [ ] Servidor MCP expondo o benchmark
 - [ ] Post com os resultados
